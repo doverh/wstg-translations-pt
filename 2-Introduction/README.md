@@ -13,7 +13,7 @@ O restante deste guia está organizado da seguinte forma: esta introdução cobr
 <h2>Medindo a segurança: dados economicos de um software inseguro</h2>
 Um princípio básico da engenharia de software é resumido em uma citação de Tom DeMarco em <a href="https://isbnsearch.org/isbn/9780131717114">Controlling Software Projects: Management, Measurement, and Estimates</a>:
 
-  
+
     Você não pode controlar aquilo que você não pode medir.
     
 Os testes de segurança não são diferentes. Infelizmente, medir  segurança é um processo notoriamente complexo.
@@ -30,7 +30,7 @@ O modelo descrito neste documento incentiva as pessoas a medir a segurança dura
 Muitas coisas precisam ser testadas durante o ciclo de vida do desenvolvimento de um aplicativo web, mas o que testes realmente significam? O Dicionário de Inglês define "teste" como:
 
 
-    <strong>teste</strong> (substantivo): um procedimento destinado a estabelecer a qualidade, o desempenho ou a confiabilidade de algo, especialmente antes de que seja amplamente utilizado.
+    teste(substantivo): um procedimento destinado a estabelecer a qualidade, o desempenho ou a confiabilidade de algo, especialmente antes de que seja amplamente utilizado.
     
 
 Para os fins deste documento, teste é um processo de comparação do estado de um sistema ou aplicativo perante um conjunto de critérios estabelecidos. No setor de segurança da informação, as pessoas frequentemente testam utilizando-se de um conjunto de critérios mentais que não são nem bem definidos nem completos. Como resultado disso, pessoas de fora do meio consideram testes de segurança uma arte obscura. O objetivo deste documento é mudar essa percepção, tornando mais fácil que pessoas sem conhecimento específicode segurança da informação possam fazer diferença ao testar.
@@ -47,7 +47,7 @@ A maioria das pessoas hoje em dia não testa o software até que ele já tenha s
 
 <img src="https://github.com/OWASP/wstg/blob/master/document/2-Introduction/images/SDLC.jpg">
 
-<center><i>Figura 2-1: Modelo SDLC Genérico</i></center>
+<i>Figura 2-1: Modelo SDLC Genérico</i>
 
     
 As empresas devem revisar seu ciclo SDLC para garantir que a segurança seja parte integrante do processo de desenvolvimento. Os SDLCs devem incluir testes de segurança para garantir que a segurança seja adequadamente coberta e os controles sejam eficazes durante todo o processo de desenvolvimento.
