@@ -53,7 +53,7 @@ Essas ferramentas podem ser muito úteis, pois identificam muitos potenciais pro
 
 Se você está construindo, projetando ou testando software, encorajo-o fortemente a se familializar com as orientações de teste de segurança deste documento. É um ótimo roteiro para testar os problemas mais comuns que o desenvolvimento de aplicativos enfrenta atualmente, embora não definitivo. Caso encontre erros, adicione uma nota à página de discussão ou faça a alteração você mesmo. Você estará ajudando milhares de outras pessoas que usam este guia.
 
-Por favor considere <a href="https://owasp.org/membership/">}juntar-se a nós</a> como um membro individual ou corporativo para que possamos continuar a produzir materiais como este guia de testes e tantos outros grandes projetos da OWASP.
+Por favor <a href="https://owasp.org/membership/">junte-se a nós</a> como um membro individual ou corporativo para que possamos continuar a produzir materiais como este guia de testes e tantos outros grandes projetos da OWASP.
 
 Obrigado aos antigos e futuros colaboradores deste guia, seu trabalho ajudará a tornar os aplicativos em todo o mundo mais seguros.
 
