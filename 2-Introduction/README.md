@@ -40,17 +40,40 @@ Para os fins deste documento, teste é um processo de comparação do estado de 
 
 Este documento foi criado para ajudar organizações a entender a abrangência de um programa de testes, e ajudá-las a identificar as etapas que devem ser assumidas para se construir e operar um programa de testes de aplicativos web modernos. O guia fornece uma visão ampla dos elementos necessários a um compreensivo programa de segurança de aplicativos web. Este guia pode ser usado como referência e como metodologia na identificação de lacunas entre as práticas existentes e as recomendadas. Este guia permite que as organizações se comparem aos seus pares no setor, para entender a magnitude dos recursos requeridos para testar e manter o software ou ainda se preparar para uma auditoria. Este capítulo não traz detalhes técnicos de como testar um aplicativo, pois a intenção é fornecer um modelo de segurança típico a uma organização. Os detalhes técnicos sobre como testar um aplicativo, como parte de um teste de invasão ou revisão de código, serão cobertos nas partes restantes deste documento.
 
-
 <h2>Quando testar?</h2>
 
 A maioria das pessoas hoje em dia não testa o software até que ele já tenha sido criado e esteja na fase de implantação de seu ciclo de vida ( isto é, o código foi criado e instanciado em um aplicativo web em funcionamento). Esta é geralmente uma prática ineficaz e com custos proibitivos. Um dos melhores métodos para evitar que bugs de segurança apareçam em aplicativos já em ambiente de produção é melhorar o Ciclo de Vida de Desenvolvimento de Software (SDLC), incluindo segurança em cada uma de suas fases. Um SDLC é uma estrutura imposta ao desenvolvimento de artefatos de software. Se o SDLC não estiver sendo usado em seus projetos, é hora de escolher um! A figura a seguir mostra um modelo SDLC genérico, bem como o custo progressivo (estimado) para a correção de bugs de segurança em tal modelo.
 
-<img src="https://github.com/OWASP/wstg/blob/master/document/2-Introduction/images/SDLC.jpg">
+<img src="https://github.com/OWASP/wstg/blob/master/document/2-Introduction/images/SDLC.jpg" width="800" height="800" align="center">
 
-<i>Figura 2-1: Modelo SDLC Genérico</i>
+<p align="center">Figura 2-1: Modelo SDLC Genérico</p>
 
     
 As empresas devem revisar seu ciclo SDLC para garantir que a segurança seja parte integrante do processo de desenvolvimento. Os SDLCs devem incluir testes de segurança para garantir que a segurança seja adequadamente coberta e os controles sejam eficazes durante todo o processo de desenvolvimento.
 
+<h2>O que testar?</h2>
 
+É útil pensar no desenvolvimento de software como uma combinação de pessoas, processos e tecnologia. Se esses são os fatores que "criam" o software, é lógico que devam ser esses os fatores a se testar. Hoje porém, a maioria das pessoas testa a tecnologia ou o próprio software.
 
+Um plano de testes efetivo deveria ter os seguinte componentes:
+<ul>
+    <li><b>Pessoas</b> - para garantir que haja educação e conscientização adequadas;</li>
+    <li><b>Processos</b> - para garantir que existem políticas e procedimentos adequados e que as pessoas sabem como segui-los;</li>
+    <li><b>Tecnologia</b> - para garantir que o processo tenha sido eficiente em sua implementação.</li>
+</ul>
+
+A menos que uma abordagem holística, que busca compreender o todo e não apenas as partes, seja adotada, testar apenas a implementação técnica de um aplicativo não revelará vulnerabilidades operacionais ou de gerenciamento que possam estar presentes. Ao testar pessoas, políticas e processos, uma organização pode detectar problemas que mais tarde se manifestariam em defeitos no produto, erradicando assim os bugs precocemente e identificando as raízes dos defeitos. Da mesma forma, testar apenas alguns dos problemas técnicos resultará em uma avaliação incompleta e imprecisa do estado de segurança do sistema.
+
+Denis Verdon, Chefe de Segurança da Informação da <a href="https://www.fnf.com/">Fidelity National Financial</a> , apresentou uma excelente analogia para essa concepção equivocada na Conferência OWASP AppSec 2004 em Nova York:
+
+    Se os carros fossem construídos como aplicativos ... os testes de segurança considerariam apenas os impactos frontais. Os carros não seriam testados       em relação ao rolamento ou quanto à estabilidade em manobras de emergência, eficácia do freio, impacto lateral e resistência a roubos.
+        
+<h2>Como fazer referência a cenários WSTG?</h2>
+
+Cada cenário tem um identificador no formato <code>WSTG-<categoria>-<número></code> , onde: 'categoria' é uma string de 4 caracteres maiúsculos que identifica o tipo de teste ou fragilidade, e 'número' é um valor numérico preenchido com zeros que vai de 01 a 99. Por exemplo: <code>WSTG-INFO-02</code> é o segundo teste de coleta de informações.
+  
+Os identificadores podem mudar entre as versões, portanto, é preferível que outros documentos, relatórios ou ferramentas usem o formato: <code>WSTG-<versão>-<categoria>-<número></code> , onde: 'versão' é a marca de versão com pontuação removida. Por exemplo: <code>WSTG-v42-INFO-02</code> seria entendido especificamente como o segundo teste de coleta de informações da versão 4.2. 
+  
+Se os identificadores forem usados sem incluir o <code><versão></code> , eles devem ser considerados como referindo-se ao conteúdo mais recente do Guia de Testes de Segurança Web. Obviamente, conforme o guia cresce e muda, isso se torna problemático, e é por isso que escritores ou desenvolvedores devem incluir o número preciso da versão.  
+  
+  
