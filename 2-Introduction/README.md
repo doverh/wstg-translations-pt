@@ -74,6 +74,35 @@ Cada cenário tem um identificador no formato <code>WSTG-<categoria>-<número></
   
 Os identificadores podem mudar entre as versões, portanto, é preferível que outros documentos, relatórios ou ferramentas usem o formato: <code>WSTG-<versão>-<categoria>-<número></code> , onde: 'versão' é a marca de versão com pontuação removida. Por exemplo: <code>WSTG-v42-INFO-02</code> seria entendido especificamente como o segundo teste de coleta de informações da versão 4.2. 
   
-Se os identificadores forem usados sem incluir o <code><versão></code> , eles devem ser considerados como referindo-se ao conteúdo mais recente do Guia de Testes de Segurança Web. Obviamente, conforme o guia cresce e muda, isso se torna problemático, e é por isso que escritores ou desenvolvedores devem incluir o número preciso da versão.  
+Se os identificadores forem usados sem incluir o <code><versão></code> , eles devem ser considerados como referindo-se ao conteúdo mais recente do Guia de Testes de Segurança Web. Obviamente, conforme o guia cresce e muda, isso se torna problemático, e é por isso que escritores ou desenvolvedores devem incluir o número preciso da versão.
   
+<h2>Lincando</h2>
+
+Referencias a cenários do Guia de Testes de Segurança Web devem ser feitos usando links com versão não <code>estável</code> ou <code>última</code> que definitivamente mudará com o tempo. No entanto, é intenção da equipe do projeto que os links com versão não mudem. Por exemplo: <code>https://owasp.org/www-project-web-security-testing-guide/v42/4-Web_Application_Security_Testing/01-Information_Gathering/02-Fingerprint_Web_Server.html</code>. Observação: a <code>v42</code> se refere à versão 4.2.
+
+
+<h2>Feedback e comentários</h2>
+
+Como em todos os projetos OWASP, agradecemos comentários e feedback. Gostamos especialmente de saber se nosso trabalho está sendo usado e que é eficaz e preciso.
+
+<h2>Princípios de Testes</h2>
+
+Há conceitos equivocados quando se busca desenvolver uma metodologia de testes para encontrar bugs de segurança em software. Este capítulo cobre alguns dos princípios básicos os quais profissionais devem levar em consideração ao realizar testes de segurança em software.
+
+<h2>Não há solução magica</h2>
+Embora seja tentador pensar que um scanner de segurança ou um firewall fornecerá inúmeras defesas contra ataques e identificará uma infinidade de problemas. Na realidade não existe solução mágica para o problema de softwares inseguros. O software de avaliação de segurança de aplicativos, embora útil como um primeiro passo para encontrar frutas que estão ao alcance da mão, é geralmente imaturo e ineficaz em avaliações aprofundadas. Não fornecem cobertura de testes adequada. Lembre-se de que segurança é um processo e não um produto.
   
+<h2>Não há solução magica</h2>
+
+Os profissionais de segurança perceberam a falácia do modelo patch-and-penetrate, difundido na segurança da informação durante a década de 1990. O modelo patch-and-penetrate envolve a correção de um bug relatado, mas sem a investigação adequada da causa raiz. Este modelo geralmente está associado à janela de vulnerabilidade, também conhecida como janela de exposição, mostrada na figura abaixo. A evolução das vulnerabilidades em softwares comuns usados em todo o mundo tem mostrado a inefetividade desse modelo. Para obter mais informações sobre as janelas de exposição, consulte <a href="https://www.schneier.com/crypto-gram/archives/2000/0915.html">Schneier em Segurança</a>.
+
+Estudos de vulnerabilidade, como <a href="https://www.symantec.com/security-center/threat-report"> o Internet Security Threat Report da Symantec</a>, mostraram que com o tempo de reação dos invasores em todo o mundo, a janela típica de vulnerabilidade não fornece tempo suficiente para a instalação do patch de correção. O tempo entre a descoberta de uma vulnerabilidade  e o desenvolvimento e lançamento de um ataque automatizado contra ela está diminuindo a cada ano.
+
+Existem várias suposições incorretas no modelo patch-and-penetrate. Muitos usuários acreditam que os patches interferem nas operações normais ou podem interromper os aplicativos existentes. Também é incorreto presumir que todos os usuários estão cientes dos patches lançados recentemente. Conseqüentemente, nem todos os usuários de um produto aplicarão patches, seja porque acreditam que o patch pode interferir no funcionamento do software ou porque não têm conhecimento da existência do patch.
+
+<<<<<<<<<>>>>>>>>>>>>><<<<<<<<<>>>>>>>>>>>>>
+{img0}<p aling="center"> {em2}Figura 2-2: Janela de Vulnerabilidade</p>
+<<<<<<<<<>>>>>>>>>>>>><<<<<<<<<>>>>>>>>>>>>>
+
+É essencial incluir segurança no Ciclo de Vida de Desenvolvimento de Software (SDLC) para evitar problemas de segurança recorrentes em um aplicativo. Os desenvolvedores podem agregar segurança no SDLC, desenvolvendo padrões, políticas e diretrizes que se encaixam e funcionam dentro da metodologia de desenvolvimento. A modelagem de ameaças e outras técnicas devem ser usadas para ajudar a designar recursos apropriados 
+<h2>Não há solução magica</h2>
