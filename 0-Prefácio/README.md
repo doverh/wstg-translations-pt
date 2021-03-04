@@ -62,5 +62,3 @@ Obrigado aos antigos e futuros colaboradores deste guia, seu trabalho ajudará a
 Projeto Livre de Segurança de Aplicativos Web e OWASP são marcas registradas da OWASP Foundation, Inc.
 
 
-
-
