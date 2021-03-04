@@ -1,6 +1,6 @@
 <h1>Prefácio, por Eoin Keary</h1>
 
-O problema de softwares inseguros é talvez o desafio técnico mais importante de nosso tempo. O aumento exponencial de aplicativos web, que permitem o surgimento de negócios, redes sociais, etc., tornou mais urgente o estabelecimento de uma abordagem robusta para desenvolver e proteger a Internet, Aplicativos Web e Dados.
+O problema de softwares inseguros é talvez o desafio técnico mais importante de nosso tempo. O aumento exponencial de aplicativos web, que permitem o surgimento de negócios, redes sociais, entre outros, tornou mais urgente o estabelecimento de uma abordagem robusta para desenvolver e proteger a Internet, Aplicativos Web e Dados.
 
 No Open Web Application Security Project® (OWASP®), estamos tentando fazer do mundo um lugar onde o software inseguro seja uma anomalia, não a norma. O Guia de Testes OWASP  tem um papel importante a desempenhar na solução desse sério problema. É de vital importância que nossa abordagem para testar  a segurança de softwares seja baseada nos princípios da engenharia e da ciência. Precisamos de uma abordagem que seja consistente, que possa ser repetida e que tenha uma abordagem definida para testar aplicativos web. Um mundo sem padrões mínimos em termos de engenharia e tecnologia é um mundo no caos.
 
