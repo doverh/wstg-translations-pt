@@ -50,7 +50,6 @@ Este documento foi publicado sob a <a href="https://creativecommons.org/licenses
 <ul> 
 <li>Dover Hellfeldt</li>
 <li></li>
-<li></li>
 </ul>
 
 <h2>Designers Gráficos</h2>
