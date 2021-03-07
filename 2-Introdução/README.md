@@ -141,7 +141,7 @@ Mesmo que tenhamos defendido que não há uma solução mágica, ferramentas tem
 
 Embora os resultados de testes de invasão estilo black-box caixa preta pareçam impressionar e seja úteis para demonstrar como as vulnerabilidades são expostas em um ambiente de produção, eles não são a maneira mais eficaz ou eficiente de proteger um aplicativo. Utilizando o teste dinâmico é dificil testar toda a base de código, especialmente se existirem muitas instruções condicionais agrupadas. Se o código-fonte do aplicativo estiver disponível, ele deve ser fornecido à equipe de segurança para ajudá-los durante a revisão. É possível descobrir vulnerabilidades na origem do aplicativo,  que seriam perdidas durante um abordagem black-box.
 
-### Estabeleça Metricas
+### Estabeleça métricas
 
 Parte importante de um bom programa de segurança é a capacidade de determinar se as coisas estão melhorando. É importante acompanhar os resultados dos esforços de testes e desenvolver métricas que revelarão as tendências de segurança do aplicativo dentro da organização.
 
@@ -159,7 +159,7 @@ Para concluir o processo de testes, é importante produzir um registro formal de
 
 O relatório deve identificar claramente para o proprietário da empresa onde existem riscos materiais, e fazê-lo de modo suficiente a obter seu apoio para ações de mitigação subsequentes. O relatório também deve ser claro para o desenvolvedor e, ao utilizar uma linguagem que o desenvolvedor entenda, apontar a função exata que é afetada pela vulnerabilidade e as recomendações associadas para resolver problemas. O relatório também deve permitir que outro testador de segurança reproduza os resultados. Escrever o relatório não deve ser excessivamente oneroso para o próprio testador de segurança. Os testadores de segurança, que não são destacados por sua habilidades de redação criativa, não devem incorrer  no erro de gerar um relatório complexo, pois assim levariam a resultados de teste sem a devida documentação. Usar um modelo de relatório de testes de segurança pode economizar tempo e garantir que os resultados sejam documentados de forma precisa, consistente e em um formato adequado para o público.
 
-### Técnicas de Teste Explicadas
+### Técnicas de teste explicadas
 
 Esta seção apresenta uma visão geral de alto nível de várias técnicas de teste que podem ser empregadas ao construir um programa de testes. Não apresenta metodologias específicas para essas técnicas, já que essas informações são abordadas no capítulo III. Esta seção fornece contexto para a estrutura apresentada no próximo capítulo e destaca as vantagens ou desvantagens de algumas das técnicas que devem ser consideradas . Em particular, cobre:
 
@@ -168,7 +168,7 @@ Esta seção apresenta uma visão geral de alto nível de várias técnicas de t
 - Revisão de código
 - Testes de invasão
 
-### Inspeção manual e revisões
+## Inspeção manual e revisões
 
 ### Panorama geral
 
@@ -181,7 +181,6 @@ Embora o conceito de inspeções manuais e revisões humanas possa parecer simpl
 Como muitas coisas na vida, ao se conduzir inspeções manuais e revisões humanas, é recomendado que o modelo "confie, mas verifique" seja adotado. Nem tudo que aos testadores é mostrado ou reladado será exato. Revisões manuais são particularmente boas para testar o quanto as pessoas entendem do processo de segurança, se estão cientes das políticas, e possuem as habilidades adequadas para projetar ou implementar aplicações seguras.   
 
 Outras atividades, incluindo a revisão manual da documentação, políticas de codigo seguro, requisitos de segurança e projetos de arquitetura, devem ser realizadas por meio de inspeções manuais.
-
 
 ### Vantagens
 
@@ -232,32 +231,34 @@ A revisão do código-fonte é o processo de verificação manual do código-fon
 Muitos problemas de segurança não intencionais, mas significativos, são extremamente difíceis de descobrir com outras formas de análise ou teste, como o teste de invasão. Isso converte a análise do código-fonte na técnica de escolha para testes técnicos. Com o código-fonte, um testador pode determinar com precisão o que está acontecendo (ou deveria estar acontecendo) e remover as suposições do teste de caixa preta.
 
 
-Exemplos de problemas que são particularmente propícios a serem encontrados por meio de revisões de código-fonte incluem problemas de simultaneidade, lógica de negócios com falhas, problemas de controle de acesso e fraquezas criptográficas, bem como backdoors, Trojans, Easter eggs, bombas-relógio, bombas lógicas e outras formas de Código malicioso. Esses problemas geralmente se manifestam como as vulnerabilidades mais prejudiciais em aplicativos da web. A análise do código-fonte também pode ser extremamente eficiente para encontrar problemas de implementação, como locais onde a validação de entrada não foi realizada ou onde procedimentos de controle de abertura de falha podem estar presentes. Os procedimentos operacionais também precisam ser revistos, uma vez que o código-fonte que está sendo implantado pode não ser o mesmo que está sendo analisado. {a0}O discurso do Prêmio Turing de Ken Thompson{/a0} descreve uma possível manifestação desse problema.
+Exemplos de problemas propícios a serem encontrados por meio de revisões de código-fonte incluem problemas de simultaneidade, lógica de negócios com falhas, problemas de controle de acesso e fragilidades criptográficas, bem como backdoors, trojans, Easter eggs, bombas-relógio, bombas lógicas e outras formas de código malicioso. Esses problemas geralmente se manifestam como as vulnerabilidades mais danosas em aplicativos web. A análise do código-fonte também pode ser extremamente eficiente para encontrar problemas de implementação, tais como locais onde a validação de valores não foi realizada ou onde procedimentos de controle aberto a falhas, onde o sistema continua operando mesmo em caso de falha, podem estar presentes. Os procedimentos operacionais também precisam ser revistos, uma vez que o código-fonte que está sendo implantado pode não ser o mesmo que está sendo analisado. {[O texto de Ken Thompson's, ganhador do prêmio Turing](https://ia600903.us.archive.org/11/items/pdfy-Qf4sZZSmHKQlHFfw/p761-thompson.pdf) descreve uma possível manifestação desse problema.
 
-Examples of issues that are particularly conducive to being found through source code reviews include concurrency problems, flawed business logic, access control problems, and cryptographic weaknesses, as well as backdoors, Trojans, Easter eggs, time bombs, logic bombs, and other forms of malicious code. These issues often manifest themselves as the most harmful vulnerabilities in web applications. Source code analysis can also be extremely efficient to find implementation issues such as places where input validation was not performed or where fail-open control procedures may be present. Operational procedures need to be reviewed as well, since the source code being deployed might not be the same as the one being analyzed herein. [Ken Thompson's Turing Award speech](https://ia600903.us.archive.org/11/items/pdfy-Qf4sZZSmHKQlHFfw/p761-thompson.pdf) describes one possible manifestation of this issue.
+### Vantagens 
 
-### Advantages
+- Completude e efetividade
+- Acurácia
+- Rapidez (para revisores competentes)
 
-- Completeness and effectiveness
-- Accuracy
-- Fast (for competent reviewers)
+### Desvantagens
 
-### Disadvantages
-
-- Requires highly skilled security aware developers
-- Can miss issues in compiled libraries
-- Cannot detect runtime errors easily
+- Requer desenvolvedores capacitados em segurança 
+- Pode ignorar problemas em bibliotecas compiladas
+- Não pode detectar facilmente erros em tempos de execução
 - The source code actually deployed might differ from the one being analyzed
 
-For more on code review, see the [OWASP code review project](https://wiki.owasp.org/index.php/Category:OWASP_Code_Review_Project).
+Para mais informações sobre revisão de código, visite o [OWASP code review project](https://wiki.owasp.org/index.php/Category:OWASP_Code_Review_Project).
 
-## Penetration Testing
+## Testes de Invasão
 
-### Overview
+###  Visão geral
 
-Penetration testing has been a common technique used to test network security for decades. It is also commonly known as black-box testing or ethical hacking. Penetration testing is essentially the "art" of testing a system or application remotely to find security vulnerabilities, without knowing the inner workings of the target itself. Typically, the penetration test team is able to access an application as if they were users. The tester acts like an attacker and attempts to find and exploit vulnerabilities. In many cases the tester will be given one or more valid accounts on the system.
+O teste de invasão tem sido uma técnica comum usada para testar a segurança da rede há décadas. Também conhecida como hacking ético, o teste de invasão é essencialmente a "arte" de testar um sistema ou aplicativo remotamente para encontrar vulnerabilidades de segurança, sem conhecer o funcionamento interno do próprio alvo, por isso também classificado como teste black box. Normalmente, a equipe de teste de invasão consegue acessar um aplicativo como se fosse um usuário. O testador atua como um invasor e tenta encontrar e explorar vulnerabilidades. Em muitos casos, o testador receberá uma ou mais contas válidas no sistema.
+
+Embora o teste de penetração tenha se mostrado eficaz na segurança de rede, a técnica não se traduz naturalmente em aplicativos. Quando o teste de penetração é executado em redes e sistemas operacionais, a maior parte do trabalho envolvido é encontrar e explorar vulnerabilidades conhecidas em tecnologias específicas. Como os aplicativos da web são quase exclusivamente feitos sob medida, os testes de penetração na área de aplicativos da web se assemelham mais à pesquisa pura. Algumas ferramentas de teste de penetração automatizadas foram desenvolvidas, mas considerando a natureza personalizada dos aplicativos da web, sua eficácia por si só pode ser pobre.
 
 While penetration testing has proven to be effective in network security, the technique does not naturally translate to applications. When penetration testing is performed on networks and operating systems, the majority of the work involved is in finding, and then exploiting, known vulnerabilities in specific technologies. As web applications are almost exclusively bespoke, penetration testing in the web application arena is more akin to pure research. Some automated penetration testing tools have been developed, but considering the bespoke nature of web applications, their effectiveness alone can be poor.
+
+Muitas pessoas usam o teste de penetração de aplicativos da web como sua principal técnica de teste de segurança. Embora certamente tenha seu lugar em um programa de teste, não acreditamos que ele deva ser considerado a principal ou a única técnica de teste. Como Gary McGraw escreveu em {a0}Software Penetration Testing{/a0} , "Na prática, um teste de penetração pode identificar apenas uma pequena amostra representativa de todos os riscos de segurança possíveis em um sistema." No entanto, o teste de penetração focado (ou seja, o teste que tenta explorar vulnerabilidades conhecidas detectadas em análises anteriores) pode ser útil para detectar se algumas vulnerabilidades específicas foram realmente corrigidas no código-fonte implantado.
 
 Many people use web application penetration testing as their primary security testing technique. Whilst it certainly has its place in a testing program, we do not believe it should be considered as the primary or only testing technique. As Gary McGraw wrote in [Software Penetration Testing](https://www.garymcgraw.com/wp-content/uploads/2015/11/bsi6-pentest.pdf), "In practice, a penetration test can only identify a small representative sample of all possible security risks in a system." However, focused penetration testing (i.e., testing that attempts to exploit known vulnerabilities detected in previous reviews) can be useful in detecting if some specific vulnerabilities are actually fixed in the deployed source code.
 
