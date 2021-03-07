@@ -254,23 +254,19 @@ Para mais informações sobre revisão de código, visite o [OWASP code review p
 
 O teste de invasão tem sido uma técnica comum usada para testar a segurança da rede há décadas. Também conhecida como hacking ético, o teste de invasão é essencialmente a "arte" de testar um sistema ou aplicativo remotamente para encontrar vulnerabilidades de segurança, sem conhecer o funcionamento interno do próprio alvo, por isso também classificado como teste black box. Normalmente, a equipe de teste de invasão consegue acessar um aplicativo como se fosse um usuário. O testador atua como um invasor e tenta encontrar e explorar vulnerabilidades. Em muitos casos, o testador receberá uma ou mais contas válidas no sistema.
 
-Embora o teste de penetração tenha se mostrado eficaz na segurança de rede, a técnica não se traduz naturalmente em aplicativos. Quando o teste de penetração é executado em redes e sistemas operacionais, a maior parte do trabalho envolvido é encontrar e explorar vulnerabilidades conhecidas em tecnologias específicas. Como os aplicativos da web são quase exclusivamente feitos sob medida, os testes de penetração na área de aplicativos da web se assemelham mais à pesquisa pura. Algumas ferramentas de teste de penetração automatizadas foram desenvolvidas, mas considerando a natureza personalizada dos aplicativos da web, sua eficácia por si só pode ser pobre.
+Embora o teste de invasão tenha se mostrado eficaz na segurança de redes, a técnica não se traduz naturalmente em aplicativos. Quando o teste de invasão é executado em redes e sistemas operacionais, a maior parte do trabalho envolvido é encontrar e explorar vulnerabilidades conhecidas em tecnologias específicas. Como os aplicativos web são quase exclusivamente feitos sob medida, os testes de penetração na área de aplicativos web se assemelham mais à pura pesquisa. Algumas ferramentas de teste de invasão automatizadas foram desenvolvidas, mas considerando a natureza personalizada dos aplicativos da web, sua eficácia em si pode ser limitada.
 
-While penetration testing has proven to be effective in network security, the technique does not naturally translate to applications. When penetration testing is performed on networks and operating systems, the majority of the work involved is in finding, and then exploiting, known vulnerabilities in specific technologies. As web applications are almost exclusively bespoke, penetration testing in the web application arena is more akin to pure research. Some automated penetration testing tools have been developed, but considering the bespoke nature of web applications, their effectiveness alone can be poor.
+Muitas pessoas usam o teste de invasão de aplicativos web como sua principal técnica de teste de segurança. mesmo que tenha seu lugar em um programa de testes, não acreditamos que ele deva ser considerado a principal ou a única técnica de teste. Como Gary McGraw escreveu em [Software Penetration Testing](https://www.garymcgraw.com/wp-content/uploads/2015/11/bsi6-pentest.pdf), "Na prática, um teste de invasão pode identificar apenas uma pequena amostra representativa de todos os riscos de segurança possíveis em um sistema." No entanto, o teste de invasão focado (ou seja, o teste que tenta explorar vulnerabilidades detectadas em análises anteriores) pode ser útil para detectar se algumas vulnerabilidades específicas foram realmente corrigidas no código implementado.
 
-Muitas pessoas usam o teste de penetração de aplicativos da web como sua principal técnica de teste de segurança. Embora certamente tenha seu lugar em um programa de teste, não acreditamos que ele deva ser considerado a principal ou a única técnica de teste. Como Gary McGraw escreveu em {a0}Software Penetration Testing{/a0} , "Na prática, um teste de penetração pode identificar apenas uma pequena amostra representativa de todos os riscos de segurança possíveis em um sistema." No entanto, o teste de penetração focado (ou seja, o teste que tenta explorar vulnerabilidades conhecidas detectadas em análises anteriores) pode ser útil para detectar se algumas vulnerabilidades específicas foram realmente corrigidas no código-fonte implantado.
+### Vantagens
 
-Many people use web application penetration testing as their primary security testing technique. Whilst it certainly has its place in a testing program, we do not believe it should be considered as the primary or only testing technique. As Gary McGraw wrote in [Software Penetration Testing](https://www.garymcgraw.com/wp-content/uploads/2015/11/bsi6-pentest.pdf), "In practice, a penetration test can only identify a small representative sample of all possible security risks in a system." However, focused penetration testing (i.e., testing that attempts to exploit known vulnerabilities detected in previous reviews) can be useful in detecting if some specific vulnerabilities are actually fixed in the deployed source code.
+- Pode ser rápido (e por isso barato)
+- Requer um relativo baixo conhecimento técnico comparado a revisão de código fonte
+- Testa o código que está sendo exposto
 
-### Advantages
+### Desvantagens
 
-- Can be fast (and therefore cheap)
-- Requires a relatively lower skill-set than source code review
-- Tests the code that is actually being exposed
-
-### Disadvantages
-
-- Too late in the SDLC
+- Ocorre no final do ciclo SDLC
 - Front-impact testing only
 
 ## The Need for a Balanced Approach
