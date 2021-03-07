@@ -188,7 +188,7 @@ Outras atividades, incluindo a revisão manual da documentação, políticas de 
 - Pode ser aplicado a uma variedade de situações
 - Flexivel
 - Promove o trabalho em equipe (teamwork)
-- Pode ser implementada no início do SDLC
+- Implementado no início do SDLC
 
 ### Desvantagens
 
@@ -196,31 +196,31 @@ Outras atividades, incluindo a revisão manual da documentação, políticas de 
 - Material de apoio nem sempre disponível
 - Requer considerável esforço intelectual e habilidades para ser efetivado
 
-## Threat Modeling
+## Modelagem de Ameaças
 
-### Overview
+### Panorama Geral
 
-Threat modeling has become a popular technique to help system designers think about the security threats that their systems and applications might face. Therefore, threat modeling can be seen as risk assessment for applications. It enables the designer to develop mitigation strategies for potential vulnerabilities and helps them focus their inevitably limited resources and attention on the parts of the system that most require it. It is recommended that all applications have a threat model developed and documented. Threat models should be created as early as possible in the SDLC, and should be revisited as the application evolves and development progresses.
+Modelagem de ameaças têm se tornado uma técnica popular para ajudar arquitetos de sistemas a pensar quais ameaças suas aplicações e sistemas poderão enfrentar. Portanto, a modelagem de ameaças pode ser vista como uma avaliação de risco para aplicativos. Ele permite que o designer desenvolva estratégias de mitigação para vulnerabilidades em potencial e os ajuda a focar, seus innevitaveis escasos recursos e atenção, nas partes do sistema que mais vulneráveis. É recomendável que todos os aplicativos tenham um modelo de ameaça desenvolvido e documentado. Os modelos de ameaça devem ser criados o mais cedo possível no SDLC e devem ser revisados conforme o aplicativo evolui e o desenvolvimento avança.
 
-To develop a threat model, we recommend taking a simple approach that follows the [NIST 800-30](https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final) standard for risk assessment. This approach involves:
+Para desenvolver um modelo de ameaças recomendamos que seja seguido uma abordagem simples que conforme instrui a norma para avaliação de riscos [NIST 800-30](https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final). Essa abordagem envolve:
 
-- Decomposing the application – use a process of manual inspection to understand how the application works, its assets, functionality, and connectivity.
-- Defining and classifying the assets – classify the assets into tangible and intangible assets and rank them according to business importance.
-- Exploring potential vulnerabilities - whether technical, operational, or managerial.
-- Exploring potential threats – develop a realistic view of potential attack vectors from an attacker’s perspective by using threat scenarios or attack trees.
-- Creating mitigation strategies – develop mitigating controls for each of the threats deemed to be realistic.
+- Decompondo o aplicativo - use um processo de inspeção manual para entender como o aplicativo funciona, seus recursos, funcionalidades e conectividade.
+- Definição e classificação dos recursos - classifique os ativos em ativos tangíveis e intangíveis e classifique-os de acordo com a importância de negócio.
+- Explorando potenciais vulnerabilidades - sejam elas técnicas, operacionais ou gerenciais.
+- Explorando potenciais ameaças - desenvolva uma visão realista dos vetores de ataque em potencial a partir da perspectiva de um invasor, usando para isso cenários de ameaças ou árvores de ataque.
+- Criação de estratégias de mitigação - desenvolva controles de mitigação para cada uma das ameaças possíveis.
 
-The output from a threat model itself can vary but is typically a collection of lists and diagrams. Various Open Source projects and commercial products support application threat modeling methodologies that can be used as a reference for testing applications for potential security flaws in the design of the application. There is no right or wrong way to develop threat models and perform information risk assessments on applications.
+O resultado de um modelo de ameaça em si pode variar, mas normalmente é uma coleção de listas e diagramas. Vários projetos de código aberto e produtos comerciais oferecem suporte a metodologias de modelagem de ameaças de aplicativos. Esses podem ser usados como referência para testar possíveis falhas de segurança no design do aplicativo. Não existe uma maneira certa ou errada de desenvolver modelos de ameaças e realizar avaliações de risco de informações em aplicativos.
 
-### Advantages
+### Vantagens
 
-- Practical attacker view of the system
-- Flexible
-- Early in the SDLC
+- Visão do sistema a partir da pesrspectiva do invasor
+- Flexivel
+- Implementado no início do SDLC
 
-### Disadvantages
+### Desvantagens
 
-- Good threat models don’t automatically mean good software
+- Boa modelagem de ameaças não se traduz automaticamente em bom sotware
 
 ## Source Code Review
 
