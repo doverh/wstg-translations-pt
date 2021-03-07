@@ -158,40 +158,43 @@ Para concluir o processo de testes, é importante produzir um registro formal de
 
 O relatório deve identificar claramente para o proprietário da empresa onde existem riscos materiais, e fazê-lo de modo suficiente a obter seu apoio para ações de mitigação subsequentes. O relatório também deve ser claro para o desenvolvedor e, ao utilizar uma linguagem que o desenvolvedor entenda, apontar a função exata que é afetada pela vulnerabilidade e as recomendações associadas para resolver problemas. O relatório também deve permitir que outro testador de segurança reproduza os resultados. Escrever o relatório não deve ser excessivamente oneroso para o próprio testador de segurança. Os testadores de segurança, que não são destacados por sua habilidades de redação criativa, não devem incorrer  no erro de gerar um relatório complexo, pois assim levariam a resultados de teste sem a devida documentação. Usar um modelo de relatório de testes de segurança pode economizar tempo e garantir que os resultados sejam documentados de forma precisa, consistente e em um formato adequado para o público.
 
-### Testing Techniques Explained
+### Técnicas de Teste Explicadas
 
-This section presents a high-level overview of various testing techniques that can be employed when building a testing program. It does not present specific methodologies for these techniques, as this information is covered in Chapter 3. This section is included to provide context for the framework presented in the next chapter and to highlight the advantages or disadvantages of some of the techniques that should be considered. In particular, we will cover:
+Esta seção apresenta uma visão geral de alto nível de várias técnicas de teste que podem ser empregadas ao construir um programa de testes. Não apresenta metodologias específicas para essas técnicas, já que essas informações são abordadas no capítulo III. Esta seção fornece contexto para a estrutura apresentada no próximo capítulo e destaca as vantagens ou desvantagens de algumas das técnicas que devem ser consideradas . Em particular, cobre:
 
-- Manual Inspections & Reviews
-- Threat Modeling
-- Code Review
-- Penetration Testing
+- Inspeção manual e revisões
+- Modelagem de ameaças
+- Revisão de código
+- Testes de invasão
 
-### Manual Inspections and Reviews
+### Inspeção manual e revisões
 
-### Overview
+### Panorama geral
 
 Manual inspections are human reviews that typically test the security implications of people, policies, and processes. Manual inspections can also include inspection of technology decisions such as architectural designs. They are usually conducted by analyzing documentation or performing interviews with the designers or system owners.
 
-While the concept of manual inspections and human reviews is simple, they can be among the most powerful and effective techniques available. By asking someone how something works and why it was implemented in a specific way, the tester can quickly determine if any security concerns are likely to be evident. Manual inspections and reviews are one of the few ways to test the software development life-cycle process itself and to ensure that there is an adequate policy or skill set in place.
+Inspeções manuais são revisões humanas que normalmente testam as implicações de segurança assumidas por pessoas, políticas e processos. As inspeções manuais também podem incluir a revisão de decisões de tecnologia, como os projetos de arquitetura. Elas geralmente são conduzidos analisando a documentação ou realizando entrevistas com os designers ou com os proprietários do sistema.
 
-As with many things in life, when conducting manual inspections and reviews it is recommended that a trust-but-verify model is adopted. Not everything that the tester is shown or told will be accurate. Manual reviews are particularly good for testing whether people understand the security process, have been made aware of policy, and have the appropriate skills to design or implement secure applications.
+Embora o conceito de inspeções manuais e revisões humanas possa parecer simples, estão entre as técnicas mais poderosas e eficazes disponíveis. Ao perguntar como algo funciona e por que foi implementado daquele modo, o testador pode determinar rapidamente se alguma das preocupações de segurança esta evidenciada. As inspeções e revisões manuais são uma das poucas maneiras de testar o processo de ciclo de vida de desenvolvimento de software em si e de garantir que haja uma política adequada ou conjunto de habilidades em curso.
 
-Other activities, including manually reviewing the documentation, secure coding policies, security requirements, and architectural designs, should all be accomplished using manual inspections.
+Como muitas coisas na vida, ao se conduzir inspeções manuais e revisões humanas, é recomendado que o modelo "confie, mas verifique" seja adotado. Nem tudo que aos testadores é mostrado ou reladado será exato. Revisões manuais são particularmente boas para testar o quanto as pessoas entendem do processo de segurança, se estão cientes das políticas, e possuem as habilidades adequadas para projetar ou implementar aplicações seguras.   
 
-### Advantages
+Outras atividades, incluindo a revisão manual da documentação, políticas de codigo seguro, requisitos de segurança e projetos de arquitetura, devem ser realizadas por meio de inspeções manuais.
 
-- Requires no supporting technology
-- Can be applied to a variety of situations
-- Flexible
-- Promotes teamwork
-- Early in the SDLC
 
-### Disadvantages
+### Vantagens
 
-- Can be time-consuming
-- Supporting material not always available
-- Requires significant human thought and skill to be effective
+- Não requer suporte tecnológico
+- Pode ser aplicado a uma variedade de situações
+- Flexivel
+- Promove o trabalho em equipe (teamwork)
+- Pode ser implementada no início do SDLC
+
+### Desvantagens
+
+- Pode requerer muito tempo 
+- Material de apoio nem sempre disponível
+- Requer considerável esforço intelectual e habilidades para ser efetivado
 
 ## Threat Modeling
 
