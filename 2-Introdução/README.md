@@ -244,7 +244,7 @@ Exemplos de problemas propícios a serem encontrados por meio de revisões de c�
 - Requer desenvolvedores capacitados em segurança 
 - Pode ignorar problemas em bibliotecas compiladas
 - Não pode detectar facilmente erros em tempos de execução
-- The source code actually deployed might differ from the one being analyzed
+- O código-fonte instalado pode ser difente daquele que está sendo analisado
 
 Para mais informações sobre revisão de código, visite o [OWASP code review project](https://wiki.owasp.org/index.php/Category:OWASP_Code_Review_Project).
 
@@ -267,27 +267,27 @@ Muitas pessoas usam o teste de invasão de aplicativos web como sua principal t�
 ### Desvantagens
 
 - Ocorre no final do ciclo SDLC
-- Front-impact testing only
+- Cobre apenas testes de "impacto frontal", em uma referencia aos testes de batida frontal de automóveis. Ou seja, ignora ameaças internas e ou outros caminhos outros senão o abuso direto cometido pelo usuario.
 
-## The Need for a Balanced Approach
+## A necessidade de uma abordagem equilibrada
 
-With so many techniques and approaches to testing the security of web applications, it can be difficult to understand which techniques to use or when to use them. Experience shows that there is no right or wrong answer to the question of exactly which techniques should be used to build a testing framework. In fact, all techniques should be used to test all the areas that need to be tested.
+Com tantas técnicas e abordagemns para testar a segurança de aplicativos web, pode ser difícil entender quais técnicas usar e quando. Experiências demonstram que não há resposta certa ou errada a questão de quais técnicas deviriam ser usadas para se construir um modelo de testes. De fato, todas tecnicas deveriam ser usadas para testar todas áreas que precisam ser testadas.
+  
+Embora seja claro que não há uma técnica isolada que possa ser executada para efetivamente cobrir todo o teste de segurança e garantir que todos os problemas possam ser endereçados, muitas organizações adotam essa técnica. O teste de invasão tem sido essa técnica isolada historicamente usada. O teste de invasão quando usado não pode efetivamente endereçar muitos dos problemas que precisam ser testados. É simplesmente oferecer pouco tarde demais no SDLC   
+A aboragem correta é uma equilibrada que inclui várias técnicas, desde revisões manuais até testes técnicos e testes integrados de CI / CD, (integrção e desenvolvimento contínuos). Uma abordagem equilibrada deve abranger o teste em todas as fases do SDLC. Essa abordagem aproveita as técnicas mais adequadas disponíveis, dependendo da fase atual do SDLC.
 
-Although it is clear that there is no single technique that can be performed to effectively cover all security testing and ensure that all issues have been addressed, many companies adopt only one approach. The single approach used has historically been penetration testing. Penetration testing, while useful, cannot effectively address many of the issues that need to be tested. It is simply "too little too late" in the SDLC.
+É evidente que há momentos e circunstâncias em que apenas uma técnica é possível. Por exemplo, considere um teste de um aplicativo web que já foi criado, mas onde a equipe de testes não tem acesso ao código-fonte. Nesse caso, o teste de invasão é claramente melhor do que nenhum teste. No entanto, as partes de teste devem ser encorajadas a desafiar as suposições, como, por exemplo, não ter acesso ao código-fonte, e explorar a possibilidade de testes mais completos.
 
-The correct approach is a balanced approach that includes several techniques, from manual reviews to technical testing, to CI/CD integrated testing. A balanced approach should cover testing in all phases of the SDLC. This approach leverages the most appropriate techniques available, depending on the current SDLC phase.
+Uma abordagem equilibrada varia dependendo de muitos fatores, como a maturidade do processo de teste e a cultura corporativa. Recomenda-se que uma estrutura de testes balanceada seja semelhante às representações mostradas na Figura 3 e na Figura 4. A figura a seguir mostra uma representação proporcional típica sobreposta ao SLDC. Em acordo com a pesquisa e a experiência, é essencial que as empresas dêem maior ênfase aos estágios iniciais de desenvolvimento.
 
-Of course there are times and circumstances where only one technique is possible. For example, consider a test of a web application that has already been created, but where the testing party does not have access to the source code. In this case, penetration testing is clearly better than no testing at all. However, the testing parties should be encouraged to challenge assumptions, such as not having access to source code, and to explore the possibility of more complete testing.
 
-A balanced approach varies depending on many factors, such as the maturity of the testing process and corporate culture. It is recommended that a balanced testing framework should look something like the representations shown in Figure 3 and Figure 4. The following figure shows a typical proportional representation overlaid onto the SLDC. In keeping with research and experience, it is essential that companies place a higher emphasis on the early stages of development.
+![Proporção de Esforço de Tests no SDLC](images/ProportionSDLC.png)\
+*Figura 2-3: Proporção de Esforço de Tests no SDLC*
 
-![Proportion of Test Effort in SDLC](images/ProportionSDLC.png)\
-*Figure 2-3: Proportion of Test Effort in SDLC*
+A figura a seguir demonstra a representação proporcional típica sobreposta às tecnicas de teste
 
-The following figure shows a typical proportional representation overlaid onto testing techniques.
-
-![Proportion of Test Effort According to Test Technique](images/ProportionTest.png)\
-*Figure 2-4: Proportion of Test Effort According to Test Technique*
+![Proporção de Esforço de Testes de acordo com a Técnica de Teste](images/ProportionTest.png)\
+*Figura 2-4: Proporção de Esforço de Testes de acordo com a Técnica de Teste*
 
 ### A Note about Web Application Scanners
 
