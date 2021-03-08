@@ -289,25 +289,24 @@ A figura a seguir demonstra a representação proporcional típica sobreposta à
 ![Proporção de Esforço de Testes de acordo com a Técnica de Teste](images/ProportionTest.png)\
 *Figura 2-4: Proporção de Esforço de Testes de acordo com a Técnica de Teste*
 
-### A Note about Web Application Scanners
+### Nota sobre scanners de aplicativos web
+Muitas organizações passaram a usar scanners automatizados para aplicativos web. Mesmo que eles, indubitavelmente, tenham um lugar em um programa de testes, algumas questões fundamentais precisam ser destacadas sobre por que se acredita que a automação dos testes de caixa preta não é (nem nunca será) completamente eficaz. No entanto, destacar esses problemas não deve desencorajar o uso de scanners de aplicativos web. Em vez disso, o objetivo é garantir que as limitações sejam compreendidas e que os modelos de teste sejam planejadas de forma adequada.
 
-Many organizations have started to use automated web application scanners. While they undoubtedly have a place in a testing program, some fundamental issues need to be highlighted about why it is believed that automating black-box testing is not (nor will ever be) completely effective. However, highlighting these issues should not discourage the use of web application scanners. Rather, the aim is to ensure the limitations are understood and testing frameworks are planned appropriately.
+É útil compreender a eficácia e as limitações das ferramentas automatizadas na detecção de vulnerabilidade. Para este fim, o [OWASP Benchmark Project](https://owasp.org/www-project-benchmark/) é um conjunto de testes projetado para avaliar a velocidade, cobertura e precisão de ferramentas e serviços automatizados de detecção de vulnerabilidades de software. O benchmarking pode ajudar a testar os recursos dessas ferramentas automatizadas e ajudar a tornar explícita sua utilidade.
 
-It is helpful to understand the efficacy and limitations of automated vulnerability detection tools. To this end, the [OWASP Benchmark Project](https://owasp.org/www-project-benchmark/) is a test suite designed to evaluate the speed, coverage, and accuracy of automated software vulnerability detection tools and services. Benchmarking can help to test the capabilities of these automated tools, and help to make their usefulness explicit.
+Os exemplos a seguir mostram por que testes automatizados de caixa preta  podem não ser efetivos.
 
-The following examples show why automated black-box testing may not be effective.
+### Exemplo 1: Parâmetetros mágicos
 
-### Example 1: Magic Parameters
+Imagine um aplicativo web simples que aceita um par nome-valor "mágico" e, em seguida, o valor. Para simplificar, a solicitação GET pode ser: `http://www.host/application?magic=value`
 
-Imagine a simple web application that accepts a name-value pair of "magic" and then the value. For simplicity, the GET request may be: `http://www.host/application?magic=value`
+Para simplificar ainda mais o exemplo, os valores neste caso só podem ser caracteres ASCII a - z (maiúsculas ou minúsculas) e números inteiros de 0 a 9.
 
-To further simplify the example, the values in this case can only be ASCII characters a – z (upper or lowercase) and integers 0 – 9.
+Os designers desse aplicativo criaram uma backdoor administrativa durante o teste, mas a ofuscaram para evitar que o observador casual a descobrisse. Ao enviar o valor sf8g7sfjdsurtsdieerwqredsgnfg8d (30 caracteres), o usuário será então logado e apresentado a uma tela administrativa com total controle do aplicativo. A solicitação HTTP agora é: `http://www.host/application?magic=sf8g7sfjdsurtsdieerwqredsgnfg8d`
 
-The designers of this application created an administrative backdoor during testing, but obfuscated it to prevent the casual observer from discovering it. By submitting the value sf8g7sfjdsurtsdieerwqredsgnfg8d (30 characters), the user will then be logged in and presented with an administrative screen with total control of the application. The HTTP request is now: `http://www.host/application?magic=sf8g7sfjdsurtsdieerwqredsgnfg8d`
+Dado que todos os outros parâmetros eram campos simples de dois e três caracteres, não é possível começar a adivinhar combinações a partir de aproximadamente 28 caracteres. Um scanner de aplicativo web precisará aplicar força bruta, adivinhando todo o espaço-chave de 30 caracteres. Isso é até 30 ^ 28 permutações, ou trilhões de solicitações HTTP. Isso é como um elétron em um palheiro digital.
 
-Given that all of the other parameters were simple two- and three-characters fields, it is not possible to start guessing combinations at approximately 28 characters. A web application scanner will need to brute force (or guess) the entire key space of 30 characters. That is up to 30\^28 permutations, or trillions of HTTP requests. That is an electron in a digital haystack.
-
-The code for this exemplar Magic Parameter check may look like the following:
+O código para esta verificação do Parâmetro Mágico exemplar pode parecer com o seguinte:
 
 ```java
 public void doPost( HttpServletRequest request, HttpServletResponse response) {
@@ -317,8 +316,7 @@ public void doPost( HttpServletRequest request, HttpServletResponse response) {
   else … // normal processing
 }
 ```
-
-By looking in the code, the vulnerability practically leaps off the page as a potential problem.
+Olhando o código, a vulnerabilidade praticamente salta da página como um problema potencial.
 
 ### Example 2: Bad Cryptography
 
