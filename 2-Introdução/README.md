@@ -340,6 +340,7 @@ Um dos objetivos dos testes de segurança é validar se os controles de seguran�
 Essas são vulnerabilidades comuns, como o [OWASP Top Ten](https://owasp.org/www-project-top-ten/), bem como vulnerabilidades que foram previamente identificadas por avaliações de segurança durante o SDLC, tais como  modelagem de ameaças, análise de código-fonte e teste de invasão.
 
 ### Documento de requisitos de segurança 
+
 A primeira etapa na documentação dos requisitos de segurança é entender os `business requirements` (documento de requisitos) . Um documento de requisitos de negócios pode fornecer informações iniciais de alto nível sobre a funcionalidade esperada do aplicativo. Por exemplo, o objetivo principal de um aplicativo pode ser fornecer serviços financeiros a clientes ou permitir que produtos sejam adquiridos de um catálogo on-line. A seção de segurança dos requisitos de negócios deve destacar a necessidade de proteger os dados do cliente, bem como estar em conformidade com documentação de segurança aplicável, tais como regulamentos, padrões e políticas.
 
 Uma lista de verificação geral dos regulamentos, padrões e políticas aplicáveis é uma boa análise preliminar sobre a conformidade de segurança para aplicativos web. Por exemplo, os regulamentos de conformidade podem ser identificados verificando as informações sobre o setor de negócios e o país ou estado onde o aplicativo irá operar. Algumas dessas diretrizes e regulamentos de conformidade podem se traduzir em requisitos técnicos específicos para controles de segurança. Por exemplo, no caso de aplicativos financeiros, a conformidade com a Federal Financial Institutions Examination Council (FFIEC) [Cybersecurity Assessment Tool & Documentation](https://www.ffiec.gov/cyberassessmenttool.htm) exige que as instituições financeiras implementem aplicativos que atenuem os riscos de autenticação frágil com implementação de controles de segurança multicamadas e autenticação multifator.
@@ -364,87 +365,88 @@ O foco da categorização de ameaças e contramedidas é definir os requisitos d
 
 Uma categorização de ameaças e contramedidas para vulnerabilidades também pode ser usada para documentar requisitos de segurança para codificação segura, como padrões de codificação seguros. Um exemplo de erro comum de codificação em controles de autenticação consiste em aplicar uma função hash para criptografar uma senha, sem aplicar uma chave de recuperação ao valor. Do ponto de vista da codificação segura, esta é uma vulnerabilidade que afeta a criptografia usada para autenticação tendo como causa raiz da vulnerabilidade um erro de codificação. Como a causa raiz é a codificação insegura, o requisito de segurança pode ser documentado em padrões de codificação segura e validado por meio de revisões de código seguro durante a fase de desenvolvimento do SDLC.
 
-### Testes de Segurança e Análise de Risco
+### Testes de segurança e análise de risco
 
 Os requisitos de segurança precisam levar em consideração a severidade das vulnerabilidades para oferecer suporte a uma `estratégia de mitigação de riscos` . Supondo que a organização mantenha um repositório de vulnerabilidades encontradas em aplicativos (ou seja, uma base de conhecimento de vulnerabilidade), os problemas de segurança podem ser relatados por tipo, problema, mitigação, causa raiz e mapeadosa partir dos aplicativos onde são encontrados. Essa base de conhecimento de vulnerabilidade também pode ser usada para estabelecer métricas para analisar a eficácia dos testes de segurança em todo o SDLC.
 
 Por exemplo, considere um problema de validação de entrada de dados, como a injeção SQL, que foi identificada por meio de análise de código-fonte e relatada com causa raiz o erro de codificação e tipo de vulnerabilidade de validação de entrada de dados. A exposição de tal vulnerabilidade pode ser avaliada por meio de um teste de invasão, investigando campos de entrada com vários vetores de ataque de injeção SQL. Este teste pode validar que os caracteres especiais são filtrados antes de atingir o banco de dados e atenuar a vulnerabilidade. Ao combinar os resultados da análise do código-fonte e do teste de penetração, é possível determinar a probabilidade de exposição e calcular a classificação de risco da vulnerabilidade. Ao relatar as classificações de risco de vulnerabilidade nas descobertas (por exemplo, relatório de testes), é possível decidir sobre a estratégia de mitigação. Por exemplo, vulnerabilidades de alto e médio risco podem ser priorizadas para correção, enquanto vulnerabilidades de baixo risco podem ser corrigidas em versões futuras.
 
-Considerando os cenarios de riscos ao explorar vulnerabilidades comuns, é possivel identificar potenciais riscos que o controle de segurança do aplicativo
-precisa ser testado de um modo confiável. por exemplo, as vulnerabilidades do OWASP Top Ten podem mapear attaques tais como pishing, violação de privacidade, roubo de identidade, comprometimento do sistema, alteração ou destruição de dados, perda financeira, e perda de reputação.
+Considerando os cenarios de riscos ao explorar vulnerabilidades comuns, é possivel identificar potenciais riscos os quais o controle de segurança do aplicativo precisa verificar usando testes de segurança. Por exemplo, as vulnerabilidades do OWASP Top Ten podem mapear attaques tais como pishing, violação de privacidade, roubo de identidade, comprometimento do sistema, alteração ou destruição de dados, perda financeira, e perda de reputação.
 Tais problemas devem ser documentados como parte dos cenários de ameaça. Pensando em termos de ameaças e vulnerabilidades, é possível conceber uma bateria de testes que simulam esses cenários de ataque. Idealmente, a base de conhecimento de vulnerabilidade da organização pode ser usada para derivar casos de teste orientados a riscos de segurança, e validar os cenários de ataque mais prováveis. Por exemplo, se o roubo de identidade for considerado de alto risco, os cenários de teste negativos devem validar a mitigação dos impactos derivados da exploração de vulnerabilidades na autenticação, controles criptográficos, validação de entrada de dados e controles de autorização.
 
-### Deriving Functional and Non-Functional Test Requirements
+### Obtendo testes de requisitos funcionais e não-funcionais
 
-#### Functional Security Requirements
+#### Requisitos de SeFunctional Security Requirements
 
-From the perspective of functional security requirements, the applicable standards, policies, and regulations drive both the need for a type of security control as well as the control functionality. These requirements are also referred to as "positive requirements", since they state the expected functionality that can be validated through security tests. Examples of positive requirements are: "the application will lockout the user after six failed log on attempts" or "passwords need to be a minimum of ten alphanumeric characters". The validation of positive requirements consists of asserting the expected functionality and can be tested by re-creating the testing conditions and running the test according to predefined inputs. The results are then shown as a fail or pass condition.
+De uma perspectiva de requisitos de segurança funcionais, as normas aplicáveis, políticas, e regulações orientam ambas a necessidade de um algum controle de segurança bem como o controle da funcionalidade. 
+Esses requisitos são também referidos como “requisitos positivos”, já que eles implicam que a funcionalidade esperada pode ser validada através de testes de segurança. Exemplos de requisitos positivos são: “o aplicativo irá bloquear usuário depois de seis tentativas erradas de autenticação “ou “senhas precisam ter um mínimo de dez caracteres alfanuméricos”. A validação de requisitos positivos consiste na validação de funcionalidades esperadas e pode ser testada através da recriação das condições de teste e execução do teste de acordo com entradas de dados pré-definidas. Os resultados são apresentados. então como passados ou falhados. 
 
-In order to validate security requirements with security tests, security requirements need to be function-driven. They need to highlight the expected functionality (the what) and imply the implementation (the how). Examples of high-level security design requirements for authentication can be:
+A fim de validar requisitos de segurança a partir de testes de segurança, requisitos de segurança precisam ser orientados por funções. Eles precisam enfatizar a funcionalidade esperada (o quê) e sugerir a implementação (o como). 
 
-- Protect user credentials or shared secrets in transit and in storage.
-- Mask any confidential data in display (e.g., passwords, accounts).
-- Lock the user account after a certain number of failed log in attempts.
-- Do not show specific validation errors to the user as a result of a failed log on.
-- Only allow passwords that are alphanumeric, include special characters, and are a minimum ten characters in length, to limit the attack surface.
-- Allow for password change functionality only to authenticated users by validating the old password, the new password, and the user's answer to the challenge question, to prevent brute forcing of a password via password change.
-- The password reset form should validate the user’s username and the user’s registered email before sending the temporary password to the user via email. The temporary password issued should be a one-time password. A link to the password reset web page will be sent to the user. The password reset web page should validate the user's temporary password, the new password, as well as the user's answer to the challenge question.
+Exemplos de requisitos de design de segurança de alto nível para autenticação podem ser:
+-	Proteger as credenciais e dados sigilosos do usuário quando da transmissão ou armazenamento.  
+-     Mascarar a exibição de qualquer dado confidencial (por exemplo, senhas, e contas de usuário).
+-	Bloquear a conta do usuário após um certo número de tentativas falhadas de autenticação.
+- 	Não apresentar ao usuário nenhum erro de validação específico como resultado de tentativas falhadas de autenticação. 
+-	Permitir apenas senhas que são alfanuméricas, incluem caracteres especiais, e tem no mínimo dez caracteres de extensão, para limitar os ataques de superfície.
+-	Permitir a funcionalidade de troca da senha através da validação da senha antiga, da nova senha, e da resposta do usuário à pergunta de segurança, para prevenir ataques de força bruta por meio da troca de senha.  	
+-	O formulário de revalidação da senha deve validar o nome de usuário e o e-mail registrado antes de mandar uma senha temporária ao usuário por e-mail. A senha temporária gerada deve ser uma senha de uso único. O link para a redefinição da senha será enviado ao usuário. A página de redefinição da senha deve validar a senha temporária do usuário, a nova senha, bem como a resposta do usuário a resposta à pergunta de segurança. 
 
-#### Risk-Driven Security Requirements
+#### Requisitos de Segurança orientado a riscos
 
-Security tests must also be risk-driven. They need to validate the application for unexpected behavior, or negative requirements.
+Testes de segurança precisam também ser orientados a riscos. Eles precisam validar o aplicativo a partir de comportamentos inesperados ou requisitos negativos.
+Exemplos de requisitos negativos são:
+•	O aplicativo não deve permitir que os dados sejam alterados ou destruídos. 
+•	O aplicativo não deve comprometer ou usar de modo indevido autorizações financeiras iniciadas por usuário mal intencionado. 
+Requisitos negativos são mais difíceis de serem testados pois não há um comportamento esperado a se comparar. Buscar comportamentos esperados que se adequem aos requisitos acima, pode requerer que a análise de ameaças forneça de modo irreal condições imprevisíveis de causas efeitos e dados de entrada. 
+Portanto, testes de segurança precisam ser orientados por análise de riscos e modelagem de ameaças. A chave para isso está na documentação dos cenários de ameaças, e a funcionalidade de medidas preventivas para mitigar as ameaças. 
+Por exemplo, no caso de controles de autenticação, os requisitos de segurança podem ser documentados a partir da perspectiva de ameaças e medidas preventivas do seguinte modo: 
+•	Senhas criptografadas usando criptografia não reversível tais como Digest (HASH), e chaves para prevenir dicionários de ataques. 
+•	Bloqueios de contas ao alcançarem o log de limite de falhas ou forçar a complexidade de senha para mitigar o risco de ataques de força bruta. 
+•	Exibir mensagens genéricas de erro quando da validação de credenciais para mitigar o risco de coleta de contas ou contagem. 
+•	Mutualmente autenticar cliente servidor para prevenir o não repúdio e o ataque ”Man In the Middle” (MiTM).
+Ferramentas de modelagem de ameaças tais como as árvores de ameaça e as livrarias de ataque podem ser úteis para se se extrair os cenários de testes negativos. As árvores de ameaças assumirão o ataque base, por exemplo, o invasor pode estar apto a ler mensagens de outros usuários, e identificar diferentes vulnerabilidades de controle de segurança, por exemplo falhas de validação de dados causados pela vulnerabilidade de injeção SQL, e medidas preventivas necessárias (por exemplo, implementar validação de dados e parametrização de consultas SQL), que poderiam ser validadas e efetivamente mitigar tais ataques.
 
-Examples of negative requirements are:
+### Obtendo requisitos de testes de segurança através de casos de uso e uso indevido
+	
+Um pré-requisito para descrever o funcionamento do aplicativo é entender o que o aplicativo deve fazer e como. Isso pode ser descrito através de casos de uso. Os casos de uso, na forma gráfica comumente usada na engenharia de software, mostram as interações dos atores e suas interações. Eles ajudam a identificar os atores no aplicativo, seus relacionamentos, a sequência de ações pretendida para cada cenário, ações alternativas, requisitos especiais, pré-condições e pós-condições.
 
-- The application should not allow for the data to be altered or destroyed.
-- The application should not be compromised or misused for unauthorized financial transactions by a malicious user.
+Semelhante aos casos de uso, os casos de uso indevido ou de abuso descrevem cenários de uso não intencionados e mal-intencionados do aplicativo. Esses casos de uso indevido fornecem uma maneira de descrever cenários que explicam como um invasor pode usar indevidamente o aplicativo. Ao percorrer os passos individuais em um cenário de uso e pensar sobre como ele pode ser explorado de forma mal-intencionada, é possível descobrir possíveis falhas ou aspectos do aplicativo que não estão bem definidos. A chave é descrever todos os cenários possíveis de uso ou uso mal indevido ou, pelo menos, os mais críticos.
 
-Negative requirements are more difficult to test, because there is no expected behavior to look for. Looking for expected behavior to suit the above requirements might require a threat analyst to unrealistically come up with unforeseeable input conditions, causes, and effects. Hence, security testing needs to be driven by risk analysis and threat modeling. The key is to document the threat scenarios, and the functionality of the countermeasure as a factor to mitigate a threat.
+Os cenários de uso indevido permitem a análise do aplicativo do ponto de vista do invasor e contribuem para a identificação de vulnerabilidades em potencial, bem como análise de medidas preventivas para mitigar o impacto causado pela exposição potencial a tais vulnerabilidades. Considerando todos os casos de uso e abuso, é importante analisá-los para determinar quais são os mais críticos e quais precisam ser documentados nos requisitos de segurança. A identificação dos casos mais críticos de uso indevido e abuso orientam a documentação dos requisitos de segurança e os controles necessários para que os riscos à segurança sejam mitigados.
 
-For example, in the case of authentication controls, the following security requirements can be documented from the threats and countermeasures perspective:
+Para derivar os requisitos de segurança de [casos de uso e mau uso] ](https://iacis.org/iis/2006/Damodaran.pdf) , é importante definir os cenários funcionais e os cenários negativos e colocá-los em forma gráfica. O exemplo a seguir é uma metodologia passo a passo de como derivar requisitos de segurança para autenticação.
 
-- Encrypt authentication data in storage and transit to mitigate risk of information disclosure and authentication protocol attacks.
-- Encrypt passwords using non-reversible encryption such as using a digest (e.g., HASH) and a seed to prevent dictionary attacks.
-- Lock out accounts after reaching a log on failure threshold and enforce password complexity to mitigate risk of brute force password attacks.
-- Display generic error messages upon validation of credentials to mitigate risk of account harvesting or enumeration.
-- Mutually authenticate client and server to prevent non-repudiation and Manipulator In the Middle (MiTM) attacks.
 
-Threat modeling tools such as threat trees and attack libraries can be useful to derive the negative test scenarios. A threat tree will assume a root attack (e.g., attacker might be able to read other users' messages) and identify different exploits of security controls (e.g., data validation fails because of a SQL injection vulnerability) and necessary countermeasures (e.g., implement data validation and parametrized queries) that could be validated to be effective in mitigating such attacks.
+#### Passo 1: Descreve o cenário funcional 
 
-### Deriving Security Test Requirements Through Use and Misuse Cases
-
-A prerequisite to describing the application functionality is to understand what the application is supposed to do and how. This can be done by describing use cases. Use cases, in the graphical form as is commonly used in software engineering, show the interactions of actors and their relations. They help to identify the actors in the application, their relationships, the intended sequence of actions for each scenario, alternative actions, special requirements, preconditions, and post-conditions.
-
-Similar to use cases, misuse or abuse cases describe unintended and malicious use scenarios of the application. These misuse cases provide a way to describe scenarios of how an attacker could misuse and abuse the application. By going through the individual steps in a use scenario and thinking about how it can be maliciously exploited, potential flaws or aspects of the application that are not well defined can be discovered. The key is to describe all possible or, at least, the most critical use and misuse scenarios.
-
-Misuse scenarios allow the analysis of the application from the attacker's point of view and contribute to identifying potential vulnerabilities and the countermeasures that need to be implemented to mitigate the impact caused by the potential exposure to such vulnerabilities. Given all of the use and abuse cases, it is important to analyze them to determine which are the most critical and need to be documented in security requirements. The identification of the most critical misuse and abuse cases drives the documentation of security requirements and the necessary controls where security risks should be mitigated.
-
-To derive security requirements from [both use and misuse cases](https://iacis.org/iis/2006/Damodaran.pdf), it is important to define the functional scenarios and the negative scenarios and put these in graphical form. The following example is a step-by-step methodology for the case of deriving security requirements for authentication.
-
-#### Step 1: Describe the Functional Scenario
+O usuário se autentica fornecendo um nome de usuário e uma senha. O aplicativo concede acesso aos usuários com base na autenticação das credenciais do usuário pelo aplicativo e fornece erros específicos ao usuário quando a autenticação falha.
 
 User authenticates by supplying a username and password. The application grants access to users based upon authentication of user credentials by the application and provides specific errors to the user when validation fails.
 
-#### Step 2: Describe the Negative Scenario
+#### Passo 2: Descreve o cenário negativo
 
-Attacker breaks the authentication through a brute force or dictionary attack of passwords and account harvesting vulnerabilities in the application. The validation errors provide specific information to an attacker that is used to guess which accounts are valid registered accounts (usernames). The attacker then attempts to brute force the password for a valid account. A brute force attack on passwords with a minimum length of four digits can succeed with a limited number of attempts (i.e., 10\^4).
+O invasor quebra a autenticação por meio de um ataque de força bruta ou de dicionário de senhas, bem como através da coleta de contas vulneráveis no aplicativo. Os erros de validação fornecem informações específicas a um invasor que são usadas para adivinhar quais contas são registradas e válidas (nomes de usuário). O invasor então tenta usar força bruta na senha de uma conta válida. Um ataque de força bruta a senhas com comprimento mínimo de quatro dígitos pode ser bem-sucedido com um número limitado de tentativas (ou seja, 10 ^ 4, ou 10000 tentativas).
 
-#### Step 3: Describe Functional and Negative Scenarios with Use and Misuse Case
+#### Passo 3: Descreve cenários funcionais e negativos de caso de uso e uso indevido
 
-The graphical example below depicts the derivation of security requirements via use and misuse cases. The functional scenario consists of the user actions (entering a username and password) and the application actions (authenticating the user and providing an error message if validation fails). The misuse case consists of the attacker actions, i.e. trying to break authentication by brute forcing the password via a dictionary attack and by guessing the valid usernames from error messages. By graphically representing the threats to the user actions (misuses), it is possible to derive the countermeasures as the application actions that mitigate such threats.
+O exemplo gráfico abaixo descreve a derivação dos requisitos de segurança por meio de casos de uso e uso indevido. O cenário funcional consiste nas ações do usuário (inserir um nome de usuário e senha) e nas ações do aplicativo (autenticar o usuário e fornecer uma mensagem de erro se a validação falhar). O caso de uso incorreto consiste nas ações do invasor, isto é, tentar quebrar a autenticação por força bruta da senha através de um ataque de dicionário e adivinhar nomes de usuário válidos a partir de mensagens de erro. Ao representar graficamente as ameaças às ações do usuário (uso indevido), é possível derivar medidas preventivas como as ações do aplicativo que mitigam tais ameaças. 
 
-![Use and Misuse case](images/640px-UseAndMisuseCase.png)\
-*Figure 2-5: Use and Misuse Case*
+![Caso de uso e uso indevido](images/640px-UseAndMisuseCase.png)\
+*Figura 2-5: Caso de Uso e Uso Indevido *
 
-#### Step 4: Elicit the Security Requirements
+#### Passo 4: Extraia os requisitos de segurança
 
+Nesse caso os seguintes requisitos de segurança para autenticação são derivados:
 In this case, the following security requirements for authentication are derived:
 
-  1. Passwords requirements must be aligned with the current standards for sufficient complexity.
-  2. Accounts must be to locked out after five unsuccessful log in attempts.
-  3. Log in error messages must be generic.
+1. Requisitos de senha precisam estar alinhados com os padrões suficientes de complexidade vigentes. 
+2. Contas precisam ser bloqueadas após cinco tentativas frustradas de acesso. 
+3. Mensagens de erro de acesso precisam ser genéricas. 
+Esses requisitos de segurança precisam ser documentados e testados. 
+  
+![image](https://user-images.githubusercontent.com/25070780/110845087-32820400-8278-11eb-8456-49eab8d3391f.png)
 
-These security requirements need to be documented and tested.
 
 ## Security Tests Integrated in Development and Testing Workflows
 
