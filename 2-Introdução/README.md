@@ -374,9 +374,9 @@ Por exemplo, considere um problema de validação de entrada de dados, como a in
 Considerando os cenarios de riscos ao explorar vulnerabilidades comuns, é possivel identificar potenciais riscos os quais o controle de segurança do aplicativo precisa verificar usando testes de segurança. Por exemplo, as vulnerabilidades do OWASP Top Ten podem mapear attaques tais como pishing, violação de privacidade, roubo de identidade, comprometimento do sistema, alteração ou destruição de dados, perda financeira, e perda de reputação.
 Tais problemas devem ser documentados como parte dos cenários de ameaça. Pensando em termos de ameaças e vulnerabilidades, é possível conceber uma bateria de testes que simulam esses cenários de ataque. Idealmente, a base de conhecimento de vulnerabilidade da organização pode ser usada para derivar casos de teste orientados a riscos de segurança, e validar os cenários de ataque mais prováveis. Por exemplo, se o roubo de identidade for considerado de alto risco, os cenários de teste negativos devem validar a mitigação dos impactos derivados da exploração de vulnerabilidades na autenticação, controles criptográficos, validação de entrada de dados e controles de autorização.
 
-### Obtendo testes de requisitos funcionais e não-funcionais
+## Obtendo testes de requisitos funcionais e não-funcionais
 
-#### Requisitos de SeFunctional Security Requirements
+### Requisitos funcionais  de segurança
 
 De uma perspectiva de requisitos de segurança funcionais, as normas aplicáveis, políticas, e regulações orientam ambas a necessidade de um algum controle de segurança bem como o controle da funcionalidade. 
 Esses requisitos são também referidos como “requisitos positivos”, já que eles implicam que a funcionalidade esperada pode ser validada através de testes de segurança. Exemplos de requisitos positivos são: “o aplicativo irá bloquear usuário depois de seis tentativas erradas de autenticação “ou “senhas precisam ter um mínimo de dez caracteres alfanuméricos”. A validação de requisitos positivos consiste na validação de funcionalidades esperadas e pode ser testada através da recriação das condições de teste e execução do teste de acordo com entradas de dados pré-definidas. Os resultados são apresentados. então como passados ou falhados. 
@@ -385,14 +385,14 @@ A fim de validar requisitos de segurança a partir de testes de segurança, requ
 
 Exemplos de requisitos de design de segurança de alto nível para autenticação podem ser:
 -	Proteger as credenciais e dados sigilosos do usuário quando da transmissão ou armazenamento.  
--     Mascarar a exibição de qualquer dado confidencial (por exemplo, senhas, e contas de usuário).
+-       Mascarar a exibição de qualquer dado confidencial (por exemplo, senhas, e contas de usuário).
 -	Bloquear a conta do usuário após um certo número de tentativas falhadas de autenticação.
 - 	Não apresentar ao usuário nenhum erro de validação específico como resultado de tentativas falhadas de autenticação. 
 -	Permitir apenas senhas que são alfanuméricas, incluem caracteres especiais, e tem no mínimo dez caracteres de extensão, para limitar os ataques de superfície.
 -	Permitir a funcionalidade de troca da senha através da validação da senha antiga, da nova senha, e da resposta do usuário à pergunta de segurança, para prevenir ataques de força bruta por meio da troca de senha.  	
 -	O formulário de revalidação da senha deve validar o nome de usuário e o e-mail registrado antes de mandar uma senha temporária ao usuário por e-mail. A senha temporária gerada deve ser uma senha de uso único. O link para a redefinição da senha será enviado ao usuário. A página de redefinição da senha deve validar a senha temporária do usuário, a nova senha, bem como a resposta do usuário a resposta à pergunta de segurança. 
 
-#### Requisitos de Segurança orientado a riscos
+### Requisitos de Segurança orientado a riscos
 
 Testes de segurança precisam também ser orientados a riscos. Eles precisam validar o aplicativo a partir de comportamentos inesperados ou requisitos negativos.
 Exemplos de requisitos negativos são:
@@ -418,24 +418,24 @@ Os cenários de uso indevido permitem a análise do aplicativo do ponto de vista
 Para derivar os requisitos de segurança de [casos de uso e mau uso] ](https://iacis.org/iis/2006/Damodaran.pdf) , é importante definir os cenários funcionais e os cenários negativos e colocá-los em forma gráfica. O exemplo a seguir é uma metodologia passo a passo de como derivar requisitos de segurança para autenticação.
 
 
-#### Passo 1: Descreve o cenário funcional 
+### Passo 1: Descreve o cenário funcional 
 
 O usuário se autentica fornecendo um nome de usuário e uma senha. O aplicativo concede acesso aos usuários com base na autenticação das credenciais do usuário pelo aplicativo e fornece erros específicos ao usuário quando a autenticação falha.
 
 User authenticates by supplying a username and password. The application grants access to users based upon authentication of user credentials by the application and provides specific errors to the user when validation fails.
 
-#### Passo 2: Descreve o cenário negativo
+### Passo 2: Descreve o cenário negativo
 
 O invasor quebra a autenticação por meio de um ataque de força bruta ou de dicionário de senhas, bem como através da coleta de contas vulneráveis no aplicativo. Os erros de validação fornecem informações específicas a um invasor que são usadas para adivinhar quais contas são registradas e válidas (nomes de usuário). O invasor então tenta usar força bruta na senha de uma conta válida. Um ataque de força bruta a senhas com comprimento mínimo de quatro dígitos pode ser bem-sucedido com um número limitado de tentativas (ou seja, 10 ^ 4, ou 10000 tentativas).
 
-#### Passo 3: Descreve cenários funcionais e negativos de caso de uso e uso indevido
+### Passo 3: Descreve cenários funcionais e negativos de caso de uso e uso indevido
 
 O exemplo gráfico abaixo descreve a derivação dos requisitos de segurança por meio de casos de uso e uso indevido. O cenário funcional consiste nas ações do usuário (inserir um nome de usuário e senha) e nas ações do aplicativo (autenticar o usuário e fornecer uma mensagem de erro se a validação falhar). O caso de uso incorreto consiste nas ações do invasor, isto é, tentar quebrar a autenticação por força bruta da senha através de um ataque de dicionário e adivinhar nomes de usuário válidos a partir de mensagens de erro. Ao representar graficamente as ameaças às ações do usuário (uso indevido), é possível derivar medidas preventivas como as ações do aplicativo que mitigam tais ameaças. 
 
 ![Caso de uso e uso indevido](images/640px-UseAndMisuseCase.png)\
 *Figura 2-5: Caso de Uso e Uso Indevido *
 
-#### Passo 4: Extraia os requisitos de segurança
+### Passo 4: Extraia os requisitos de segurança
 
 Nesse caso os seguintes requisitos de segurança para autenticação são derivados:
 In this case, the following security requirements for authentication are derived:
@@ -445,28 +445,27 @@ In this case, the following security requirements for authentication are derived
 3. Mensagens de erro de acesso precisam ser genéricas. 
 Esses requisitos de segurança precisam ser documentados e testados. 
   
-![image](https://user-images.githubusercontent.com/25070780/110845087-32820400-8278-11eb-8456-49eab8d3391f.png)
+## Testes de Segurança Integrados ao fluxo de Desenvolvimento e  Testes 
+
+### Testes de segurança no fluxo(workflow) de desenvlvimento
+
+Os testes de segurança durante a fase de desenvolvimento no SDLC, representam a primeira oportunidade para desenvolvedores garantir que componentes individuais do software, (desenvolvidos por eles), são testados, em termos de segurança, antes de serem integrados com a outros componentes do aplicativo. 
+Componentes de software são compostos por artefatos tais como funções, métodos, e classes, assim como interface de programação de aplicativos (API), bibliotecas e arquivos executáveis Para testes de segurança, desenvolvedores podem apoiar-se nos resultados de análise de código fonte para verificar estatisticamente que o código fonte desenvolvido não inclui nenhuma vulnerabilidade potencial e está em conformidade com os padrões de segurança de código. Testes unitários de segurança podem além do mais verificar dinamicamente, isto é, em tempo de execução, que os componentes funcionam conforme esperado. Antes de integrar ambos os códigos modificados, novo e existente, no código do aplicativo, os resultados de análises estática e dinâmica devem ser revisados e validados.    
+
+A validação do código fonte antes da integração no aplicativo é comumente responsabilidades dos desenvolvedores seniores. Desenvolvedores seniores são frequentemente os que entendem mais de segurança de software e sua tarefa é liderar um a revisão de segurança do código. Eles precisam decidir entre aceitar o código a ser instalado no aplicativo ou solicitar novas mudanças e testes. Esta revisão do fluxo de código seguro pode ser determinada via aceitação formal, bem como pela verificação na ferramenta de fluxo do projeto. Por exemplo, assumindo que o fluxo de gerenciamento comumente usado para defeitos funcionais, defeitos de segurança que foram corrigidos por um desenvolvedor podem ser reportados em um sistema de gerenciamento de defeitos ou mudanças. O repositório master  pode verificar o resultado de testes reportados por desenvolvedores na ferramenta e garantir a integração de códigos modificados no código da aplicação (“merge on máster”).   
 
 
-## Security Tests Integrated in Development and Testing Workflows
+### Testes de segurança no workflow de testes
 
-### Security Testing in the Development Workflow
+Depois que componentes e alterações de código são testados pelos desenvolvedores e verificados na integração com o código do aplicativo, a próxima etapa mais provável no fluxo de trabalho(workflow) do processo de desenvolvimento de software é realizar testes no aplicativo como um todo (end-to-end). Este nível de testes é  também referido como teste integração e teste a nível de sistema. Quando os testes de segurança fazem parte dessas atividade,  eles podem ser usados para validar a funcionalidade de segurança do aplicativo como um todo, bem como a exposição de vulnerabilidades no nível do aplicativo. Esses testes de segurança no aplicativo incluem testes de caixa branca, como análise de código-fonte, e testes de caixa preta, como teste de invasão. Os testes também podem incluir testes de caixa cinza, nos quais se presume que o testador tenha algum conhecimento parcial sobre o aplicativo. Por exemplo, com algum conhecimento sobre o gerenciamento de sessão do aplicativo, o testador pode entender melhor se as funções de logout e tempo limite estão devidamente protegidas.
 
-Security testing during the development phase of the SDLC represents the first opportunity for developers to ensure that the individual software components they have developed are security tested before they are integrated with other components or built into the application. Software components might consist of software artifacts such as functions, methods, and classes, as well as application programming interfaces, libraries, and executable files. For security testing, developers can rely on the results of the source code analysis to verify statically that the developed source code does not include potential vulnerabilities and is compliant with the secure coding standards. Security unit tests can further verify dynamically (i.e., at run time) that the components function as expected. Before integrating both new and existing code changes in the application build, the results of the static and dynamic analysis should be reviewed and validated.
+O alvo dos testes de segurança é todo o sistema que está vulnerável a ataques. Durante esta fase, os testadores de segurança podem determinar se as vulnerabilidades podem ser exploradas. Isso inclui vulnerabilidades comuns de aplicativos web, bem como problemas de segurança que foram identificados anteriormente no SDLC com outras atividades, tais como a modelagem de ameaças, a análise de código-fonte e  as revisões de segurança no código.
 
-The validation of source code before integration in application builds is usually the responsibility of the senior developer. Senior developers are often the subject matter experts in software security and their role is to lead the secure code review. They must make decisions on whether to accept the code to be released in the application build, or to require further changes and testing. This secure code review workflow can be enforced via formal acceptance, as well as a check in a workflow management tool. For example, assuming the typical defect management workflow used for functional bugs, security bugs that have been fixed by a developer can be reported on a defect or change management system. The build master then can look at the test results reported by the developers in the tool, and grant approvals for checking in the code changes into the application build.
+Normalmente, os engenheiros de testes, e não os desenvolvedores, realizam testes de segurança quando o aplicativo está na fase de testes de integração. Os engenheiros de teste têm conhecimento de vulnerabilidades de segurança de aplicativos web, técnicas de teste de caixa preta e caixa branca e são responsáveis pela validação dos requisitos de segurança nesta fase. Para realizar testes de segurança, é um pré-requisito que os casos de teste de segurança sejam documentados nas diretrizes e procedimentos de teste de segurança.
 
-### Security Testing in the Test Workflow
+Um engenheiro de testes que valida a segurança do aplicativo no ambiente de sistema integrado pode liberar o aplicativo para testes no ambiente operacional (por exemplo, testes de aceitação do usuário). Nesse estágio do SDLC (ou seja, validação), o teste funcional do aplicativo geralmente é responsabilidade dos testadores do time de controle de qualidade, enquanto hackers de chapéu branco(white hat) ou consultores de segurança geralmente são responsáveis pelos testes de segurança. Algumas organizações contam com sua própria equipe especializada de hackers éticos para conduzir esses testes ao passo que uma avaliação de terceiros não é necessária (a não ser para fins de auditoria).
 
-After components and code changes are tested by developers and checked in to the application build, the most likely next step in the software development process workflow is to perform tests on the application as a whole entity. This level of testing is usually referred to as integrated test and system level test. When security tests are part of these testing activities, they can be used to validate both the security functionality of the application as a whole, as well as the exposure to application level vulnerabilities. These security tests on the application include both white-box testing, such as source code analysis, and black-box testing, such as penetration testing. Tests can also include gray-box testing, in which it is assumed that the tester has some partial knowledge about the application. For example, with some knowledge about the session management of the application, the tester can better understand whether the log out and timeout functions are properly secured.
-
-The target for the security tests is the complete system that is vulnerable to attack. During this phase, it is possible for security testers to determine whether vulnerabilities can be exploited. These include common web application vulnerabilities, as well as security issues that have been identified earlier in the SDLC with other activities such as threat modeling, source code analysis, and secure code reviews.
-
-Usually, testing engineers, rather then software developers, perform security tests when the application is in scope for integration system tests. Testing engineers have security knowledge of web application vulnerabilities, black-box and white-box testing techniques, and own the validation of security requirements in this phase. In order to perform security tests, it is a prerequisite that security test cases are documented in the security testing guidelines and procedures.
-
-A testing engineer who validates the security of the application in the integrated system environment might release the application for testing in the operational environment (e.g., user acceptance tests). At this stage of the SDLC (i.e., validation), the application's functional testing is usually a responsibility of QA testers, while white-hat hackers or security consultants are usually responsible for security testing. Some organizations rely on their own specialized ethical hacking team to conduct such tests when a third party assessment is not required (such as for auditing purposes).
-
-Since these tests can sometimes be the last line of defense for fixing vulnerabilities before the application is released to production, it is important that issues are addressed as recommended by the testing team. The recommendations can include code, design, or configuration change. At this level, security auditors and information security officers discuss the reported security issues and analyze the potential risks according to information risk management procedures. Such procedures might require the development team to fix all high risk vulnerabilities before the application can be deployed, unless such risks are acknowledged and accepted.
+Como esses testes às vezes podem ser a última linha de defesa para correção de vulnerabilidades antes que o aplicativo seja lançado em ambiente de produção, é importante que os problemas sejam resolvidos conforme recomendado pela equipe de testes. As recomendações podem incluir alteração de código, design ou configuração. Nesse nível, os auditores de segurança e demais responsáveis de segurança da informação discutem os problemas relatados e analisam os riscos potenciais de acordo com os procedimentos de gerenciamento de riscos da informação. Esses procedimentos podem exigir que a equipe de desenvolvimento conserte todas as vulnerabilidades de alto risco antes que o aplicativo possa ser implantado, a menos que tais riscos sejam reconhecidos e aceitos.
 
 ### Developer's Security Tests
 
