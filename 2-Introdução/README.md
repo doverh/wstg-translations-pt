@@ -95,7 +95,7 @@ Vulnerability studies such as [Symantec's Internet Security Threat Report](https
 
 There are several incorrect assumptions in the patch-and-penetrate model. Many users believe that patches interfere with normal operations or might break existing applications. It is also incorrect to assume that all users are aware of newly released patches. Consequently not all users of a product will apply patches, either because they think patching may interfere with how the software works, or because they lack knowledge about the existence of the patch.
 
-![Window of Vulnerability](images/WindowExposure.png)\
+![Window of Vulnerability](WindowExposure.png)
 *Figure 2-2: Window of Vulnerability*
 
 It is essential to build security into the Software Development Life Cycle (SDLC) to prevent reoccurring security problems within an application. Developers can build security into the SDLC by developing standards, policies, and guidelines that fit and work within the development methodology. Threat modeling and other techniques should be used to help assign appropriate resources to those parts of a system that are most at risk.
