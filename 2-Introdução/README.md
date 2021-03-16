@@ -604,5 +604,3 @@ Finalmente, CIOs (Chief Information Officers CIOs) e CISOs (Chief Information Se
 ## Referências
 
 - US National Institute of Standards (NIST) 2002 [pesquisa sobre o custo de softwares inseguros na economia americana devido a testes de software inadequados](https://www.nist.gov/director/planning/upload/report02-3.pdf)
-
-![image](https://user-images.githubusercontent.com/25070780/111341433-e526dd80-864f-11eb-96f5-4b5b7d6e6e23.png)
