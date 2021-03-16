@@ -42,7 +42,8 @@ This document is designed to help organizations understand what comprises a test
 
 Most people today don’t test software until it has already been created and is in the deployment phase of its life cycle (i.e., code has been created and instantiated into a working web application). This is generally a very ineffective and cost-prohibitive practice. One of the best methods to prevent security bugs from appearing in production applications is to improve the Software Development Life Cycle (SDLC) by including security in each of its phases. An SDLC is a structure imposed on the development of software artifacts. If an SDLC is not currently being used in your environment, it is time to pick one! The following figure shows a generic SDLC model as well as the (estimated) increasing cost of fixing security bugs in such a model.
 
-![Generic SDLC Model](images/SDLC.jpg)\
+![Generic SDLC Model](Images/SDLC.jpg)
+
 *Figure 2-1: Generic SDLC Model*
 
 Companies should inspect their overall SDLC to ensure that security is an integral part of the development process. SDLCs should include security tests to ensure security is adequately covered and controls are effective throughout the development process.
@@ -95,7 +96,7 @@ Vulnerability studies such as [Symantec's Internet Security Threat Report](https
 
 There are several incorrect assumptions in the patch-and-penetrate model. Many users believe that patches interfere with normal operations or might break existing applications. It is also incorrect to assume that all users are aware of newly released patches. Consequently not all users of a product will apply patches, either because they think patching may interfere with how the software works, or because they lack knowledge about the existence of the patch.
 
-![Window of Vulnerability](images/WindowExposure.png)\
+![Window of Vulnerability](Images/WindowExposure.png)
 *Figure 2-2: Window of Vulnerability*
 
 It is essential to build security into the Software Development Life Cycle (SDLC) to prevent reoccurring security problems within an application. Developers can build security into the SDLC by developing standards, policies, and guidelines that fit and work within the development methodology. Threat modeling and other techniques should be used to help assign appropriate resources to those parts of a system that are most at risk.
@@ -275,12 +276,12 @@ Of course there are times and circumstances where only one technique is possible
 
 A balanced approach varies depending on many factors, such as the maturity of the testing process and corporate culture. It is recommended that a balanced testing framework should look something like the representations shown in Figure 3 and Figure 4. The following figure shows a typical proportional representation overlaid onto the SLDC. In keeping with research and experience, it is essential that companies place a higher emphasis on the early stages of development.
 
-![Proportion of Test Effort in SDLC](images/ProportionSDLC.png)\
+![Proportion of Test Effort in SDLC](Images/ProportionSDLC.png)
 *Figure 2-3: Proportion of Test Effort in SDLC*
 
 The following figure shows a typical proportional representation overlaid onto testing techniques.
 
-![Proportion of Test Effort According to Test Technique](images/ProportionTest.png)\
+![Proportion of Test Effort According to Test Technique](Images/ProportionTest.png)
 *Figure 2-4: Proportion of Test Effort According to Test Technique*
 
 ### A Note about Web Application Scanners
@@ -427,7 +428,7 @@ Attacker breaks the authentication through a brute force or dictionary attack of
 
 The graphical example below depicts the derivation of security requirements via use and misuse cases. The functional scenario consists of the user actions (entering a username and password) and the application actions (authenticating the user and providing an error message if validation fails). The misuse case consists of the attacker actions, i.e. trying to break authentication by brute forcing the password via a dictionary attack and by guessing the valid usernames from error messages. By graphically representing the threats to the user actions (misuses), it is possible to derive the countermeasures as the application actions that mitigate such threats.
 
-![Use and Misuse case](images/640px-UseAndMisuseCase.png)\
+![Use and Misuse case](Images/640px-UseAndMisuseCase.png)
 *Figure 2-5: Use and Misuse Case*
 
 #### Step 4: Elicit the Security Requirements
