@@ -423,8 +423,6 @@ Para derivar os requisitos de segurança de [casos de uso e mau uso] ](https://i
 
 O usuário se autentica fornecendo um nome de usuário e uma senha. O aplicativo concede acesso aos usuários com base na autenticação das credenciais do usuário pelo aplicativo e fornece erros específicos ao usuário quando a autenticação falha.
 
-User authenticates by supplying a username and password. The application grants access to users based upon authentication of user credentials by the application and provides specific errors to the user when validation fails.
-
 ### Passo 2: Descreve o cenário negativo
 
 O invasor quebra a autenticação por meio de um ataque de força bruta ou de dicionário de senhas, bem como através da coleta de contas vulneráveis no aplicativo. Os erros de validação fornecem informações específicas a um invasor que são usadas para adivinhar quais contas são registradas e válidas (nomes de usuário). O invasor então tenta usar força bruta na senha de uma conta válida. Um ataque de força bruta a senhas com comprimento mínimo de quatro dígitos pode ser bem-sucedido com um número limitado de tentativas (ou seja, 10 ^ 4, ou 10000 tentativas).
@@ -439,11 +437,11 @@ O exemplo gráfico abaixo descreve a derivação dos requisitos de segurança po
 ### Passo 4: Extraia os requisitos de segurança
 
 Nesse caso os seguintes requisitos de segurança para autenticação são derivados:
-In this case, the following security requirements for authentication are derived:
 
 1. Requisitos de senha precisam estar alinhados com os padrões suficientes de complexidade vigentes. 
 2. Contas precisam ser bloqueadas após cinco tentativas frustradas de acesso. 
 3. Mensagens de erro de acesso precisam ser genéricas. 
+
 Esses requisitos de segurança precisam ser documentados e testados. 
   
 ## Testes de Segurança Integrados ao fluxo de Desenvolvimento e  Testes 
@@ -490,8 +488,6 @@ Os desenvolvedores dotados de uma ferramenta de análise de código-fonte integr
 
 Os cenários de ameaças, identificados através de casos de uso e uso indevido, podem ser usados para documentar os procedimentos de testes de componentes de software. No caso de componentes de autenticação, por exemplo, os testes de unidade de segurança podem validar a funcionalidade de bloqueio de conta, bem como os dados de entrada do usuário não podem ser usados para contornar o bloqueio da conta (por exemplo, definindo o contador de bloqueio da conta para um número negativo).
 
-At the component level, security unit tests can validate positive assertions as well as negative assertions, such as errors and exception handling. Exceptions should be caught without leaving the system in an insecure state, such as potential denial of service caused by resources not being de-allocated (e.g., connection handles not closed within a final statement block), as well as potential elevation of privileges (e.g., higher privileges acquired before the exception is thrown and not re-set to the previous level before exiting the function). Secure error handling can validate potential information disclosure via informative error messages and stack traces.
-
 No nível de componentes, os testes de unidade de segurança podem confirmar validações positivas, bem como negativas, como erros e tratamento de exceções. As exceções devem ser detectadas sem deixar o sistema exposto, tal como potencial negação de serviço (Denial of Service) causada por recursos não sendo desalocados (por exemplo, identificadores de conexão não fechados dentro de um bloco de instrução final). Também a potencial elevação de privilégios (por exemplo , privilégios mais altos adquiridos antes da exceção ser lançada e não redefinidos para o nível anterior antes da saída da função). O tratamento seguro de erros pode validar a divulgação de informações em potencial por meio de mensagens de erro informativas e  conteúdo de pilha (stack trace).
 
 Casos de teste de segurança unitários podem ser desenvolvidos por um engenheiro de segurança que é o especialista no assunto. Também é o responsável por validar se os problemas de segurança no código-fonte foram corrigidos e podem ser verificados na construção do sistema integrado. Normalmente, o gerenciador das versões do aplicativo também garante que as bibliotecas de terceiros e os arquivos executáveis sejam avaliados quanto à segurança para possíveis vulnerabilidades antes de serem integrados a versão compilada do aplicativo.
@@ -530,8 +526,6 @@ Em testes de software tradicionais, o número de defeitos de software, como os b
 
 Uma característica dos dados de testes de segurança, em comparação com os dados de qualidade, é a categorização em termos de ameaça, da exposição da vulnerabilidade e do impacto potencial da vulnerabilidade para determinar o risco. O teste de segurança dos aplicativos consiste em gerenciar riscos técnicos para garantir que as medidas preventivas do aplicativo atinjam níveis aceitáveis. Por esse motivo, os dados de testes de segurança precisam apoiar a estratégia de risco de segurança em pontos de verificação críticos durante o SDLC. Por exemplo, as vulnerabilidades encontradas com a análise do código-fonte representam uma medida inicial de risco. Uma medida de risco para a vulnerabilidade (por exemplo, alto, médio, baixo),  pode ser calculada determinando os fatores de exposição e probabilidade e validando a vulnerabilidade com testes de invasão. As métricas de risco, associadas às vulnerabilidades encontradas através de testes de segurança, capacitam o gerenciamento de negócios na tomamada de decisões de gerenciamento de risco,  como ao decidir se os riscos podem ser aceitos, mitigados ou transferidos em diferentes níveis dentro da organização (por exemplo, riscos comerciais ou técnicos).
 
-A characteristic of security test data, compared to quality data, is the categorization in terms of the threat, the exposure of the vulnerability, and the potential impact posed by the vulnerability to determine the risk. Testing applications for security consists of managing technical risks to make sure that the application countermeasures meet acceptable levels. For this reason, security testing data needs to support the security risk strategy at critical checkpoints during the SDLC. For example, vulnerabilities found in source code with source code analysis represent an initial measure of risk. A measure of risk (e.g., high, medium, low) for the vulnerability can be calculated by determining the exposure and likelihood factors, and by validating the vulnerability with penetration tests. The risk metrics associated to vulnerabilities found with security tests empower business management to make risk management decisions, such as to decide whether risks can be accepted, mitigated, or transferred at different levels within the organization (e.g., business as well as technical risks).
-
 Ao avaliar o nível de segurança de um aplicativo é importante levar em consideração certos fatores, tais como o tamanho do aplicativo sendo desenvolvido. Tamanho do aplicativo tem sido estatisticamente provado estar relacionado com o número de problemas encontrados durante o teste. Já que o teste reduz problemas, faz sentido que aplicativos maiores sejam testados mais frequentemente que aplicativos menores.
 
 Quando os testes de segurança são realizados em várias fases do SDLC, os dados de teste podem provar a capacidade dos testes de segurança na detecção de vulnerabilidades assim que elas são introduzidas. Os dados de teste também podem provar a efetividade na remoção de vulnerabilidades pela implantação de medidas preventivas em diferentes pontos de verificação do SDLC. Uma medida desse tipo também é definida como "métrica de contenção" e fornece uma medida da capacidade da avaliação de segurança para manter a segurança em cada das fases de desenvolvimento. Estas métricas de contenção são também um fator crítico na redução do custo de correção das vulnerabilidades. É mais barato lidar com essas vulnerabilidades na mesma fase do SDLC nas quais são encontradas do que as corrigir numa fase seguinte. 
@@ -549,64 +543,66 @@ Quando os dados de testes de segurança são relatados, eles devem fornecer mét
 
 Alguns exemplos de indícios ou pistas sustentados por dados de testes de segurança:
 
-- Are vulnerabilities reduced to an acceptable level for release?
-- How does the security quality of this product compare with similar software products?
-- Are all security test requirements being met?
-- What are the major root causes of security issues?
-- How numerous are security flaws compared to security bugs?
-- Which security activity is most effective in finding vulnerabilities?
-- Which team is more productive in fixing security defects and vulnerabilities?
-- What percentage of overall vulnerabilities are high risk?
-- Which tools are most effective in detecting security vulnerabilities?
-- What kind of security tests are most effective in finding vulnerabilities (e.g., white-box vs. black-box) tests?
-- How many security issues are found during secure code reviews?
-- How many security issues are found during secure design reviews?
+- As vulnerabilidades foram reduzidas a um nível aceitável à próxima entrega?
+- Como está a qualidade da segurança deste produto comparada a produtos de software semelhantes?
+- Todos os requisitos de teste de segurança estão sendo atendidos? 
+- Quais são as principais causas raízes dos problemas de segurança? 
+- Qual o número de falhas de segurança em comparação aos bugs de segurança?
+- Qual atividade de segurança é mais efetiva para revelar vulnerabilidades?
+- Qual time é mais produtivo em corrigir defeitos e vulnerabilidades de segurança?
+- Qual porcentagem do total de vulnerabilidades é de alto risco?
+- Quais ferramentas são mais efetivas na detecção de vulnerabilidades de segurança?
+- Qual tipo de testes de segurança é mais efetivo na detecção de vulnerabilidades (por exemplo, testes de caixa branca X caixa preta)?
+- Quantos problemas de segurança são encontrados durante a revisão de segurança de código?
+- Quantos problemas de segurança são encontrados durante a revisão de segurança de design?
 
-In order to make a sound judgment using the testing data, it is important to have a good understanding of the testing process as well as the testing tools. A tool taxonomy should be adopted to decide which security tools to use. Security tools can be qualified as being good at finding common, known vulnerabilities, when targeting different artifacts.
+Para fazer um bom julgamento usando os dados de testes, é importante um bom entendimento do processo e ferramentas de testes. Uma taxonomia, ou método de arranjo, de ferramentas de segurança deve ser adotada para decidir quais usar. As ferramentas de segurança podem ser boas em desvendar vulnerabilidades comuns e conhecidas, quando direcionadas a diferentes artefatos.
 
-It is important to note that unknown security issues are not tested. The fact that a security test is clear of issues does not mean that the software or application is good.
+É importante observar que problemas de segurança desconhecidos não são testados. Logo, o fato de um teste de segurança estar livre de problemas não significa que o software ou aplicativo seja seguro.
 
-Even the most sophisticated automation tools are not a match for an experienced security tester. Just relying on successful test results from automated tools will give security practitioners a false sense of security. Typically, the more experienced the security testers are with the security testing methodology and testing tools, the better the results of the security test and analysis will be. It is important that managers making an investment in security testing tools also consider an investment in hiring skilled human resources, as well as security test training.
+Mesmo as ferramentas de automação mais sofisticadas não são páreo para um testador de segurança experiente. Resultados de testes executados em ferramentas automatizadas e com resultados bem-sucedidos dará aos profissionais de segurança uma falsa sensação de segurança. Normalmente, quanto mais experiência com a metodologia de teste de segurança e ferramentas de testes os testadores de segurança possuem, melhores serão os resultados do teste e da análise de segurança. É importante que os gerentes que investim em ferramentas de teste de segurança também considerem investir na contratação de recursos humanos qualificados, bem como em treinamentos de teste de segurança.
 
-### Reporting Requirements
+### Relatórios de Requisitos (Reporting Requirements)
 
-The security posture of an application can be characterized from the perspective of the effect, such as number of vulnerabilities and the risk rating of the vulnerabilities, as well as from the perspective of the cause or origin, such as coding errors, architectural flaws, and configuration issues.
+A postura de segurança de um aplicativo pode ser caracterizada pela perspectiva do efeito, tais como pelo número de vulnerabilidades e a classificação de risco das vulnerabilidades, bem como pela perspectiva da causa ou origem, como erros de código, falhas de design e problemas de configuração.
 
-Vulnerabilities can be classified according to different criteria. The most commonly used vulnerability severity metric is the [Common Vulnerability Scoring System](https://www.first.org/cvss/) (CVSS), a standard maintained by the Forum of Incident Response and Security Teams (FIRST).
+As vulnerabilidades podem ser classificadas de acordo com diferentes critérios. A métrica de severidade da vulnerabilidade mais comumente usada é o Sistema de Métricas de Vulnerabilidades Comuns ou [Common Vulnerability Scoring System]( https://www.first.org/cvss/)) (CVSS), um padrão mantido pelo Fórum de Equipes de Resposta a Incidentes e Segurança (FIRST).
 
-When reporting security test data, the best practice is to include the following information:
+Ao relatar dados de teste de segurança, a prática recomenda a inclusão das seguintes informações:
 
-- a categorization of each vulnerability by type;
-- the security threat that each issue is exposed to;
-- the root cause of each security issue, such as the bug or flaw;
-- each testing technique used to find the issues;
-- the remediation, or countermeasure, for each vulnerability; and
-- the severity rating of each vulnerability (e.g., high, medium, low, or CVSS score).
+- categorização de cada uma das vulnerabilidades por tipo;
+- ameaça de segurança a que cada problema é exposto;
+- causa raiz de cada problema de segurança tais como bug ou falha;
+- cada técnica de teste utilizada para encontrar os problemas;
+- remediação ou medida preventiva para cada vulnerabilidade; 
+- grau de severidade de cada vulnerabilidade(por exemplo, baixa, media, alta ou classificação pelo CVSS score)
 
-By describing what the security threat is, it will be possible to understand if and why the mitigation control is ineffective in mitigating the threat.
+Ao descrever o que é a ameaça de segurança, será possível entender se e por que o controle de mitigação é ineficaz para mitigar a ameaça.
 
-Reporting the root cause of the issue can help pinpoint what needs to be fixed. In the case of white-box testing, for example, the software security root cause of the vulnerability will be the offending source code.
+Relatar a causa raiz do problema pode ajudar a identificar o que precisa ser corrigido. No caso do teste de caixa branca, por exemplo, a causa raiz da vulnerabilidade de segurança do software será o código-fonte ofensivo.
 
-Once issues are reported, it is also important to provide guidance to the software developer on how to re-test and find the vulnerability. This might involve using a white-box testing technique (e.g., security code review with a static code analyzer) to find if the code is vulnerable. If a vulnerability can be found via a black-box penetration test, the test report also needs to provide information on how to validate the exposure of the vulnerability to the front end (e.g., client).
+Assim que os problemas são reportados, também é importante fornecer orientação ao desenvolvedor de software sobre como testar novamente e encontrar a vulnerabilidade. Isso pode envolver o uso de uma técnica de teste de caixa branca (por exemplo, revisão do código de segurança com um analisador de código estático) para descobrir se o código é vulnerável. Se uma vulnerabilidade pode ser encontrada por meio de um teste de invasão de caixa preta, o relatório do teste também precisa fornecer informações sobre como validar a exposição da vulnerabilidade na interface (por exemplo, cliente).
 
-The information about how to fix the vulnerability should be detailed enough for a developer to implement a fix. It should provide secure coding examples, configuration changes, and provide adequate references.
+As informações sobre como corrigir a vulnerabilidade devem ser detalhadas o suficiente para que um desenvolvedor implemente uma correção. Deve fornecer exemplos de codificação segura, alterações de configuração e fornecer referências adequadas.
 
-Finally, the severity rating contributes to the calculation of risk rating and helps to prioritize the remediation effort. Typically, assigning a risk rating to the vulnerability involves external risk analysis based upon factors such as impact and exposure.
+Por fim, a classificação de gravidade contribui para o cálculo da classificação de risco e ajuda a priorizar o esforço de remediação. Normalmente, atribuir uma classificação de risco à vulnerabilidade envolve uma análise de risco externa com base em fatores como impacto e exposição.
 
-### Business Cases
+### Casos de Negócio (Business Case)
 
-For the security test metrics to be useful, they need to provide value back to the organization's security test data stakeholders. The stakeholders can include project managers, developers, information security offices, auditors, and chief information officers. The value can be in terms of the business case that each project stakeholder has, in terms of role and responsibility.
+Para que as métricas de testes de segurança sejam úteis, elas precisam retribuir valores às partes interessadas nos dados de testes de segurança da organização. As partes interessadas podem incluir gerentes de projeto, desenvolvedores, departamentos de segurança da informação, auditores e diretores de informação. O valor pode ser em termos do caso de negócio que cada parte interessada do projeto possui, em termos de função e responsabilidade.
 
-Software developers look at security test data to show that software is coded securely and efficiently. This allows them to make the case for using source code analysis tools, following secure coding standards, and attending software security training.
+Os desenvolvedores de software analisam os dados de teste de segurança para mostrar que o software é codificado de forma segura e eficiente. Isso permite que eles defendam o uso de ferramentas de análise de código, seguindo padrões de codificação seguros e participando de treinamento de segurança de software.
 
-Project managers look for data that allows them to successfully manage and utilize security testing activities and resources according to the project plan. To project managers, security test data can show that projects are on schedule and moving on target for delivery dates, and are getting better during tests.
+Os gerentes de projeto procuram dados que lhes permitam gerenciar e utilizar com sucesso as atividades e recursos de testes de segurança de acordo com o plano do projeto. Para os gerentes de projeto, os dados de teste de segurança podem mostrar que os projetos estão seguindo o cronograma de entregas, e estão sendo aprimorados durante os testes.
 
-Security test data also helps the business case for security testing if the initiative comes from information security officers (ISOs). For example, it can provide evidence that security testing during the SDLC does not impact the project delivery, but rather reduces the overall workload needed to address vulnerabilities later in production.
+Os dados de testes de segurança também auxiliam o caso de negócios para testes de segurança se a iniciativa vier de oficiais de segurança da informação (Information Security Officers (ISOs)). Por exemplo, pode fornecer evidências de que o teste de segurança durante o SDLC não afeta a entrega do projeto, mas reduz a carga de trabalho geral necessária para resolver vulnerabilidades posteriormente na produção.
 
-To compliance auditors, security test metrics provide a level of software security assurance and confidence that security standard compliance is addressed through the security review processes within the organization.
+Para os auditores de conformidade, as métricas de testes de segurança fornecem um nível de garantia e confiança de segurança do software uma vez que a conformidade com o padrão de segurança será abordada por meio dos processos de revisão de segurança dentro da organização.
 
-Finally, Chief Information Officers (CIOs), and Chief Information Security Officers (CISOs), who are responsible for the budget that needs to be allocated in security resources, look for derivation of a cost-benefit analysis from security test data. This allows them to make informed decisions about which security activities and tools to invest in. One of the metrics that supports such analysis is the Return On Investment (ROI) in security. To derive such metrics from security test data, it is important to quantify the differential between the risk, due to the exposure of vulnerabilities, and the effectiveness of the security tests in mitigating the security risk, then factor this gap with the cost of the security testing activity or the testing tools adopted.
+Finalmente, CIOs (Chief Information Officers CIOs) e CISOs (Chief Information Security Officers) , responsáveis pelo orçamento a ser alocado em segurança, utilizam dados de teste de segurança para derivar uma análise de custo-benefício. Isso permite que eles tomem decisões informadas sobre quais atividades e ferramentas de segurança devem investir. Uma das métricas que os apoiam nessa análise é o Retorno do Investimento (ROI) em segurança. Para derivar tais métricas de dados de testes de segurança, é importante quantificar a diferença entre o risco da exposição de vulnerabilidades, e a eficácia dos testes de segurança em mitigar o risco. A partir dai, (calcular???) essa lacuna com o custo da segurança de testes ou das ferramentas de testes adotadas.
 
-## References
+## Referências
 
-- US National Institute of Standards (NIST) 2002 [survey on the cost of insecure software to the US economy due to inadequate software testing](https://www.nist.gov/director/planning/upload/report02-3.pdf)
+- US National Institute of Standards (NIST) 2002 [pesquisa sobre o custo de softwares inseguros na economia americana devido a testes de software inadequados](https://www.nist.gov/director/planning/upload/report02-3.pdf)
+
+![image](https://user-images.githubusercontent.com/25070780/111341433-e526dd80-864f-11eb-96f5-4b5b7d6e6e23.png)
