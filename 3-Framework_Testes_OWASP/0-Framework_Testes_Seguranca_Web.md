@@ -1,10 +1,11 @@
-# The Web Security Testing Framework
+# O Framework de Testes de Segurança
 
-## Overview
+## Visão Geral
 
-This section describes a typical testing framework that can be developed within an organization. It can be seen as a reference framework comprised of techniques and tasks that are appropriate at various phases of the software development life cycle (SDLC). Companies and project teams can use this model to develop their own testing framework, and to scope testing services from vendors. This framework should not be seen as prescriptive, but as a flexible approach that can be extended and molded to fit an organization's development process and culture.
+Essa seção descreve um modelo (Framework) típico de testes que pode ser desenvolvido dentro de uma organização. Ele pode ser visto como um framework de referência composta por técnicas e tarefas que são apropriadas ao ciclo de vida de desenvolvimento de software (SDLC). Organizações e decimes projetos podem utilizar um modelo para desenvolver seu próprio framework de testes, e para desenvolver serviços e testes para fornecedores.
+Essa estrutura não deve ser vista como um receituário, mas como uma abordagem flexível que pode ser estendida e moldada para se adequar ao processo de desenvolvimento e à cultura de uma organização.
 
-This section aims to help organizations build a complete strategic testing process, and is not aimed at consultants or contractors who tend to be engaged in more tactical, specific areas of testing.
+Essa sessão tem por objetivo ajudar organizações a contruir uma estratégia de processos de testes completa e não se destina a consultores ou terceirizados que tendem a se envolver em áreas de testes mais táticas e específicas.
 
 It is critical to understand why building an end-to-end testing framework is crucial to assessing and improving software security. In *Writing Secure Code*, Howard and LeBlanc note that issuing a security bulletin costs Microsoft at least $100,000, and it costs their customers collectively far more than that to implement the security patches. They also note that the US government's [CyberCrime web site](https://www.justice.gov/criminal-ccips) details recent criminal cases and the loss to organizations. Typical losses far exceed USD $100,000.
 
@@ -131,3 +132,5 @@ The following figure shows a typical SDLC Testing Workflow.
 ![Typical SDLC Testing Workflow](images/Typical_SDLC_Testing_Workflow.gif)\
  *Figure 3-1: Typical SDLC testing workflow*
 
+
+![image](https://user-images.githubusercontent.com/25070780/111718892-2a563580-8831-11eb-8397-9b694c357f99.png)
