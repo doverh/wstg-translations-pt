@@ -1,19 +1,19 @@
-# Penetration Testing Methodologies
+# Metodologias para testes de invasão
 
-## Summary
+## Sumário
 
-- [OWASP Testing Guides](#owasp-testing-guides)
-  - Web Security Testing Guide (WSTG)
-  - Mobile Security Testing Guide (MSTG)
-  - Firmware Security Testing Methodology
-- [Penetration Testing Execution Standard](#penetration-testing-execution-standard)
-- [PCI Penetration Testing Guide](#pci-penetration-testing-guide)
-  - [PCI DSS Penetration Testing Guidance](#pci-dss-penetration-testing-guidance)
-  - [PCI DSS Penetration Testing Requirements](#pci-dss-penetration-testing-requirements)
-- [Penetration Testing Framework](#penetration-testing-framework)
-- [Technical Guide to Information Security Testing and Assessment](#technical-guide-to-information-security-testing-and-assessment)
-- [Open Source Security Testing Methodology Manual](#open-source-security-testing-methodology-manual)
-- [References](#references)
+- [Guia de testes OWASP](#owasp-testing-guides)
+  - Guia de testes de segurança Web (WSTG)
+  - Guia de testes de segurança Mobile (MSTG)
+  - Metodologia de teste para segurança firmware
+- [Padrão de execução para testes de invasão](#penetration-testing-execution-standard)
+- [PCI Guia de testes de invasão](#pci-penetration-testing-guide)
+  - [PCI DSS instruções para testes de invasão](#pci-dss-penetration-testing-guidance)
+  - [PCI DSS requisites de testes de invasão](#pci-dss-penetration-testing-requirements)
+- [Framework de testes de invasão](#penetration-testing-framework)
+- [Guia técnico de testes e verificação de segurança da informação](#technical-guide-to-information-security-testing-and-assessment)
+- [Manual de metodologia de testes de segurança de código aberto](#open-source-security-testing-methodology-manual)
+- [Referencias](#referencias)
 
 ## OWASP Testing Guides
 
@@ -118,7 +118,7 @@ OSSTMM includes the following key sections:
 
 [Open Source Security Testing Methodology Manual](https://www.isecom.org/OSSTMM.3.pdf)
 
-## References
+## Referencias
 
 - [PCI Data Security Standard - Penetration TestingGuidance](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
 - [PTES Standard](http://www.pentest-standard.org/index.php/Main_Page)
