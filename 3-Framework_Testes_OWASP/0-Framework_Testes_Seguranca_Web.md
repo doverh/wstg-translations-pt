@@ -1,133 +1,130 @@
-# The Web Security Testing Framework
 
-## Overview
+# O Framework de Testes de Segurança
 
-This section describes a typical testing framework that can be developed within an organization. It can be seen as a reference framework comprised of techniques and tasks that are appropriate at various phases of the software development life cycle (SDLC). Companies and project teams can use this model to develop their own testing framework, and to scope testing services from vendors. This framework should not be seen as prescriptive, but as a flexible approach that can be extended and molded to fit an organization's development process and culture.
+## Visão Geral
 
-This section aims to help organizations build a complete strategic testing process, and is not aimed at consultants or contractors who tend to be engaged in more tactical, specific areas of testing.
+Essa seção descreve um modelo (Framework) típico de testes que pode ser desenvolvido dentro de uma organização. Ele pode ser visto como um framework de referência composta por técnicas e tarefas que são apropriadas ao ciclo de vida de desenvolvimento de software (SDLC). Organizações e decimes projetos podem utilizar um modelo para desenvolver seu próprio framework de testes, e para desenvolver serviços e testes para fornecedores.
+Essa estrutura não deve ser vista como um receituário, mas como uma abordagem flexível que pode ser estendida e moldada para se adequar ao processo de desenvolvimento e à cultura de uma organização.
 
-It is critical to understand why building an end-to-end testing framework is crucial to assessing and improving software security. In *Writing Secure Code*, Howard and LeBlanc note that issuing a security bulletin costs Microsoft at least $100,000, and it costs their customers collectively far more than that to implement the security patches. They also note that the US government's [CyberCrime web site](https://www.justice.gov/criminal-ccips) details recent criminal cases and the loss to organizations. Typical losses far exceed USD $100,000.
+Essa sessão tem por objetivo ajudar organizações a construir uma estratégia de processos de testes completa e não se destina a consultores ou terceirizados que tendem a se envolver em áreas de testes mais táticas e específicas.
+É crítico entender por que a construção de um framework de testes end-to-end é crucial para avaliar e melhorar a segurança do software. Em *Writing Secure Code*, Howard e LeBlanc observam que a emissão de um boletim de segurança custa à Microsoft pelo menos US $ 100.000 e custa a seus clientes combinadamente muito mais do que implementar os patches de segurança. Eles também observam que o [site CyberCrime] do governo dos EUA detalha casos criminais recentes e as perdas para organizações. As perdas típicas excedem em muito U$ 100.000.
 
-With economics like this, it is little wonder why software vendors move from solely performing black-box security testing, which can only be performed on applications that have already been developed, to concentrating on testing in the early cycles of application development, such as during definition, design, and development.
+Com números como esses, não é surpresa o fato de que fornecedores de software estão migrando a exclusividade de execução apenas de testes de segurança de caixa preta, que só podem ser realizados em aplicativos que já foram desenvolvidos, para se concentrarem em testes nos primeiros ciclos de desenvolvimento de aplicativos, como durante definição, design e desenvolvimento.
 
-Many security practitioners still see security testing in the realm of penetration testing. As discussed in the previous chapter, while penetration testing has a role to play, it is generally inefficient at finding bugs and relies excessively on the skill of the tester. It should only be considered as an implementation technique, or to raise awareness of production issues. To improve the security of applications, the security quality of the software must be improved. That means testing security during the definition, design, development, deployment, and maintenance stages, and not relying on the costly strategy of waiting until code is completely built.
+Muitos profissionais e segurança ainda veem testes de segurança como o reino dos testes de invasão. Como discutido no capítulo anterior, ainda que os testes de invasões detenham um papel no palco, são geralmente insuficientes para encontrar bugs e dependem excessivamente das habilidades do testador. ele deveria ser a pena se considerado como uma técnica de implementação, ou para tornar públicos problemas de produção. Para melhorar a segurança de aplicativos, a qualidade da segurança de softwares precisa ser melhorada. Isso significa testar segurança durantes as fases de definição, design, desenvolvimento, implantação e manutenção e não depender da custosa estratégia de esperar até que o código seja completamente construído.   
 
-As discussed in the introduction of this document, there are many development methodologies, such as the Rational Unified Process, eXtreme and Agile development, and traditional waterfall methodologies. The intent of this guide is to suggest neither a particular development methodology, nor provide specific guidance that adheres to any particular methodology. Instead, we are presenting a generic development model, and the reader should follow it according to their company process.
+Tal como discutido na introdução desse documento, existem muitas metodologia de desenvolvimento, tais como o processo racional unificado (RUP), os desenvolvimentos ágeis (XP ,SCRUM), e as metodologias cascata tradicionais. A intenção desse guia não é sugerir uma ou outra metodologia de desenvolvimento em particular, nem mesmo prover uma direção específica para adesão de uma delas. Por outro lado, nós apresentamos um modelo de desenvolvimento genérico, e o leitor deve seguir ele de acordo com o processo da organização.
+ 
+Esse framework de testes consiste em atividades que devem ser adotadas:
 
-This testing framework consists of activities that should take place:
+- Antes que o desenvolvimento inicie,
+- Durante a definição e o design,
+- Durante o desenvolvimento,
+- Durante a implantação, e
+- Durante a manutenção e operação.
 
-- Before development begins,
-- During definition and design,
-- During development,
-- During deployment, and
-- During maintenance and operations.
+## Fase 1 Antes que o desenvolvimento inicie
 
-## Phase 1 Before Development Begins
+### Fase 1.1 Defina o SDLC
 
-### Phase 1.1 Define a SDLC
+Antes que o desenvolvimento inicie, um SDLC adequado deve ser definido onde a segurança é inerente a cada estágio.
 
-Before application development starts, an adequate SDLC must be defined where security is inherent at each stage.
+### Fase 1.2 Revisão de normas e padrões
+Garantir que existi normas adequadas, padrões, e documentação em vigor. 
+Documentação é extremamente desporto antes pois se fornece ao time de desenvolvimento guias e normas que eles precisam seguir.  Pessoas apenas podem fazer a coisa certa quando sabem o que é o certo a fazer.
+Se o aplicativo é desenvolvido em Java, é essencial que exista um padrão de código seguro em Java. Se o aplicativo usa criptografia, é essencial que exista um padrão de criptografia. Não existem normas ou padrões que cubram cada situação que o time de desenvolvimento irá enfrentar.  
+Documentando os problemas comuns e previsíveis, menos decisões precisarão ser tomadas durantes o processo de desenvolvimento. 
 
-### Phase 1.2 Review Policies and Standards
+### Fase 1.3 Desenvolvendo medidas e métricas para garantir a rastreabilidade
 
-Ensure that there are appropriate policies, standards, and documentation in place. Documentation is extremely important as it gives development teams guidelines and policies that they can follow. People can only do the right thing if they know what the right thing is.
+Antes que eu desenvolvimento inicie, planeje um programa de métricas. Ao definir critérios que precisam ser medidos, se provê visibilidade de defeitos em ambos processo e produto. É essencial definir métricas antes que o desenvolvimento inicie, já que pode haver a necessidade de modificar o processo para a coleta de dados
 
-If the application is to be developed in Java, it is essential that there is a Java secure coding standard. If the application is to use cryptography, it is essential that there is a cryptography standard. No policies or standards can cover every situation that the development team will face. By documenting the common and predictable issues, there will be fewer decisions that need to be made during the development process.
+## Fase 2 Durante a definição e o design 
 
-### Phase 1.3 Develop Measurement and Metrics Criteria and Ensure Traceability
+### Fase 2.1 Revisão de Requisitos de Segurança
 
-Before development begins, plan the measurement program. By defining criteria that need to be measured, it provides visibility into defects in both the process and product. It is essential to define the metrics before development begins, as there may be a need to modify the process in order to capture the data.
+Requisitos de segurança definem como o aplicativo funciona em uma perspectiva de segurança. 
+É essencial que requisitos de segurança sejam testados. Testar nesse caso significa verificar as hipóteses levantadas nos requisitos e se existem falhas na definição dos mesmos.
 
-## Phase 2 During Definition and Design
+Por exemplo, se um requisito de segurança afirme que usuários precisam estar registrados antes de ter acesso há uma determinada sessão no site, isso significa que os usuários também precisam se registrar no sistema ou que o usuário precisa estar autenticado? Garanta que os requisitos sejam o menos ambíguos possíveis.
 
-### Phase 2.1 Review Security Requirements
+Ao procurar por falhas nos requisitos, considere observar os mecanismos de segurança tais como: 
 
-Security requirements define how an application works from a security perspective. It is essential that the security requirements are tested. Testing in this case means testing the assumptions that are made in the requirements and testing to see if there are gaps in the requirements definitions.
+- Gestão de usuários
+- Autenticação
+- Autorização
+- Confidencialidade de dados
+- Integridade
+- Controladoria
+- Gerenciamento de sessão
+- Segurança de Transporte
+- Separação do sistema por camadas 
+- Conformidade com legislação e padrões (incluindo privacidade, governo e padrões da indústria) 
 
-For example, if there is a security requirement that states that users must be registered before they can get access to the whitepapers section of a website, does this mean that the user must be registered with the system or should the user be authenticated? Ensure that requirements are as unambiguous as possible.
+### Fase 2.2 Revisão de Design e Arquitetura
 
-When looking for requirements gaps, consider looking at security mechanisms such as:
+Aplicativos devem ter design e arquitetura documentados. Essa documentação pode incluir modelos, documentos textuais, e outros artefatos similares. É essencial testar esses artefatos para ter certeza que o design e a arquitetura imponham nível apropriado de segurança tal como definido nos requisitos. Identificar falhas de segurança na fase de design não é somente mais efetivo em termos de custo-benefício, mas pode também ser um dos meios mais efetivos para se promover mudanças.  
+Por exemplo, se for identificado que o projeto exige que as decisões de autorização sejam feitas em vários locais, pode ser apropriado considerar um componente de autorização central. Se o aplicativo está realizando validação de dados em vários lugares, pode ser apropriado desenvolver uma estrutura de validação central (ou seja, fixar a validação de entrada em um lugar, em vez de em centenas de lugares, o que é muito mais barato).
+Se pontos fracos forem identificados, eles devem ser fornecidos ao arquiteto de sistema para abordagens alternativas.
 
-- User management
-- Authentication
-- Authorization
-- Data confidentiality
-- Integrity
-- Accountability
-- Session management
-- Transport security
-- Tiered system segregation
-- Legislative and standards compliance (including privacy, government, and industry standards)
+### Fase 2.3 Criar e revisar modelos UML
 
-### Phase 2.2 Review Design and Architecture
+Uma vez que o design e a arquitetura estiverem completos, construa modelos de “Unified Modeling Language” (UML) que descrevam como o aplicativo funciona. Em alguns casos, eles já podem estar disponíveis. Use esses modelos para confirmar com os designers de sistemas uma compreensão exata de como o aplicativo funciona. Se pontos fracos forem descobertos, eles devem ser fornecidos ao arquiteto de sistema para abordagens alternativas.
 
-Applications should have a documented design and architecture. This documentation can include models, textual documents, and other similar artifacts. It is essential to test these artifacts to ensure that the design and architecture enforce the appropriate level of security as defined in the requirements.
+### Fase 2.4 Criar e revisar modelos de ameaças
 
-Identifying security flaws in the design phase is not only one of the most cost-efficient places to identify flaws, but can be one of the most effective places to make changes. For example, if it is identified that the design calls for authorization decisions to be made in multiple places, it may be appropriate to consider a central authorization component. If the application is performing data validation at multiple places, it may be appropriate to develop a central validation framework (ie, fixing input validation in one place, rather than in hundreds of places, is far cheaper).
+Munido das revisões de design e arquitetura e os modelos UML, que explicam exatamente como o sistema funciona, realize um exercício de modelagem de ameaças. Desenvolva cenários de ameaças realistas. Analise o design e a arquitetura para garantir que essas ameaças tenham sido mitigadas, aceitas pela empresa ou atribuídas a terceiros, como uma empresa de seguros. Quando as ameaças identificadas não têm estratégias de mitigação, revisite o design e a arquitetura com o arquiteto de sistemas para modificar o design.
 
-If weaknesses are discovered, they should be given to the system architect for alternative approaches.
 
-### Phase 2.3 Create and Review UML Models
+## Fase 3 Durante o desenvolvimento
 
-Once the design and architecture is complete, build Unified Modeling Language (UML) models that describe how the application works. In some cases, these may already be available. Use these models to confirm with the systems designers an exact understanding of how the application works. If weaknesses are discovered, they should be given to the system architect for alternative approaches.
 
-### Phase 2.4 Create and Review Threat Models
+Teoricamente, o desenvolvimento é a implementação de um design. No entanto, no mundo real, muitas decisões de design são feitas durante o desenvolvimento do código. Frequentemente, são pequenas decisões que ou são muito detalhadas para serem descritas no projeto ou são questões que nenhuma política ou orientação padrão foi oferecida. Se o design e a arquitetura não forem adequados, o desenvolvedor se deparará com muitas decisões. Se houver políticas e padrões insuficientes, o desenvolvedor enfrentará ainda mais decisões.
 
-Armed with design and architecture reviews and the UML models explaining exactly how the system works, undertake a threat modeling exercise. Develop realistic threat scenarios. Analyze the design and architecture to ensure that these threats have been mitigated, accepted by the business, or assigned to a third party, such as an insurance firm. When identified threats have no mitigation strategies, revisit the design and architecture with the systems architect to modify the design.
+### Fase 3.1 Passo a passo do Código
 
-## Phase 3 During Development
+A equipe de segurança deve realizar uma análise do código com os desenvolvedores e, em alguns casos, os arquitetos do sistema. O passo a passo do código é uma visão de alto nível do código durante a qual os desenvolvedores podem explicar a lógica e o fluxo do código implementados. Ele permite que a equipe de revisão de código obtenha uma compreensão geral do código e permite que os desenvolvedores expliquem por que certas coisas foram desenvolvidas da maneira que foram.
+O objetivo não é realizar uma revisão de código, mas entender o fluxo em alto nível, o layout e a estrutura do código que compõe o aplicativo.
 
-Theoretically, development is the implementation of a design. However, in the real world, many design decisions are made during code development. These are often smaller decisions that were either too detailed to be described in the design, or issues where no policy or standard guidance was offered. If the design and architecture were not adequate, the developer will be faced with many decisions. If there were insufficient policies and standards, the developer will be faced with even more decisions.
+### Fase 3.2 Revisões de código
 
-### Phase 3.1 Code Walkthrough
+De posse de um bom entendimento de como o código está estruturado e por que certas coisas foram codificadas da maneira que foram, o testador agora pode examinar o código em si na busca de defeitos de segurança.
+A revisão estática valida o código comparando a uma série de itens, incluindo:
 
-The security team should perform a code walkthrough with the developers, and in some cases, the system architects. A code walkthrough is a high-level look at the code during which the developers can explain the logic and flow of the implemented code. It allows the code review team to obtain a general understanding of the code, and allows the developers to explain why certain things were developed the way they were.
+- Requisitos de negócios para disponibilidade, confidencialidade e integridade;
+- Guia OWASP ou “Top 10 Checklists” para exposições técnicas (dependendo da profundidade da revisão);
+- Questões específicas relacionadas à linguagem ou estrutura em uso, como o guia Scarlet para PHP ou [checklist Microsoft para Código Seguro ASP.NET](https://msdn.microsoft.com/en-us/library/ff648269.aspx); e
+- Quaisquer requisitos específicos do setor, como Sarbanes-Oxley 404, COPPA, ISO / IEC 27002, APRA, HIPAA, guia do comerciante Visa ou outros regimes regulatórios.
+Em termos de retorno sobre recursos investidos (principalmente tempo), as revisões de código estático produzem retornos de qualidade muito mais alta do que qualquer outro método de revisão de segurança, e dependem menos da habilidade do revisor. No entanto, ela não é uma solução mágica e precisa ser considerada cuidadosamente em um regime de teste de escopo total.
+Para mais detalhes sobre os checklists OWASP, por favor visite a ultima edição do [OWASP Top 10](https://owasp.org/www-project-top-ten/).
 
-The purpose is not to perform a code review, but to understand at a high level the flow, the layout, and the structure of the code that makes up the application.
+## Fase 4 Durante o desenvolvimento
 
-### Phase 3.2 Code Reviews
+### Fase 4.1 Testes de invasão do aplicativo
 
-Armed with a good understanding of how the code is structured and why certain things were coded the way they were, the tester can now examine the actual code for security defects.
+Testados os requisitos, analisado o design e revisado o código, pode-se presumir que todos os problemas foram detectados. Espera-se, que este seja o caso, mas o teste de invasão do aplicativo, pós implantação, fornece uma verificação adicional para garantir que nada foi perdido.
 
-Static code reviews validate the code against a set of checklists, including:
+### Fase 4.2 Testes de gerenciamento de configuração 
 
-- Business requirements for availability, confidentiality, and integrity;
-- OWASP Guide or Top 10 Checklists for technical exposures (depending on the depth of the review);
-- Specific issues relating to the language or framework in use, such as the Scarlet paper for PHP or [Microsoft Secure Coding checklists for ASP.NET](https://msdn.microsoft.com/en-us/library/ff648269.aspx); and
-- Any industry-specific requirements, such as Sarbanes-Oxley 404, COPPA, ISO/IEC 27002, APRA, HIPAA, Visa Merchant guidelines, or other regulatory regimes.
+O teste de invasão do aplicativo deve incluir um exame de como a infraestrutura foi implantada e protegida. É importante revisar os aspectos de configuração, não importa quão pequenos sejam, para garantir que nada seja deixado sob configuração padrão vulnerável a ataques.
 
-In terms of return on resources invested (mostly time), static code reviews produce far higher quality returns than any other security review method and rely least on the skill of the reviewer. However, they are not a silver bullet and need to be considered carefully within a full-spectrum testing regime.
+## Fase 5 Durante a manutenção e operação
 
-For more details on OWASP checklists, please refer to the latest edition of the [OWASP Top 10](https://owasp.org/www-project-top-ten/).
+### Fase 5.1 Conduza revisões de gerenciamento operacional 
 
-## Phase 4 During Deployment
+Deve haver um processo em curso que detalha como a parte operacional do aplicativo e da infraestrutura é gerenciado.
 
-### Phase 4.1 Application Penetration Testing
+### Fase 5.2 Conduza checkups de saúde periódicos
 
-Having tested the requirements, analyzed the design, and performed code review, it might be assumed that all issues have been caught. Hopefully this is the case, but penetration testing the application after it has been deployed provides an additional check to ensure that nothing has been missed.
+Mensalmente ou trimestrais verifique a integridade no aplicativo e na infraestrutura para garantir que nenhum risco de segurança tenha sido introduzido e que o nível de segurança ainda esteja intacto.
 
-### Phase 4.2 Configuration Management Testing
+### Fase 5.3 Garanta a verificação das mudanças 
+Após cada mudança ter sido aprovada e testada no ambiente de controle de qualidade e implantada no ambiente de produção, é essencial que a mudança seja verificada para garantir que o nível de segurança não foi afetado. Isso deve ser integrado ao processo de gerenciamento de mudanças.
 
-The application penetration test should include an examination of how the infrastructure was deployed and secured. It is important to review configuration aspects, no matter how small, to ensure that none are left at a default setting that may be vulnerable to exploitation.
+## Um típico workflow de testes SDLC
 
-## Phase 5 During Maintenance and Operations
+As figuras a seguir demonstram um workflow de testes típico. 
 
-### Phase 5.1 Conduct Operational Management Reviews
-
-There needs to be a process in place which details how the operational side of both the application and infrastructure is managed.
-
-### Phase 5.2 Conduct Periodic Health Checks
-
-Monthly or quarterly health checks should be performed on both the application and infrastructure to ensure no new security risks have been introduced and that the level of security is still intact.
-
-### Phase 5.3 Ensure Change Verification
-
-After every change has been approved and tested in the QA environment and deployed into the production environment, it is vital that the change is checked to ensure that the level of security has not been affected by the change. This should be integrated into the change management process.
-
-## A Typical SDLC Testing Workflow
-
-The following figure shows a typical SDLC Testing Workflow.
-
-![Typical SDLC Testing Workflow](images/Typical_SDLC_Testing_Workflow.gif)\
- *Figure 3-1: Typical SDLC testing workflow*
-
+![ Um típico workflow de testes SDLC](images/Typical_SDLC_Testing_Workflow.gif)\
+ *Figura 3-1: Um típico workflow de testes SDLC *
+![image](https://user-images.githubusercontent.com/25070780/111929974-3b4fb280-8a8e-11eb-8269-e34462303bd7.png)
