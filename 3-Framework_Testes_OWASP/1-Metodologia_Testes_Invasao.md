@@ -2,11 +2,11 @@
 
 ## Sumário
 
-- [Guia de testes OWASP](#owasp-testing-guides)
+- [Guia de testes OWASP](#guia-de-testes-owasp)
   - Guia de testes de segurança Web (WSTG)
   - Guia de testes de segurança Mobile (MSTG)
   - Metodologia de teste para segurança firmware
-- [Padrão de execução para testes de invasão](#penetration-testing-execution-standard)
+- [Padrão de execução para testes de invasão](#padrao-de-execucao-para-testes-de-invasao)
 - [PCI Guia de testes de invasão](#pci-penetration-testing-guide)
   - [PCI DSS instruções para testes de invasão](#pci-dss-penetration-testing-guidance)
   - [PCI DSS requisites de testes de invasão](#pci-dss-penetration-testing-requirements)
@@ -15,7 +15,7 @@
 - [Manual de metodologia de testes de segurança de código aberto](#open-source-security-testing-methodology-manual)
 - [Referencias](#referencias)
 
-## OWASP Testing Guides
+## Guia de testes owasp
 
 In terms of technical security testing execution, the OWASP testing guides are highly recommended. Depending on the types of the applications, the testing guides are listed below for the web/cloud services, Mobile app (Android/iOS), or IoT firmware respectively.
 
@@ -23,7 +23,7 @@ In terms of technical security testing execution, the OWASP testing guides are h
 - [OWASP Mobile Security Testing Guide](https://owasp.org/www-project-mobile-security-testing-guide/)
 - [OWASP Firmware Security Testing Methodology](https://github.com/scriptingxss/owasp-fstm)
 
-## Penetration Testing Execution Standard
+## Padrão de execução para testes de invasão
 
 Penetration Testing Execution Standard (PTES) defines penetration testing as 7 phases. Particularly, PTES Technical Guidelines give hands-on suggestions on testing procedures, and recommendation for security testing tools.
 
