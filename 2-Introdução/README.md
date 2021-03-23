@@ -5,13 +5,13 @@
   
 O Projeto de Testes OWASP está em desenvolvimento há muitos anos. O objetivo do projeto é ajudar pessoas a entender o *quê*, *por que*, *quando*, *onde* e *como* testar aplicativos web. O projeto criou um modelo de testes completo, um framework, e não apenas uma lista simples de itens ou diagnóstico de problemas que devem ser remediados. Os leitores podem usar essa estrutura como um modelo para construir seus próprios programas de teste ou ainda qualificar processos de outras pessoas. O guia de testes descreve em detalhes o modelo geral de testes e as técnicas necessárias para implementá-lo na prática.
 
-Escrever o guia de testes tem sido uma tarefa árdua. Foi um desafio obter consenso e desenvolver conteúdos que permitam aplicar os conceitos sugeridos pelo guia, ao mesmo tempo em que permitam a adaptação a ambientes culturais específicos. Também foi um desafio modificar o foco dos testes de aplicativos web, de testes de intrusão (do inglês "Penetration Test" ou pentest"), para testes de integração, ou seja, testes integrados no ciclo de vida do desenvolvimento de software.
+Escrever o guia de testes tem sido uma tarefa árdua. Foi um desafio obter consenso e desenvolver conteúdos que permitam aplicar os conceitos sugeridos pelo guia, ao mesmo tempo em que permitam a adaptação a ambientes culturais específicos. Também foi um desafio modificar o foco dos testes de aplicativos web, de testes de invasão (do inglês "Penetration Test" ou pentest"), para testes de integração, ou seja, testes integrados ao ciclo de vida do desenvolvimento de software.
 
 No entanto, o grupo está muito satisfeito com os resultados do projeto. Muitos especialistas e profissionais de segurança da informação, alguns dos quais responsáveis pela segurança de software em algumas das maiores empresas do mundo, estão validando esse modelo de testes. Esse modelo tem ajudado organizações a testar seus aplicativos web e construir softwares mais confiáveis e seguros. Embora seja um dos resulados de muitas listas de guia OWASP, esse framework não enfatiza simplesmente as áreas mais sensíveis. Decisões delicadas devem ser tomadas sobre a adequação do uso de certas técnicas e tecnologias de testes. O grupo entende perfeitamente que nem todos concordarão com todas as decisões tomadas. Contudo, a renomada posição da OWASP permite a mudança de cultura a longo prazo por meio da conscientização e educação, construindo consenso através de experiências.
 
-O restante deste guia está organizado da seguinte forma: esta introdução cobre os pré-requisitos de teste de aplicativos web e o escopo de testes. Ela também cobre os princípios e técnicas de teste executados com sucesso, práticas recomendadas para relatórios e casos de negócios para testes de segurança. O capítulo 3 apresenta o modelo de testes OWASP e explica suas técnicas e tarefas em relação às várias fases do ciclo de vida de desenvolvimento de software. O capítulo 4 apresenta como testar vulnerabilidades específicas (por exemplo, injeção de SQL), inspeção de código e teste de intrusão.
+O restante deste guia está organizado da seguinte forma: esta introdução cobre os pré-requisitos de teste de aplicativos web e o escopo de testes. Ele também cobre os princípios e técnicas de teste executados com sucesso, práticas recomendadas para relatórios e casos de negócios para testes de segurança. O capítulo 3 apresenta o modelo de testes OWASP e explica suas técnicas e tarefas em relação às várias fases do ciclo de vida de desenvolvimento de software. O capítulo 4 apresenta como testar vulnerabilidades específicas (por exemplo, injeção de SQL), inspeção de código e teste de invasão.
 
-### Medindo a segurança: dados economicos de um software inseguro
+### Medindo a segurança: dados econômicos de um software inseguro
 Um princípio básico da engenharia de software é resumido em uma citação de Tom DeMarco em [Controlling Software Projects: Management, Measurement, and Estimates](https://isbnsearch.org/isbn/9780131717114):
 
  > Você não pode controlar aquilo que você não pode medir.
@@ -319,9 +319,9 @@ public void doPost( HttpServletRequest request, HttpServletResponse response) {
 ```
 Olhando o código, a vulnerabilidade praticamente salta da página como um problema potencial.
 
-### Exemplo 2: Cryptography fraca
+### Exemplo 2: Criptografia fraca
 
-Cryptografia é amplamente utilizada em aplicativos web. Imagine que o desenvolvedor decidiu escrever um algoritimo de criptografia para acesso de usuário do site A para o site B automaticamente. Em sua sabedoria, o desenvolvedor decide que se o usuário estiver conectado no site A, então ele irá gerar uma chave usando uma função de hash MD5 que compreende: `Hash { username : date }`
+Criptografia é amplamente utilizada em aplicativos web. Imagine que o desenvolvedor decidiu escrever um algoritimo de criptografia para acesso de usuário do site A para o site B automaticamente. Em sua sabedoria, o desenvolvedor decide que se o usuário estiver conectado no site A, então ele irá gerar uma chave usando uma função de hash MD5 que compreende: `Hash { username : date }`
 
 Quando um usuário é transmitido para o site B, ele enviará a chave na string de consulta para o site B em um redirecionamento HTTP. O Site B calcula o hash independentemente e o compara com o hash transmitido na solicitação. Se corresponderem, o site B conecta o usuário como o usuário que afirma ser.
 
@@ -346,7 +346,7 @@ A primeira etapa na documentação dos requisitos de segurança é entender os `
 
 Uma lista de verificação geral dos regulamentos, padrões e políticas aplicáveis é uma boa análise preliminar sobre a conformidade de segurança para aplicativos web. Por exemplo, os regulamentos de conformidade podem ser identificados verificando as informações sobre o setor de negócios e o país ou estado onde o aplicativo irá operar. Algumas dessas diretrizes e regulamentos de conformidade podem se traduzir em requisitos técnicos específicos para controles de segurança. Por exemplo, no caso de aplicativos financeiros, a conformidade com a Federal Financial Institutions Examination Council (FFIEC) [Cybersecurity Assessment Tool & Documentation](https://www.ffiec.gov/cyberassessmenttool.htm) exige que as instituições financeiras implementem aplicativos que atenuem os riscos de autenticação frágil com implementação de controles de segurança multicamadas e autenticação multifator.
 
-Os padrões da indústria aplicáveis à segurança também devem ser capturados pela lista geral de verificação de requisitos de segurança. Por exemplo, no caso de aplicativos que manipulam dados de cartão de crédito do cliente, a conformidade com o PCI Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) Data Security Standard (DSS) proíbe o armazenamento de PINs e dados CVV2 e exige que o estabelecimento proteja os dados da fita magnética no armazenamento e na transmissão com criptografia e as exibiba com mascaramento. Esses requisitos de segurança do PCI DSS podem ser validados por meio da análise do código-fonte.
+Os padrões da indústria aplicáveis à segurança também devem ser capturados pela lista geral de verificação de requisitos de segurança. Por exemplo, no caso de aplicativos que manipulam dados de cartão de crédito do cliente, a conformidade com o [PCI Security Standards Council](https://www.pcisecuritystandards.org/pci_security/) Data Security Standard (DSS) proíbe o armazenamento de PINs e dados CVV2 e exige que o estabelecimento proteja os dados da fita magnética no armazenamento e na transmissão com criptografia e as exibiba com mascaramento. Esses requisitos de segurança do PCI DSS podem ser validados por meio da análise do código-fonte.
 
 Outra seção da lista de verificação precisa impor que os requisitos gerais estejam em conformidade com os padrões e políticas de segurança da informação da organização. Da perspectiva dos requisitos funcionais, os requisitos para o controle de segurança precisam ser mapeados por uma seção específica dos padrões de segurança da informação. Um exemplo de tal requisito pode ser: "a complexidade de uma senha de dez caracteres alfanuméricos deve ser imposta pelos controles de autenticação usados pelo aplicativo." Quando os requisitos de segurança são vinculados as regras de conformidade, um teste de segurança pode validar a exposição dos riscos de conformidade. Se forem encontradas violações dos padrões e políticas de segurança da informação, isso resultará em um risco que pode ser documentado e que a empresa deve gerenciar ou solucionar. Como esses requisitos de conformidade de segurança são compulsórios, eles precisam ser bem documentados e validados com testes de segurança.
 
@@ -416,7 +416,7 @@ Semelhante aos casos de uso, os casos de uso indevido ou de abuso descrevem cen�
 
 Os cenários de uso indevido permitem a análise do aplicativo do ponto de vista do invasor e contribuem para a identificação de vulnerabilidades em potencial, bem como análise de medidas preventivas para mitigar o impacto causado pela exposição potencial a tais vulnerabilidades. Considerando todos os casos de uso e abuso, é importante analisá-los para determinar quais são os mais críticos e quais precisam ser documentados nos requisitos de segurança. A identificação dos casos mais críticos de uso indevido e abuso orientam a documentação dos requisitos de segurança e os controles necessários para que os riscos à segurança sejam mitigados.
 
-Para derivar os requisitos de segurança de [casos de uso e mau uso] ](https://iacis.org/iis/2006/Damodaran.pdf) , é importante definir os cenários funcionais e os cenários negativos e colocá-los em forma gráfica. O exemplo a seguir é uma metodologia passo a passo de como derivar requisitos de segurança para autenticação.
+Para derivar os requisitos de segurança de [casos de uso e uso indevido] ](https://iacis.org/iis/2006/Damodaran.pdf) , é importante definir os cenários funcionais e os cenários negativos e colocá-los em forma gráfica. O exemplo a seguir é uma metodologia passo a passo de como derivar requisitos de segurança para autenticação.
 
 
 ### Passo 1: Descreve o cenário funcional 
@@ -444,7 +444,7 @@ Nesse caso os seguintes requisitos de segurança para autenticação são deriva
 
 Esses requisitos de segurança precisam ser documentados e testados. 
   
-## Testes de Segurança Integrados ao fluxo de Desenvolvimento e  Testes 
+## Testes de segurança integrados ao fluxo de desenvolvimento e testes 
 
 ### Testes de segurança no fluxo(workflow) de desenvlvimento
 
@@ -562,7 +562,7 @@ Para fazer um bom julgamento usando os dados de testes, é importante um bom ent
 
 Mesmo as ferramentas de automação mais sofisticadas não são páreo para um testador de segurança experiente. Resultados de testes executados em ferramentas automatizadas e com resultados bem-sucedidos dará aos profissionais de segurança uma falsa sensação de segurança. Normalmente, quanto mais experiência com a metodologia de teste de segurança e ferramentas de testes os testadores de segurança possuem, melhores serão os resultados do teste e da análise de segurança. É importante que os gerentes que investim em ferramentas de teste de segurança também considerem investir na contratação de recursos humanos qualificados, bem como em treinamentos de teste de segurança.
 
-### Relatórios de Requisitos (Reporting Requirements)
+### Relatórios de requisitos 
 
 A postura de segurança de um aplicativo pode ser caracterizada pela perspectiva do efeito, tais como pelo número de vulnerabilidades e a classificação de risco das vulnerabilidades, bem como pela perspectiva da causa ou origem, como erros de código, falhas de design e problemas de configuração.
 
@@ -587,7 +587,7 @@ As informações sobre como corrigir a vulnerabilidade devem ser detalhadas o su
 
 Por fim, a classificação de gravidade contribui para o cálculo da classificação de risco e ajuda a priorizar o esforço de remediação. Normalmente, atribuir uma classificação de risco à vulnerabilidade envolve uma análise de risco externa com base em fatores como impacto e exposição.
 
-### Casos de Negócio (Business Case)
+### Casos de Negócio 
 
 Para que as métricas de testes de segurança sejam úteis, elas precisam retribuir valores às partes interessadas nos dados de testes de segurança da organização. As partes interessadas podem incluir gerentes de projeto, desenvolvedores, departamentos de segurança da informação, auditores e diretores de informação. O valor pode ser em termos do caso de negócio que cada parte interessada do projeto possui, em termos de função e responsabilidade.
 
@@ -599,7 +599,7 @@ Os dados de testes de segurança também auxiliam o caso de negócios para teste
 
 Para os auditores de conformidade, as métricas de testes de segurança fornecem um nível de garantia e confiança de segurança do software uma vez que a conformidade com o padrão de segurança será abordada por meio dos processos de revisão de segurança dentro da organização.
 
-Finalmente, CIOs (Chief Information Officers CIOs) e CISOs (Chief Information Security Officers) , responsáveis pelo orçamento a ser alocado em segurança, utilizam dados de teste de segurança para derivar uma análise de custo-benefício. Isso permite que eles tomem decisões informadas sobre quais atividades e ferramentas de segurança devem investir. Uma das métricas que os apoiam nessa análise é o Retorno do Investimento (ROI) em segurança. Para derivar tais métricas de dados de testes de segurança, é importante quantificar a diferença entre o risco da exposição de vulnerabilidades, e a eficácia dos testes de segurança em mitigar o risco. A partir dai, (calcular???) essa lacuna com o custo da segurança de testes ou das ferramentas de testes adotadas.
+Finalmente, CIOs (Chief Information Officers CIOs) e CISOs (Chief Information Security Officers) , responsáveis pelo orçamento a ser alocado em segurança, utilizam dados de teste de segurança para derivar uma análise de custo-benefício. Isso permite que eles tomem decisões informadas sobre quais atividades e ferramentas de segurança devem investir. Uma das métricas que os apoiam nessa análise é o Retorno do Investimento (ROI) em segurança. Para derivar tais métricas de dados de testes de segurança, é importante quantificar a diferença entre o risco da exposição de vulnerabilidades, e a eficácia dos testes de segurança em mitigar o risco. A partir dai, considerar essa lacuna com o custo da segurança de testes ou das ferramentas de testes adotadas.
 
 ## Referências
 
