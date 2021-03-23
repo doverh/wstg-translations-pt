@@ -7,120 +7,121 @@
   - Guia de testes de segurança Mobile (MSTG)
   - Metodologia de teste para segurança firmware
 - [Padrão de execução para testes de invasão](#padrao-de-execucao-para-testes-de-invasao)
-- [PCI Guia de testes de invasão](#pci-penetration-testing-guide)
-  - [PCI DSS instruções para testes de invasão](#pci-dss-penetration-testing-guidance)
-  - [PCI DSS requisites de testes de invasão](#pci-dss-penetration-testing-requirements)
-- [Framework de testes de invasão](#penetration-testing-framework)
-- [Guia técnico de testes e verificação de segurança da informação](#technical-guide-to-information-security-testing-and-assessment)
-- [Manual de metodologia de testes de segurança de código aberto](#open-source-security-testing-methodology-manual)
-- [Referencias](#referencias)
+- [PCI Guia de testes de invasão](#guia-de-testes)
+  - [PCI DSS recomendações para testes de invasão](#pci-dss-recomenda)
+  - [PCI DSS requisitos de testes de invasão](#pci-dss-requisitos-de-testes)
+- [Framework de testes de invasão](#framework-de-testes)
+- [Guia técnico de testes e verificação de segurança da informação](#guia-tecnico-de-testes)
+- [Manual de metodologia de testes de segurança de código aberto](#manual-de-metodologia-de-testes)
+- [Referências](#referencias)
 
 ## Guia de testes owasp
 
-In terms of technical security testing execution, the OWASP testing guides are highly recommended. Depending on the types of the applications, the testing guides are listed below for the web/cloud services, Mobile app (Android/iOS), or IoT firmware respectively.
+Em termos de execução de testes técnicos de segurança, os guias de teste OWASP são altamente recomendados. Dependendo dos tipos de aplicativos, os guias de teste listados abaixo para os serviços da web / nuvem, aplicativos moveis (Android / iOS) ou firmware IoT, respectivamente. 
 
-- [OWASP Web Security Testing Guide](https://owasp.org/www-project-web-security-testing-guide/)
-- [OWASP Mobile Security Testing Guide](https://owasp.org/www-project-mobile-security-testing-guide/)
-- [OWASP Firmware Security Testing Methodology](https://github.com/scriptingxss/owasp-fstm)
+- [OWASP Guia de testes de segurança Web](https://owasp.org/www-project-web-security-testing-guide/)
+- [OWASP Guia de testes de segurança Mobile](https://owasp.org/www-project-mobile-security-testing-guide/)
+- [OWASP Metodologia de teste para segurança firmware](https://github.com/scriptingxss/owasp-fstm)
 
 ## Padrão de execução para testes de invasão
 
-Penetration Testing Execution Standard (PTES) defines penetration testing as 7 phases. Particularly, PTES Technical Guidelines give hands-on suggestions on testing procedures, and recommendation for security testing tools.
+Padrão de execução para testes de invasão (PTES) define testes de invasão através de 7 fases. Particularmente, o guia técnico PTES sugere procedimentos interativos de testes, e recomendações para ferramentas de testes de software.
 
-- Pre-engagement Interactions
-- Intelligence Gathering
-- Threat Modeling
-- Vulnerability Analysis
-- Exploitation
-- Post Exploitation
-- Reporting
+- Interações de pré-engajamento
+- Reunião de inteligência 
+- Modelagem de ameaças
+- Análise de vulnerabilidades 
+- Exploração (abuso)
+- Pós exploração (abuso)
+- Relatórios
 
-[PTES Technical Guidelines](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
+[Guia técnico PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
 
-## PCI Penetration Testing Guide
+## PCI Guia de testes de invasão
 
-Payment Card Industry Data Security Standard (PCI DSS) Requirement 11.3 defines the penetration testing. PCI also defines Penetration Testing Guidance.
+Segurança de dados da indústria de meios de pagamento (PCI DSS) Requisito 11.3 define o teste de invasão. PCI também define as recomendações dos testes de invasão.
 
-### PCI DSS Penetration Testing Guidance
+### PCI DSS Recomendações para testes de invasão
 
-The PCI DSS Penetration testing guideline provides guidance on the following:
+The PCI DSS teste de invasão fornece orientações para as seguintes atividades:
 
-- Penetration Testing Components
-- Qualifications of a Penetration Tester
-- Penetration Testing Methodologies
-- Penetration Testing Reporting Guidelines
+- Componentes dos testes de invasão
+- Qualificações do Testador (Pen Tester)
+- Metodologias de testes de invasão
+- Guias de relatórios para testes de invasão
 
-### PCI DSS Penetration Testing Requirements
+### PCI DSS requisitos de testes de invasão
 
-The PCI DSS requirement refer to Payment Card Industry Data Security Standard (PCI DSS) Requirement 11.3
+Os requisitos PCI DSS referentes à segurança de dados da indústria de meios de pagamento (PCI DSS) Requisitos 11.3
 
-- Based on industry-accepted approaches
-- Coverage for CDE and critical systems
-- Includes external and internal testing
-- Test to validate scope reduction
-- Application-layer testing
-- Network-layer tests for network and OS
+- Baseados nas abordagens aceitas pela indústria
+- Cobertura para CDE e sistemas críticos 
+- Inclui testes internos e externos
+- Testes para validar redução de escopo
+- Testes de camadas de aplicação
+- Testes da camada de rede para a rede e o sistema
 
-[PCI DSS Penetration Test Guidance](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
+[PCI DSS recomendações para testes de invasão](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
 
-## Penetration Testing Framework
+## Framework de testes de invasão
 
-The Penetration Testing Framework (PTF) provides comprehensive hands-on penetration testing guide. It also lists usages of the security testing tools in each testing category. The major area of penetration testing includes:
+O framework de testes de invasão (PTF) fornece um compreensivo guia interativo de testes de invasão. Também lista usos de ferramentas de testes de segurança em cada categoria de teste. A maior área de testes de invasão inclui:
 
-- Network Footprinting (Reconnaissance)
-- Discovery & Probing
-- Enumeration
-- Password cracking
-- Vulnerability Assessment
-- AS/400 Auditing
-- Bluetooth Specific Testing
-- Cisco Specific Testing
-- Citrix Specific Testing
-- Network Backbone
-- Server Specific Tests
-- VoIP Security
-- Wireless Penetration
-- Physical Security
-- Final Report - template
+- Rastro de rede (reconhecimento) (Network Footprinting (Reconnaissance))
+- Descoberta e sondagem (Discovery & Probing)
+- Enumeração (Enumeration)
+- Quebra de senha (Password cracking)
+- Avaliação de vulnerabilidade (Vulnerability Assessment)
+- Auditoria AS/400 (AS/400 Auditing)
+- Teste específico de Bluetooth (Bluetooth Specific Testing)
+- Teste específico Cisco (Cisco Specific Testing)
+- Teste específico Citrix (Citrix Specific Testing)
+- Backbone de rede (Network Backbone)
+- Testes específicos de servidor (Server Specific Tests)
+- Segurança VoIP (Voip Security)
+- Invasão em rede sem fio (Wireless Penetration)
+- Segurança física (Physical Security)
+- Modelo de relatório final (Final Report – template)
 
-[Penetration Testing Framework](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
+[Framework de testes de invasão
+](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
 
-## Technical Guide to Information Security Testing and Assessment
+## Guia técnico de testes e verificação de segurança da informação
 
-Technical Guide to Information Security Testing and Assessment (NIST 800-115) was published by NIST, it includes some assessment techniques listed below.
+Guia técnico de testes e verificação de segurança da informação (NIST 800-115) foi publicado pela NIST, inclui algumas das técnicas de avaliação listadas abaixo.
 
-- Review Techniques
-- Target Identification and Analysis Techniques
-- Target Vulnerability Validation Techniques
-- Security Assessment Planning
-- Security Assessment Execution
-- Post-Testing Activities
+- Técnicas de revisão 
+- Identificações alvo e técnicas de análises
+- Técnicas de validação de vulnerabilidades alvo 
+- Planejamento de avaliação de segurança
+- Execução de avaliação de segurança 
+- Atividades pós teste
 
-The NIST 800-115 can be accessed [here](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+A norma NIST 800-115 pode ser acessada [aqui](https://csrc.nist.gov/publications/detail/sp/800-115/final)
 
-## Open Source Security Testing Methodology Manual
+## Manual de metodologia de testes de segurança de código aberto
 
-The Open Source Security Testing Methodology Manual (OSSTMM) is a methodology to test the operational security of physical locations, workflow, human security testing, physical security testing, wireless security testing, telecommunication security testing, data networks security testing and compliance. OSSTMM can be supporting reference of ISO 27001 instead of a hands-on or technical application penetration testing guide.
+O manual metodologia de testes de segurança de código aberto (OSSTMM) é uma metodologia para testar a segurança operacional de locais físicos, workflow, testes de segurança humana, testes de segurança física, teste de segurança wireless, teste de segurança de telecomunicações, teste de segurança e conformidade de redes de dados. OSSTMM pode servir de referência de suporte da ISO 27001 em vez de um guia prático ou de um guia de testes de invasão de aplicativos técnicos.
 
-OSSTMM includes the following key sections:
 
-- Security Analysis
-- Operational Security Metrics
-- Trust Analysis
-- Work Flow
-- Human Security Testing
-- Physical Security Testing
-- Wireless Security Testing
-- Telecommunications Security Testing
-- Data Networks Security Testing
-- Compliance Regulations
-- Reporting with the STAR (Security Test Audit Report)
+OSSTMM inclui as seguintes seções chaves:
+- Análise de segurança (Security Analysis)
+- Métricas de segurança operacional (Operational Security Metrics)
+- Análise de confiança (Trust analysis)
+- Fluxo de trabalho (Work flow)
+- Teste de segurança humana (Human Security Testing)
+- Teste de segurança física (Physical Security Testing)
+- Teste de segurança de telecomunicações (Wireless Security Testing)
+- Teste de segurança de redes de dados (Telecommunications Security Testing)
+- Teste de segurança de telecomunicações (Data Networks Security Testing)
+- Regulamentos de conformidade (Compliance Regulations)
+- Relatório de auditoria de teste de segurança (STAR - Security Test Audit Report)
 
-[Open Source Security Testing Methodology Manual](https://www.isecom.org/OSSTMM.3.pdf)
+[Manual de metodologia de testes de segurança de código aberto](https://www.isecom.org/OSSTMM.3.pdf)
 
 ## Referencias
 
-- [PCI Data Security Standard - Penetration TestingGuidance](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
+- [PCI Data Security Standard - Penetration Testing Guidance](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
 - [PTES Standard](http://www.pentest-standard.org/index.php/Main_Page)
 - [Open Source Security Testing Methodology Manual (OSSTMM)](http://www.isecom.org/research/osstmm.html)
 - [Technical Guide to Information Security Testing and Assessment NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final)
@@ -130,4 +131,4 @@ OSSTMM includes the following key sections:
 - [Security Testing Guidelines for Mobile Apps](https://owasp.org/www-pdf-archive/Security_Testing_Guidelines_for_mobile_Apps_-_Florian_Stahl%2BJohannes_Stroeher.pdf)
 - [Kali Linux](https://www.kali.org/)
 - [Information Supplement: Requirement 11.3 Penetration Testing](https://www.pcisecuritystandards.org/pdfs/infosupp_11_3_penetration_testing.pdf)
-
+![image](https://user-images.githubusercontent.com/25070780/112087123-c9499d00-8b63-11eb-8d4b-6f94b668475a.png)
