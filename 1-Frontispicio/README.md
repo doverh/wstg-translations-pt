@@ -2,12 +2,12 @@
 
 <h2>Seja Bem-Vindo!</h2>
 
-    Ao focarmos na melhoria incremental, esta versão apresenta várias atualizações. Padronizamos formatos de ilustrações para criarmos uma melhor               experiência   de leitura. Adicionamos objetivos para cada cenário de teste, mesclamos seções e adicionamos novos cenários baseados em tópicos mais           atuais de testes.
+    Ao focarmos na melhoria incremental, esta versão apresenta várias atualizações. Padronizamos formatos de ilustrações para criarmos uma melhor      experiência de leitura. Adicionamos objetivos para cada cenário de teste, mesclamos seções e adicionamos novos cenários baseados em tópicos mais atuais de testes.
     — Rick Mitchell
 
 O OWASP agradece aos muitos autores, revisores e editores por seu trabalho árduo ao transformar este guia no que é hoje. Se você tiver algum comentário ou sugestão sobre o guia de teste, sinta-se à vontade para abrir um chamado ou enviar uma correção / contribuição por meio de solicitação de pull request para nosso <a href="https://github.com/OWASP/wstg/">repositório no GitHub</a0>.
 
-<h2>Direitos Autorais e Licença</h2>
+<h2>Direitos autorais e licença</h2>
 
 Este documento foi publicado sob a <a href="https://creativecommons.org/licenses/by-sa/4.0/">licença Creative Commons 4.0</a> . Por favor, leia e entenda as condições de licença e direitos autorais.
 
@@ -49,7 +49,7 @@ Este documento foi publicado sob a <a href="https://creativecommons.org/licenses
 <h2>Tradutores</h2>
 <ul> 
 <li>Dover Hellfeldt</li>
-<li></li>
+<li>Maurício Ariza</li>
 <li></li>
 </ul>
 
