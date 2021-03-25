@@ -6,13 +6,13 @@
   - Guia de testes de segurança Web (WSTG)
   - Guia de testes de segurança Mobile (MSTG)
   - Metodologia de teste para segurança firmware
-- [Padrão de execução para testes de invasão](#padrao-de-execucao-para-testes-de-invasao)
-- [PCI Guia de testes de invasão](#guia-de-testes)
-  - [PCI DSS recomendações para testes de invasão](#pci-dss)
-  - [PCI DSS requisitos de testes de invasão](#pci-dss-requisitos-de-testes)
-- [Framework de testes de invasão](#framework-de-testes)
-- [Guia técnico de testes e verificação de segurança da informação](#guia-tecnico-de-testes)
-- [Manual de metodologia de testes de segurança de código aberto](#manual-de-metodologia-de-testes)
+- Padrão de execução para testes de invasão]
+- PCI Guia de testes de invasão
+  - PCI DSS recomendações para testes de invasão
+  - PCI DSS requisitos de testes de invasão
+- Framework de testes de invasão](#framework-de-testes)
+- Guia técnico de testes e verificação de segurança da informação
+- Manual de metodologia de testes de segurança de código aberto
 - [Referências](#referencias)
 
 ## Guia de testes owasp
@@ -63,7 +63,7 @@ Os requisitos PCI DSS referentes à segurança de dados da indústria de meios d
 
 [PCI DSS recomendações para testes de invasão](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
 
-## Framework de testes de invasao
+## Framework de testes de invasão
 
 O framework de testes de invasão (PTF) fornece um compreensivo guia interativo de testes de invasão. Também lista usos de ferramentas de testes de segurança em cada categoria de teste. A maior área de testes de invasão inclui:
 
@@ -101,7 +101,7 @@ A norma NIST 800-115 pode ser acessada [aqui](https://csrc.nist.gov/publications
 
 ## Manual de metodologia de testes de segurança de código aberto
 
-O manual metodologia de testes de segurança de código aberto (OSSTMM) é uma metodologia para testar a segurança operacional de locais físicos, workflow, testes de segurança humana, testes de segurança física, teste de segurança wireless, teste de segurança de telecomunicações, teste de segurança e conformidade de redes de dados. OSSTMM pode servir de referência de suporte da ISO 27001 em vez de um guia prático ou de um guia de testes de invasão de aplicativos técnicos.
+O manual de metodologia de testes de segurança de código aberto (OSSTMM) é uma metodologia para testar a segurança operacional de locais físicos, workflow, testes de segurança humana, testes de segurança física, teste de segurança wireless, teste de segurança de telecomunicações, teste de segurança e conformidade de redes de dados. OSSTMM pode servir de referência de suporte da ISO 27001 em vez de um guia prático ou de um guia de testes de invasão de aplicativos técnicos.
 
 
 OSSTMM inclui as seguintes seções chaves:
@@ -121,14 +121,14 @@ OSSTMM inclui as seguintes seções chaves:
 
 ## Referencias
 
-- [PCI Data Security Standard - Penetration Testing Guidance](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
-- [PTES Standard](http://www.pentest-standard.org/index.php/Main_Page)
-- [Open Source Security Testing Methodology Manual (OSSTMM)](http://www.isecom.org/research/osstmm.html)
-- [Technical Guide to Information Security Testing and Assessment NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final)
-- [HIPAA Security Testing Assessment 2012](http://csrc.nist.gov/news_events/hiipaa_june2012/day2/day2-6_kscarfone-rmetzer_security-testing-assessment.pdf)
-- [Penetration Testing Framework 0.59](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
-- [OWASP Mobile Security Testing Guide](https://owasp.org/www-project-mobile-security-testing-guide/)
-- [Security Testing Guidelines for Mobile Apps](https://owasp.org/www-pdf-archive/Security_Testing_Guidelines_for_mobile_Apps_-_Florian_Stahl%2BJohannes_Stroeher.pdf)
+- [Padrão PCI de Segurança de Dados - Guia de Testes de Invasão](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
+- [Padrão PTES](http://www.pentest-standard.org/index.php/Main_Page)
+- [Manual de metodologia de testes de segurança de código aberto (OSSTMM)](http://www.isecom.org/research/osstmm.html)
+- [Guia Técnico de Testes e Validação de Segurança da Informação  NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final)
+- [HIPAA Testes e Validação de Segurança 2012](http://csrc.nist.gov/news_events/hiipaa_june2012/day2/day2-6_kscarfone-rmetzer_security-testing-assessment.pdf)
+- [Framework 0.59 de Testes de Invasão](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
+- [Guia de Testes de Segurança Mobile OWASP](https://owasp.org/www-project-mobile-security-testing-guide/)
+- [Recomendações de Segurança para Mobile Apps](https://owasp.org/www-pdf-archive/Security_Testing_Guidelines_for_mobile_Apps_-_Florian_Stahl%2BJohannes_Stroeher.pdf)
 - [Kali Linux](https://www.kali.org/)
-- [Information Supplement: Requirement 11.3 Penetration Testing](https://www.pcisecuritystandards.org/pdfs/infosupp_11_3_penetration_testing.pdf)
-![image](https://user-images.githubusercontent.com/25070780/112087123-c9499d00-8b63-11eb-8d4b-6f94b668475a.png)
+- [Informação Suplementar: Requisito 11.3 para Testes de Invasão](https://www.pcisecuritystandards.org/pdfs/infosupp_11_3_penetration_testing.pdf)
+
