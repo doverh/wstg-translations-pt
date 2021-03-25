@@ -8,7 +8,7 @@
   - Metodologia de teste para segurança firmware
 - [Padrão de execução para testes de invasão](#padrao-de-execucao-para-testes-de-invasao)
 - [PCI Guia de testes de invasão](#guia-de-testes)
-  - [PCI DSS recomendações para testes de invasão](#pci-dss-recomenda)
+  - [PCI DSS recomendações para testes de invasão](#pci-dss)
   - [PCI DSS requisitos de testes de invasão](#pci-dss-requisitos-de-testes)
 - [Framework de testes de invasão](#framework-de-testes)
 - [Guia técnico de testes e verificação de segurança da informação](#guia-tecnico-de-testes)
@@ -50,7 +50,7 @@ The PCI DSS teste de invasão fornece orientações para as seguintes atividades
 - Metodologias de testes de invasão
 - Guias de relatórios para testes de invasão
 
-### PCI DSS requisitos de testes de invasão
+### PCI DSS requisitos de testes de invasao
 
 Os requisitos PCI DSS referentes à segurança de dados da indústria de meios de pagamento (PCI DSS) Requisitos 11.3
 
@@ -63,7 +63,7 @@ Os requisitos PCI DSS referentes à segurança de dados da indústria de meios d
 
 [PCI DSS recomendações para testes de invasão](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
 
-## Framework de testes de invasão
+## Framework de testes de invasao
 
 O framework de testes de invasão (PTF) fornece um compreensivo guia interativo de testes de invasão. Também lista usos de ferramentas de testes de segurança em cada categoria de teste. A maior área de testes de invasão inclui:
 
@@ -86,7 +86,7 @@ O framework de testes de invasão (PTF) fornece um compreensivo guia interativo 
 [Framework de testes de invasão
 ](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
 
-## Guia técnico de testes e verificação de segurança da informação
+## Guia tecnico de testes e verificação de segurança da informação
 
 Guia técnico de testes e verificação de segurança da informação (NIST 800-115) foi publicado pela NIST, inclui algumas das técnicas de avaliação listadas abaixo.
 
