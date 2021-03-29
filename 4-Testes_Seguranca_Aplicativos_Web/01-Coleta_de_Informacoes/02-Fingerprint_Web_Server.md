@@ -1,28 +1,29 @@
-# Fingerprint Web Server
+# Servidor de Impressão Digital
 
 |ID          |
 |------------|
 |WSTG-INFO-02|
 
-## Summary
+## Resumo
 
-Web server fingerprinting is the task of identifying the type and version of web server that a target is running on. While web server fingerprinting is often encapsulated in automated testing tools, it is important for researchers to understand the fundamentals of how these tools attempt to identify software, and why this is useful.
+Servidor de impressão digital (web server fingerprinting) remete à tarefa de identificar o tipo e a versão do servidor que um alvo está rodando. Enquanto o servidor de impressão digital é geralmente encapsulado em ferramentas de testes automatizados, é importante para os pesquisadores entender os fundamentos de como essas ferramentas tentam identificar softwares, e porque isso é útil. 
 
-Accurately discovering the type of web server that an application runs on can enable security testers to determine if the application is vulnerable to attack. In particular, servers running older versions of software without up-to-date security patches can be susceptible to known version-specific exploits.
+Descobrindo precisamente o tipo de servidor que a aplicação roda pode ativar testes de segurança para determinar se o ela é vulnerável a ataques. Em particular, servidores rodando versões antigas de softwares sem correções (patches) de segurança atualizados podem ser suscetíveis a vulnerabilidades conhecidas em versões especificas.  
 
-## Test Objectives
+## Objetivos de Testes
 
-- Determine the version and type of a running web server to enable further discovery of any known vulnerabilities.
+- Determine a versão e o tipo de servidor para ativar a descoberta adicional de vulnerabilidades desconhecidas. 
 
-## How to Test
+## Como testar
 
-Techniques used for web server fingerprinting include [banner grabbing](https://en.wikipedia.org/wiki/Banner_grabbing), eliciting responses to malformed requests, and using automated tools to perform more robust scans that use a combination of tactics. The fundamental premise by which all these techniques operate is the same. They all strive to elicit some response from the web server which can then be compared to a database of known responses and behaviors, and thus matched to a known server type.
+As técnicas usadas para impressão digital do servidor web incluem captura de banner, obtenção de respostas a solicitações malformadas e uso de ferramentas automatizadas para realizar varreduras mais robustas que usam uma combinação de táticas. A premissa fundamental pela qual todas essas técnicas operam é a mesma. Todos elas se esforçam para obter alguma resposta do servidor web, que pode então ser comparada a um banco de dados de respostas e comportamentos conhecidos e, assim, combinada a um tipo de servidor conhecido.
 
 ### Banner Grabbing
 
-A banner grab is performed by sending an HTTP request to the web server and examining its [response header](https://developer.mozilla.org/en-US/docs/Glossary/Response_header). This can be accomplished using a variety of tools, including `telnet` for HTTP requests, or `openssl` for requests over SSL.
+O banner grab ocorre quando uma solicitação HTTP é feita ao servidor examinando seu [o cabeçalho de respostas](https://developer.mozilla.org/en-US/docs/Glossary/Response_header). 
+Isso pode ser alcançado através do uso de uma variedade de ferramentas incluindo `telnet` para solicitações HTTP, ou `openssl`  para solicitações SSL.
 
-For example, here is the response to a request from an Apache server.
+Por exemplo, isso é a resposta a solicitações de um servidor Apache.
 
 ```http
 HTTP/1.1 200 OK
@@ -37,7 +38,7 @@ Content-Type: text/html
 ...
 ```
 
-Here is another response, this time from nginx.
+Aqui uma outra resposta, desta vez do nginx, servidor que pode ser usado como servidor de proxy reverso.
 
 ```http
 HTTP/1.1 200 OK
@@ -51,8 +52,7 @@ ETag: "5d71489a-75"
 Accept-Ranges: bytes
 ...
 ```
-
-Here's what a response from lighttpd looks like.
+Aqui uma resposta de lighttpd, servidor para ambientes de alta performance:
 
 ```sh
 HTTP/1.0 200 OK
@@ -65,8 +65,7 @@ Connection: close
 Date: Thu, 05 Sep 2019 17:57:57 GMT
 Server: lighttpd/1.4.54
 ```
-
-In these examples, the server type and version is clearly exposed. However, security-conscious applications may obfuscate their server information by modifying the header. For example, here is an excerpt from the response to a request for a site with a modified header:
+Nestes exemplos, o tipo e a versão do servidor são claramente expostos. No entanto, os aplicativos atentos à segurança podem ofuscar suas informações de servidor, modificando o cabeçalho. Por exemplo, aqui está um trecho da resposta a uma solicitação de um site com um cabeçalho modificado:
 
 ```sh
 HTTP/1.1 200 OK
@@ -76,31 +75,28 @@ Content-Type: text/html; charset=utf-8
 Status: 200 OK
 ...
 ```
+Nos casos em que as informações do servidor estão ocultadas, os testadores podem adivinhar o tipo de servidor com base na ordem dos campos de cabeçalho. Observe que no exemplo do Apache acima, os campos seguem esta ordem:
 
-In cases where the server information is obscured, testers may guess the type of server based on the ordering of the header fields. Note that in the Apache example above, the fields follow this order:
+- Data (Date)
+- Servidor (Server)
+- Última modificação (Last Modified)
+- ETag (tag identificadora da versão específica)
+- Intervalos aceitos (Accept-Ranges)
+- Tamanho do conteúdo (Content-Length)
+- Conexão (Connection)
+- Tipo de conteúdo (Content-Type)
 
-- Date
-- Server
-- Last-Modified
-- ETag
-- Accept-Ranges
-- Content-Length
-- Connection
-- Content-Type
+Contudo, nos exemplos de servidores nginx e obscuros, os campos em comum seguem esta ordem:
 
-However, in both the nginx and obscured server examples, the fields in common follow this order:
+- Servidor
+- Data
+- Tipo de conteúdo
 
-- Server
-- Date
-- Content-Type
+Os testadores podem usar essas informações para adivinhar que o servidor ocultado é nginx. No entanto, considerando que vários servidores web podem compartilhar a mesma ordem de campos e esses podem ser modificados ou removidos, este método não é definitivo.
 
-Testers can use this information to guess that the obscured server is nginx. However, considering that a number of different web servers may share the same field ordering and fields can be modified or removed, this method is not definite.
+### Enviando Solicitações Malformadas
 
-### Sending Malformed Requests
-
-Web servers may be identified by examining their error responses, and in the cases where they have not been customized, their default error pages. One way to compel a server to present these is by sending intentionally incorrect or malformed requests.
-
-For example, here is the response to a request for the non-existent method `SANTA CLAUS` from an Apache server.
+Os servidores web podem ser identificados através do exame de suas respostas de erro e, nos casos em que não foram personalizados, suas páginas de erro padrão. Uma maneira de obrigar um servidor a apresentá-los é o envio de solicitações intencionalmente incorretas ou malformadas. Por exemplo, aqui está uma resposta a solicitação a um método não existente, método `SANTA CLAUS`, para um servidor Apache.
 
 ```sh
 GET / SANTA CLAUS/1.1
@@ -122,12 +118,10 @@ Content-Type: text/html; charset=iso-8859-1
 </p>
 </body></html>
 ```
-
-Here is the response to the same request from nginx.
+Aqui está a resposta a mesma solicitação a um servidor nginx.
 
 ```sh
 GET / SANTA CLAUS/1.1
-
 
 <html>
 <head><title>404 Not Found</title></head>
@@ -137,8 +131,7 @@ GET / SANTA CLAUS/1.1
 </body>
 </html>
 ```
-
-Here is the response to the same request from lighttpd.
+Aqui está a resposta a mesma solicitação a um servidor lighttpd.
 
 ```sh
 GET / SANTA CLAUS/1.1
@@ -163,23 +156,23 @@ Server: lighttpd/1.4.54
  </body>
 </html>
 ```
+Como as páginas de erro padrão oferecem muitos fatores de diferenciação entre os tipos de servidores web, seu exame pode ser um método eficaz para impressão digital (fingerprinting), mesmo quando os campos de cabeçalho do servidor estão ocultados.
 
-As default error pages offer many differentiating factors between types of web servers, their examination can be an effective method for fingerprinting even when server header fields are obscured.
+### Usando ferramentas de escaneamento automático
 
-### Using Automated Scanning Tools
+Conforme declarado anteriormente, a impressão digital do servidor web é frequentemente incluída como uma funcionalidade de ferramentas de escaneamento automatizadas. Essas ferramentas são capazes de fazer solicitações semelhantes às demonstradas acima, bem como capazes de enviar outras sondagens mais específicas ao servidor. Ferramentas automatizadas podem comparar respostas de servidores web muito mais rápido do que testes manuais e utilizar grandes bancos de dados de respostas conhecidas para tentar a identificação do servidor. Por esses motivos, as ferramentas automatizadas têm maior probabilidade de produzir resultados precisos.
 
-As stated earlier, web server fingerprinting is often included as a functionality of automated scanning tools. These tools are able to make requests similar to those demonstrated above, as well as send other more server-specific probes. Automated tools can compare responses from web servers much faster than manual testing, and utilize large databases of known responses to attempt server identification. For these reasons, automated tools are more likely to produce accurate results.
+Aqui estão algumas das ferramentas de escaneamento que incluem a funcionalidade de fingerprinting:
 
-Here are some commonly-used scan tools that include web server fingerprinting functionality.
+- [Netcraft](https://toolbar.netcraft.com/site_report), uma ferramenta online de escanemento de informação de websites, incluindo o servidor web.
+- [Nikto](https://github.com/sullo/nikto), ferramenta de escaneamento de linha de comando open source.
+- [Nmap](https://nmap.org/), uma ferramenta de linha de comando open source que também tem uma interface, [Zenmap](https://nmap.org/zenmap/).
 
-- [Netcraft](https://toolbar.netcraft.com/site_report), an online tool that scans websites for information, including the web server.
-- [Nikto](https://github.com/sullo/nikto), an Open Source command-line scanning tool.
-- [Nmap](https://nmap.org/), an Open Source command-line tool that also has a GUI, [Zenmap](https://nmap.org/zenmap/).
+## Remediação
 
-## Remediation
+Embora a exposição de informações do servidor não sejam necessariamente uma vulnerabilidade em si, são informações que podem ajudar os invasores a explorar outras vulnerabilidades existentes. As informações expostas do servidor também podem levar os invasores a encontrar vulnerabilidades de servidor específicas da versão que podem ser usadas para explorar servidores sem correções (patch). Por este motivo, é recomendável que alguns cuidados sejam tomados. Essas ações incluem:
 
-While exposed server information is not necessarily in itself a vulnerability, it is information that can assist attackers in exploiting other vulnerabilities that may exist. Exposed server information can also lead attackers to find version-specific server vulnerabilities that can be used to exploit unpatched servers. For this reason it is recommended that some precautions be taken. These actions include:
-
-- Obscuring web server information in headers, such as with Apache's [mod_headers module](https://httpd.apache.org/docs/current/mod/mod_headers.html).
-- Using a hardened [reverse proxy server](https://en.wikipedia.org/wiki/Proxy_server#Reverse_proxies) to create an additional layer of security between the web server and the Internet.
-- Ensuring that web servers are kept up-to-date with the latest software and security patches.
+- Ocultar informações no cabeçalho de servidores web tais como com Apache [mod_headers module](https://httpd.apache.org/docs/current/mod/mod_headers.html).
+- Usar um [servidor de proxy reverso] (https://en.wikipedia.org/wiki/Proxy_server#Reverse_proxies) reforçado para criar uma camada adicional de segurança entre o servidor web e a Internet. 
+- Garantir que os servidores web sejam mantidos atualizados com os softwares e patches de segurança mais recentes.
+![image](https://user-images.githubusercontent.com/25070780/112854496-ea3a5280-907b-11eb-8f6a-f6cd6feee705.png)
