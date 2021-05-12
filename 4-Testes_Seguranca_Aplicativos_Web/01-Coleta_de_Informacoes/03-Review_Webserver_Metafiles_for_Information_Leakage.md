@@ -1,27 +1,29 @@
-# Review Webserver Metafiles for Information Leakage
+# Revisa arquivos de Meta-Dados do Servidor Web para o Vazamento de Informações
+
 
 |ID          |
 |------------|
 |WSTG-INFO-03|
 
-## Summary
+## Resumo
 
-This section describes how to test various metadata files for information leakage of the web application's path(s), or functionality. Furthermore, the list of directories that are to be avoided by Spiders, Robots, or Crawlers can also be created as a dependency for [Map execution paths through application](07-Map_Execution_Paths_Through_Application.md). Other information may also be collected to identify attack surface, technology details, or for use in social engineering engagement.
+Esta seção descreve como testar diversos arquivos de meta-dados para o vazamento de informações sobre o caminho(s) ou funcionalidades de aplicativos web. Além disso, a lista de diretórios que devem ser evitados por Spider, Robots or Crawlers pode também ser criada como uma dependência [Mapa de execução de caminhos do aplicativo] (07-Map_Execution_Paths_Through_Application.md). Outras informações também podem ser coletadas para ataques de superfície de identidade, detalhes tecnológicos, ou para engajamento em engenharia social. 
 
-## Test Objectives
 
-- Identify hidden or obfuscated paths and functionality through the analysis of metadata files.
-- Extract and map other information that could lead to better understanding of the systems at hand.
+## Objetivos do Teste 
 
-## How to Test
+- Identificar caminhos e funcionalidades escondidos ou ofuscados através da análise de arquivos de meta-dados. 
+- Extrair e mapear outras informações que podem levar a um melhor entendimento do sistema manuseado.
 
-> Any of the actions performed below with `wget` could also be done with `curl`. Many Dynamic Application Security Testing (DAST) tools such as ZAP and Burp Suite include checks or parsing for these resources as part of their spider/crawler functionality. They can also be identified using various [Google Dorks](https://en.wikipedia.org/wiki/Google_hacking) or leveraging advanced search features such as `inurl:`.
+## Como Testar
 
-### Robots
+Qualquer das ações abaixo executadas com ‘wget’ podem também ser realizadas através do uso de ‘curl’. Muitas ferramentas de testes dinâmicos de segurança de aplicação (DAST) tais como ZAP e Burp Suite, incluem verificações ou análise para esses recursos como parte da funcionalidade de varredura spider/crawler. Eles podem também ser identificados usando vários [Google Dorks](https://en.wikipedia.org/wiki/Google_hacking)  ou fazendo-se valer de funcionalidades de busca avançadas tais como ‘inurl‘. 
 
-Web Spiders, Robots, or Crawlers retrieve a web page and then recursively traverse hyperlinks to retrieve further web content. Their accepted behavior is specified by the [Robots Exclusion Protocol](https://www.robotstxt.org) of the [robots.txt](https://www.robotstxt.org/) file in the web root directory.
+### Robôs
 
-As an example, the beginning of the `robots.txt` file from [Google](https://www.google.com/robots.txt) sampled on 2020 May 5 is quoted below:
+Web Spiders, Robôs ou Crawlers retornam uma página web e recursivamente analisar hiperlinks para recuperar conteúdos web a fundo. O comportamento aceito é especificado pela o protocolo robô de exclusão [Robots Exclusion Protocol](https://www.robotstxt.org) of the [robots.txt](https://www.robotstxt.org/)  no diretório web raiz. 
+
+Em um exemplo, o começo do arquivo `robots.txt`[Google](https://www.google.com/robots.txt) extraído em 5 de maio de 2020 como demonstrado abaixo:
 
 ```text
 User-agent: *
@@ -33,7 +35,7 @@ Disallow: /sdch
 ...
 ```
 
-The [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) directive refers to the specific web spider/robot/crawler. For example, the `User-Agent: Googlebot` refers to the spider from Google while `User-Agent: bingbot` refers to a crawler from Microsoft. `User-Agent: *` in the example above applies to all [web spiders/robots/crawlers](https://support.google.com/webmasters/answer/6062608?visit_id=637173940975499736-3548411022&rd=1).
+O [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) directive refere-se ao  web spider/robot/crawler específico. Por exemplo, o `User-Agent: Googlebot` refere-se ao spider Google enquanto o `User-Agent: bingbot` refere-se ao crawler da Microsoft. `User-Agent: *` no exemplo acima aplicasse a todos	 [web spiders/robots/crawlers](https://support.google.com/webmasters/answer/6062608?visit_id=637173940975499736-3548411022&rd=1).
 
 The `Disallow` directive specifies which resources are prohibited by spiders/robots/crawlers. In the example above, the following are prohibited:
 
@@ -186,7 +188,7 @@ There are other RFCs and Internet drafts which suggest standardized uses of file
 
 It would be fairly simple for a tester to review the RFC/drafts are create a list to be supplied to a crawler or fuzzer, in order to verify the existence or content of such files.
 
-## Tools
+## Ferramentas
 
 - Browser (View Source or Dev Tools functionality)
 - curl
