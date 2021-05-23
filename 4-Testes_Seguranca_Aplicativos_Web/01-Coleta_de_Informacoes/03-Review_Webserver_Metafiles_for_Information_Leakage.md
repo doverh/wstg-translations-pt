@@ -37,7 +37,7 @@ Disallow: /sdch
 
 O [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) directive refere-se ao  web spider/robot/crawler específico. Por exemplo, o `User-Agent: Googlebot` refere-se ao spider Google enquanto o `User-Agent: bingbot` refere-se ao crawler da Microsoft. `User-Agent: *` no exemplo acima aplicasse a todos	 [web spiders/robots/crawlers](https://support.google.com/webmasters/answer/6062608?visit_id=637173940975499736-3548411022&rd=1).
 
-The `Disallow` directive specifies which resources are prohibited by spiders/robots/crawlers. In the example above, the following are prohibited:
+A instrução `Disallow` especifica quais recursos são proibidos por spiders/robots/crawlers. No exemplo acima, os recursos proibidos são:
 
 ```text
 ...
@@ -47,9 +47,10 @@ Disallow: /sdch
 ...
 ```
 
-Web spiders/robots/crawlers can [intentionally ignore](https://blog.isc2.org/isc2_blog/2008/07/the-attack-of-t.html) the `Disallow` directives specified in a `robots.txt` file, such as those from [Social Networks](https://www.htbridge.com/news/social_networks_can_robots_violate_user_privacy.html) to ensure that shared linked are still valid. Hence, `robots.txt` should not be considered as a mechanism to enforce restrictions on how web content is accessed, stored, or republished by third parties.
+Web spiders/robots/crawlers pode [propositalmente ignorar](https://blog.isc2.org/isc2_blog/2008/07/the-attack-of-t.html) as intruções `Disallow` especificadas em um arquivo `robots.txt`, tais como aqueles de [Midias Sociais](https://www.htbridge.com/news/social_networks_can_robots_violate_user_privacy.html) para garantir links compartilhados são ainda válidos. 
+Send question to OASP to ensure that shared linked are still valid. Por consequência, `robots.txt` não devem ser considerados como mecanismo para impor restrições sobre como o conteúdo web é acessado, armazenado ou repostado por terceiros.
 
-The `robots.txt` file is retrieved from the web root directory of the web server. For example, to retrieve the `robots.txt` from `www.google.com` using `wget` or `curl`:
+O arquivo `robots.txt` é recuperado do diretorio  raiz do servidor web. Por exemplo, o arquivo `robots.txt` de `www.google.com` usando `wget` ou `curl`:
 
 ```bash
 $ curl -O -Ss http://www.google.com/robots.txt && head -n5 robots.txt
@@ -61,27 +62,27 @@ Allow: /search/howsearchworks
 ...
 ```
 
-#### Analyze robots.txt Using Google Webmaster Tools
+#### Analise robots.txt Usando Ferramentas Google Webmaster
 
-Web site owners can use the Google "Analyze robots.txt" function to analyze the website as part of its [Google Webmaster Tools](https://www.google.com/webmasters/tools). This tool can assist with testing and the procedure is as follows:
+Donos de web sites podem usar a função Google "Analyze robots.txt" para analisar o website somo parte da [Ferramenta Google Webmaster](https://www.google.com/webmasters/tools). Essa ferramenta pode auxiliar com teste e procedimentos da seguinte forma:
 
-1. Sign into Google Webmaster Tools with a Google account.
-2. On the dashboard, enter the URL for the site to be analyzed.
-3. Choose between the available methods and follow the on screen instruction.
+1. Acesse na Ferramenta Google Webmaster com a conta Google.
+2. No dashboard, entre a URL do site a ser analisado.
+3. Selecione entre os metodos disponíveis e siga as intruções da tela.
 
 ### META Tags
 
-`<META>` tags are located within the `HEAD` section of each HTML document and should be consistent across a web site in the event that the robot/spider/crawler start point does not begin from a document link other than webroot i.e. a [deep link](https://en.wikipedia.org/wiki/Deep_linking). Robots directive can also be specified through use of a specific [META tag](https://www.robotstxt.org/meta.html).
+`<META>` tags estão localizadas dentro da sessão `HEAD` de cada documento HTML e devem ser consistentes em todo website, especialmente em um evento no qual o ponto de partida de robot/spider/crawler não inicia a partir de um link de documento outro senão o raiz, por exemplo, o [deep link](https://en.wikipedia.org/wiki/Deep_linking). Procedimentos de Robots podem ser determinadas através do uso específico de uma [META tag](https://www.robotstxt.org/meta.html).
 
 #### Robots META Tag
 
-If there is no `<META NAME="ROBOTS" ... >` entry then the "Robots Exclusion Protocol" defaults to `INDEX,FOLLOW` respectively. Therefore, the other two valid entries defined by the "Robots Exclusion Protocol" are prefixed with `NO...` i.e. `NOINDEX` and `NOFOLLOW`.
+Se não há uma entrada `<META NAME="ROBOTS" ... >`, então o "Robots Exclusion Protocol" a se tornar padrão é o  `INDEX,FOLLOW`. Contudo, as outras duas entradas válidas definidas pelo "Robots Exclusion Protocol" são prefixadas com `NO...`, por exemplo,  `NOINDEX` e `NOFOLLOW`.
 
-Based on the Disallow directive(s) listed within the `robots.txt` file in webroot, a regular expression search for `<META NAME="ROBOTS"` within each web page is undertaken and the result compared to the `robots.txt` file in webroot.
+Baseado nas procedimentos desabilitadas listadas dentro do arquivo `robots.txt` no diretório raiz, uma busca pela expressão regular `<META NAME="ROBOTS"` em cada página web é empreendida e o resultado comparado ao arquivo `robots.txt` do diretório raiz. 
 
-#### Miscellaneous META Information Tags
+#### Tags de de META Informações Genéricas  
 
-Organizations often embed informational META tags in web content to support various technologies such as screen readers, social networking previews, search engine indexing, etc. Such meta-information can be of value to testers in identifying technologies used, and additional paths/functionality to explore and test. The following meta information was retrieved from `www.whitehouse.gov` via View Page Source on 2020 May 05:
+Organizações geralmente incluem Meta tags de informações no conteúdo web para dar suporte a várias tecnologias tais como, leitores de tela, pré visualizadores de redes sociais, indexadores de busca, etc. Tais meta informações podem ser valiosas para testadores na identificação de tecnologias usadas, e consequentemente caminho para funcionalidades a serem testadas. O arquivo de meta informação a seguir foi obtido de `www.whitehouse.gov` via View Page Source (visualizar código da página) em 20 de maio de 2020.  
 
 ```html
 ...
@@ -112,6 +113,7 @@ Organizations often embed informational META tags in web content to support vari
 
 A sitemap is a file where a developer or organization can provide information about the pages, videos, and other files offered by the site or application, and the relationship between them. Search engines can use this file to more intelligently explore your site. Testers can use `sitemap.xml` files to learn more about the site or application to explore it more completely.
 
+O
 The following excerpt is from Google's primary sitemap retrieved 2020 May 05.
 
 ```bash
@@ -182,7 +184,7 @@ $ wget --no-verbose  https://www.google.com/humans.txt && cat humans.txt
 Google is built by a large team of engineers, designers, researchers, robots, and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see careers.google.com.
 ```
 
-### Other .well-known Information Sources
+### Outras Fontes de Informação bem conhecidas
 
 There are other RFCs and Internet drafts which suggest standardized uses of files within the `.well-known/` directory. Lists of which can be found [here](https://en.wikipedia.org/wiki/List_of_/.well-known/_services_offered_by_webservers) or [here](https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml).
 
