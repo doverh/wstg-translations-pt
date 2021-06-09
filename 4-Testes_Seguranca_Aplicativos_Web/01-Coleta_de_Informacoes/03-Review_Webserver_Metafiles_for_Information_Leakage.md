@@ -1,10 +1,3 @@
-# Revisa arquivos de Meta-Dados do Servidor Web para o Vazamento de Informações
-
-
-|ID          |
-|------------|
-|WSTG-INFO-03|
-
 ## Resumo
 
 Esta seção descreve como testar diversos arquivos de meta-dados para o vazamento de informações sobre o caminho(s) ou funcionalidades de aplicativos web. Além disso, a lista de diretórios que devem ser evitados por Spider, Robots or Crawlers pode também ser criada como uma dependência [Mapa de execução de caminhos do aplicativo] (07-Map_Execution_Paths_Through_Application.md). Outras informações também podem ser coletadas para ataques de superfície de identidade, detalhes tecnológicos, ou para engajamento em engenharia social. 
@@ -21,7 +14,7 @@ Qualquer das ações abaixo executadas com ‘wget’ podem também ser realizad
 
 ### Robôs
 
-Web Spiders, Robôs ou Crawlers retornam uma página web e recursivamente analisar hiperlinks para recuperar conteúdos web a fundo. O comportamento aceito é especificado pela o protocolo robô de exclusão [Robots Exclusion Protocol](https://www.robotstxt.org) of the [robots.txt](https://www.robotstxt.org/)  no diretório web raiz. 
+Web Spiders, Robôs ou Crawlers retornam uma página web e recursivamente analisam hiperlinks para recuperar conteúdos web em detalhes. O comportamento aceito é especificado pelo protocolo de exclusão [Robots Exclusion Protocol](https://www.robotstxt.org) do [robots.txt](https://www.robotstxt.org/) no diretório web raiz. 
 
 Em um exemplo, o começo do arquivo `robots.txt`[Google](https://www.google.com/robots.txt) extraído em 5 de maio de 2020 como demonstrado abaixo:
 
@@ -35,9 +28,9 @@ Disallow: /sdch
 ...
 ```
 
-O [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) directive refere-se ao  web spider/robot/crawler específico. Por exemplo, o `User-Agent: Googlebot` refere-se ao spider Google enquanto o `User-Agent: bingbot` refere-se ao crawler da Microsoft. `User-Agent: *` no exemplo acima aplicasse a todos	 [web spiders/robots/crawlers](https://support.google.com/webmasters/answer/6062608?visit_id=637173940975499736-3548411022&rd=1).
+O diretório [User-Agent](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/User-Agent) refere-se ao web spider/robot/crawler específico. Por exemplo, o `User-Agent: Googlebot` refere-se ao spider Google enquanto o `User-Agent: bingbot` refere-se ao crawler da Microsoft. `User-Agent: *` no exemplo acima aplicasse a todos	[web spiders/robots/crawlers](https://support.google.com/webmasters/answer/6062608?visit_id=637173940975499736-3548411022&rd=1).
 
-A instrução `Disallow` especifica quais recursos são proibidos por spiders/robots/crawlers. No exemplo acima, os recursos proibidos são:
+A instrução `Disallow` especifíca quais recursos são proibidos pelos spiders/robots/crawlers. No exemplo acima os seguintes recursos são proibidos:
 
 ```text
 ...
@@ -47,10 +40,9 @@ Disallow: /sdch
 ...
 ```
 
-Web spiders/robots/crawlers pode [propositalmente ignorar](https://blog.isc2.org/isc2_blog/2008/07/the-attack-of-t.html) as intruções `Disallow` especificadas em um arquivo `robots.txt`, tais como aqueles de [Midias Sociais](https://www.htbridge.com/news/social_networks_can_robots_violate_user_privacy.html) para garantir links compartilhados são ainda válidos. 
-Send question to OASP to ensure that shared linked are still valid. Por consequência, `robots.txt` não devem ser considerados como mecanismo para impor restrições sobre como o conteúdo web é acessado, armazenado ou repostado por terceiros.
+Web spiders/robots/crawlers podem [ignorar intencionalmente] (https://blog.isc2.org/isc2_blog/2008/07/the-attack-of-t.html) o `Disallow` de recursos específicos no arquivo `robots.txt`, tais como aqueles de [Mídias Socias](https://www.htbridge.com/news/social_networks_can_robots_violate_user_privacy.html) para assegurar que os links compartilhados são ainda válidos. Por essa razão, `robots.txt` não deveriam ser considerados como mecanismos que impõem restrições em como o conteúdo web é acessado, armazenado, ou repostado por terceiros.
 
-O arquivo `robots.txt` é recuperado do diretorio  raiz do servidor web. Por exemplo, o arquivo `robots.txt` de `www.google.com` usando `wget` ou `curl`:
+O arquivo é recuperado do diretório raiz de servidor web. Por exemplo, para recuperar o arquivo `robots.txt` de `www.google.com` usando `wget` ou `curl`:
 
 ```bash
 $ curl -O -Ss http://www.google.com/robots.txt && head -n5 robots.txt
@@ -62,27 +54,30 @@ Allow: /search/howsearchworks
 ...
 ```
 
-#### Analise robots.txt Usando Ferramentas Google Webmaster
+#### Analise robots.txt usando ferramentas Google Webmaster
 
-Donos de web sites podem usar a função Google "Analyze robots.txt" para analisar o website somo parte da [Ferramenta Google Webmaster](https://www.google.com/webmasters/tools). Essa ferramenta pode auxiliar com teste e procedimentos da seguinte forma:
+Proprietários de site podem usar função Google "Analyze robots.txt" para analisar o site como parte da ferramenta [Google Webmaster Tools](https://www.google.com/webmasters/tools). Essa ferramenta pode auxiliar com testes e procedimentos como se segue:
 
-1. Acesse na Ferramenta Google Webmaster com a conta Google.
-2. No dashboard, entre a URL do site a ser analisado.
-3. Selecione entre os metodos disponíveis e siga as intruções da tela.
+1. Acesse a Google web Masters tools com uma conta Google.
+2. No dashboard, insira a URL do site a ser analisado.
+3. Escolha entre os métodos disponíveis e siga as instruções da tela.
 
 ### META Tags
 
-`<META>` tags estão localizadas dentro da sessão `HEAD` de cada documento HTML e devem ser consistentes em todo website, especialmente em um evento no qual o ponto de partida de robot/spider/crawler não inicia a partir de um link de documento outro senão o raiz, por exemplo, o [deep link](https://en.wikipedia.org/wiki/Deep_linking). Procedimentos de Robots podem ser determinadas através do uso específico de uma [META tag](https://www.robotstxt.org/meta.html).
+`<META>` tags estão localizadas dentro da sessão `HEAD` de cada documento HTML e devem ser consideradas por todo o site em um evento no qual o ponto de partida não inicia a partir de um documento outro senão o raiz, isto é, um 
+[deep link](https://en.wikipedia.org/wiki/Deep_linking). Instruções Robots podem ser também especificadas através do uso específico de [META Tag](https://www.robotstxt.org/meta.html).
 
 #### Robots META Tag
 
-Se não há uma entrada `<META NAME="ROBOTS" ... >`, então o "Robots Exclusion Protocol" a se tornar padrão é o  `INDEX,FOLLOW`. Contudo, as outras duas entradas válidas definidas pelo "Robots Exclusion Protocol" são prefixadas com `NO...`, por exemplo,  `NOINDEX` e `NOFOLLOW`.
+Se não há uma entrada`<META NAME="ROBOTS" ... >` então o "Robots Exclusion Protocol" é padronizado para `INDEX,FOLLOW` respectivamente. Entretanto, as duas outras entradas válidas definidas pelo "Robots Exclusion Protocol" são prefixadas com `NO...`, isto é,  `NOINDEX` e `NOFOLLOW`.
 
-Baseado nas procedimentos desabilitadas listadas dentro do arquivo `robots.txt` no diretório raiz, uma busca pela expressão regular `<META NAME="ROBOTS"` em cada página web é empreendida e o resultado comparado ao arquivo `robots.txt` do diretório raiz. 
+Baseadas na(s) diretiva(s) Disallow listadas dentro do arquivo ‘robot.txt’ do diretório web raiz, a expressão regular de busca `<META NAME="ROBOTS"` em cada página web é empreendida e o resultado comparado ao arquivo `robots.txt` do diretório web raiz.
+ 
+#### Informações variadas de META Tags
 
-#### Tags de de META Informações Genéricas  
-
-Organizações geralmente incluem Meta tags de informações no conteúdo web para dar suporte a várias tecnologias tais como, leitores de tela, pré visualizadores de redes sociais, indexadores de busca, etc. Tais meta informações podem ser valiosas para testadores na identificação de tecnologias usadas, e consequentemente caminho para funcionalidades a serem testadas. O arquivo de meta informação a seguir foi obtido de `www.whitehouse.gov` via View Page Source (visualizar código da página) em 20 de maio de 2020.  
+Organizações comumente inserem informações de META tags para conteúdo web afim de suportar várias tecnologias tais como leitores de tela (acessibilidade), visualizadores de mídias sociais, mecanismos de busca etc.
+Tais meta-informações podem ser valiosas a testadores na identificação de tecnologias utilizadas, bem como funcionalidades e caminhos para se explorar e testar.
+A seguinte informação de META tags foi obtida de `www.whitehouse.gov` através da funcionalidade ver arquivo fonte em 5 de maio de 2020:
 
 ```html
 ...
@@ -111,10 +106,9 @@ Organizações geralmente incluem Meta tags de informações no conteúdo web pa
 
 ### Sitemaps
 
-A sitemap is a file where a developer or organization can provide information about the pages, videos, and other files offered by the site or application, and the relationship between them. Search engines can use this file to more intelligently explore your site. Testers can use `sitemap.xml` files to learn more about the site or application to explore it more completely.
+Um sitemap é um arquivo onde o desenvolvedor ou a organização podem prover informações sobre as páginas, vídeos, e outros arquivos oferecidos pelo site ou aplicativo, bem como a relação entre eles. Buscadores podem usar esse arquivo para explorar de maneira mais inteligente seu site. Testadores podem usar o arquivo `sitemap.xml` para aprender mais sobre o site ou aplicativo e explorá-lo mais detalhadamente.
 
-O
-The following excerpt is from Google's primary sitemap retrieved 2020 May 05.
+O seguinte trecho foi retirado do sitemap primário do  Google em 5 de maio de 2020.
 
 ```bash
 $ wget --no-verbose https://www.google.com/sitemap.xml && head -n8 sitemap.xml
@@ -131,7 +125,7 @@ $ wget --no-verbose https://www.google.com/sitemap.xml && head -n8 sitemap.xml
 ...
 ```
 
-Exploring from there a tester may wish to retrieve the gmail sitemap `https://www.google.com/gmail/sitemap.xml`:
+A partir do sitemap, um testador pode desejar extrair o sitemap do gmail em `https://www.google.com/gmail/sitemap.xml`:
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -147,19 +141,19 @@ Exploring from there a tester may wish to retrieve the gmail sitemap `https://ww
 
 ### Security TXT
 
-`security.txt` is a [proposed standard](https://securitytxt.org/) which allows websites to define security policies and contact details. There are multiple reasons this might be of interest in testing scenarios, including but not limited to:
+`security.txt` é um [padrão proposto](https://securitytxt.org/) o qual permite web sites definir políticas de segurança e de detalhes de contatos. Existem múltiplas razões às quais isso possa ser interessante a cenários de testes, incluindo, mas não limitado a:
 
-- Identifying further paths or resources to include in discovery/analysis.
-- Open Source intelligence gathering.
-- Finding information on Bug Bounties, etc.
-- Social Engineering.
-
-The file may be present either in the root of the webserver or in the `.well-known/` directory. Ex:
+- Identificando caminhos adicionais ou recursos para inclusão na descoberta ou análise.
+- Coleta de inteligência de Código Aberto.
+- Coletando informações em Bug Bounties, etc.
+- Engenharia Social.
+ 
+O arquivo pode estar presente tanto na raiz do servidor web quanto no diretório `.well-known/`
+Ex:
 
 - `https://example.com/security.txt`
 - `https://example.com/.well-known/security.txt`
-
-Here is a real world example retrieved from LinkedIn 2020 May 05:
+Aqui está um exemplo real retirado do  LinkedIn em 5 de maio de 2020:
 
 ```bash
 $ wget --no-verbose https://www.linkedin.com/.well-known/security.txt && cat security.txt
@@ -174,9 +168,9 @@ Policy: https://www.linkedin.com/help/linkedin/answer/62924
 
 ### Humans TXT
 
-`humans.txt` is an initiative for knowing the people behind a website. It takes the form of a text file that contains information about the different people who have contributed to building the website. See [humanstxt](http://humanstxt.org/) for more info. This file often (though not always) contains information for career or job sites/paths.
+O `humans.txt` é uma iniciativa para se conhecer as pessoas por trás do website. Assume a forma de um arquivo de texto que contém informações sobre diferentes pessoas que tem contribuído para construir website. Acesse [humanstxt](http://humanstxt.org/) para mais informações. Esse arquivo comumente, embora não sempre, contém informações para sites de empregos ou carreira.
 
-The following example was retrieved from Google 2020 May 05:
+O exemplo a seguir foi extraído do Google em 5 de maio de 2020:
 
 ```bash
 $ wget --no-verbose  https://www.google.com/humans.txt && cat humans.txt
@@ -184,11 +178,10 @@ $ wget --no-verbose  https://www.google.com/humans.txt && cat humans.txt
 Google is built by a large team of engineers, designers, researchers, robots, and others in many different sites across the globe. It is updated continuously, and built with more tools and technologies than we can shake a stick at. If you'd like to help us out, see careers.google.com.
 ```
 
-### Outras Fontes de Informação bem conhecidas
+### Outras fontes de informação well-known 
 
-There are other RFCs and Internet drafts which suggest standardized uses of files within the `.well-known/` directory. Lists of which can be found [here](https://en.wikipedia.org/wiki/List_of_/.well-known/_services_offered_by_webservers) or [here](https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml).
 
-It would be fairly simple for a tester to review the RFC/drafts are create a list to be supplied to a crawler or fuzzer, in order to verify the existence or content of such files.
+Existem outras RFCs(Request for Comments) e rascunhos de os quais sugerem padronização no uso de arquivos dentro do diretório. Essas listas podem ser encontradas[aqui] https://en.wikipedia.org/wiki/List_of_/.well-known/_services_offered_by_webservers) ou [aqui](https://www.iana.org/assignments/well-known-uris/well-known-uris.xhtml). Seria consideravelmente  simples para um testador revisar ou criar uma lista para fornecer ao crawler ou ao fuzzer, afim de verificar a existência ou conteúdo de tais arquivos.
 
 ## Ferramentas
 
