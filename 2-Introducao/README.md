@@ -432,7 +432,7 @@ O invasor quebra a autenticação por meio de um ataque de força bruta ou de di
 O exemplo gráfico abaixo descreve a derivação dos requisitos de segurança por meio de casos de uso e uso indevido. O cenário funcional consiste nas ações do usuário (inserir um nome de usuário e senha) e nas ações do aplicativo (autenticar o usuário e fornecer uma mensagem de erro se a validação falhar). O caso de uso incorreto consiste nas ações do invasor, isto é, tentar quebrar a autenticação por força bruta da senha através de um ataque de dicionário e adivinhar nomes de usuário válidos a partir de mensagens de erro. Ao representar graficamente as ameaças às ações do usuário (uso indevido), é possível derivar medidas preventivas como as ações do aplicativo que mitigam tais ameaças. 
 
 ![Caso de uso e uso indevido](images/640px-UseAndMisuseCase.png)\
-*Figura 2-5: Caso de Uso e Uso Indevido *
+*Figura 2-5: Caso de Uso e Uso Indevido*
 
 ### Passo 4: Extraia os requisitos de segurança
 
