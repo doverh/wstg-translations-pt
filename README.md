@@ -18,27 +18,27 @@ Ao submeter um Pull Request [pull request](#how-to-submit-a-pull-request), revis
 
 ## 2. [Introdução](2-Introducao/)
 
-### 2.1 [The OWASP Testing Project](2-Introduction/README.md#The-OWASP-Testing-Project)
+### 2.1 [O Projeto de Testes OWASP](2-Introducao/README.md#O-Projeto-de-Testes-OWASP)
 
-### 2.2 [Principles of Testing](2-Introduction/README.md#Principles-of-Testing)
+### 2.2 [Principios de Testes](2-Introducao/README.md#Principios-de-Testes)
 
-### 2.3 [Testing Techniques Explained](2-Introduction/README.md#Testing-Techniques-Explained)
+### 2.3 [Técnicas de teste explicadas](2-Introducao/README.md#Técnicas-de-teste-explicadas)
 
-### 2.4 [Manual Inspections and Reviews](2-Introduction/README.md#Manual-Inspections-and-Reviews)
+### 2.4 [Inspeção manual e revisões](2-Introducao/README.md#MInspeção-manual-e-revisões)
 
-### 2.5 [Threat Modeling](2-Introduction/README.md#Threat-Modeling)
+### 2.5 [Modelagem de ameaças](2-Introducao/README.md#Modelagem-de-ameaças)
 
-### 2.6 [Source Code Review](2-Introduction/README.md#Source-Code-Review)
+### 2.6 [Revisão de Código-Fonte](2-Introducao/README.md#Revisão-de-Código-Fonte)
 
-### 2.7 [Penetration Testing](2-Introduction/README.md#Penetration-Testing)
+### 2.7 [Testes de Invasão](2-Introducao/README.md#Testes-de-Invasão)
 
-### 2.8 [The Need for a Balanced Approach](2-Introduction/README.md#The-Need-for-a-Balanced-Approach)
+### 2.8 [A necessidade de uma abordagem equilibrada](2-Introducao/README.md#A-necessidade-de-uma-abordagem-equilibrada)
 
-### 2.9 [Deriving Security Test Requirements](2-Introduction/README.md#Deriving-Security-Test-Requirements)
+### 2.9 [Obtendo requisitos de testes seguros](2-Introducao/README.md#Obtendo-requisitos-de-testes-seguros)
 
-### 2.10 [Security Tests Integrated in Development and Testing Workflows](2-Introduction/README.md#Security-Tests-Integrated-in-Development-and-Testing-Workflows)
+### 2.10 [Testes de segurança integrados ao ciclo de desenvolvimento e testes](2-Introducao/README.md#Testes-de-segurança-integrados-ao-ciclo-de-desenvolvimento-e-testes)
 
-### 2.11 [Security Test Data Analysis and Reporting](2-Introduction/README.md#Security-Test-Data-Analysis-and-Reporting)
+### 2.11 [Testes de Segurança - Análise de dados e relatórios](2-Introducao/README.md#Testes-de-Segurança-Análise-de-dados-e-relatórios)
 
 ## 3. [The OWASP Testing Framework](3-The_OWASP_Testing_Framework/)
 
