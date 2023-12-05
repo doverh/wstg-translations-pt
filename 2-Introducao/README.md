@@ -79,7 +79,7 @@ Referencias a cenários do Guia de Testes de Segurança Web devem ser feitos usa
 
 Como em todos os projetos OWASP, agradecemos comentários e feedback. Gostamos especialmente de saber se nosso trabalho está sendo usado e que é eficaz e preciso.
 
-### Princípios de Testes
+### Principios de Testes
 
 Há conceitos equivocados quando se busca desenvolver uma metodologia de testes para encontrar bugs de segurança em software. Este capítulo cobre alguns dos princípios básicos os quais profissionais devem levar em consideração ao realizar testes de segurança em software.
 
@@ -197,11 +197,11 @@ Outras atividades, incluindo a revisão manual da documentação, políticas de 
 - Material de apoio nem sempre disponível
 - Requer considerável esforço intelectual e habilidades para ser efetivado
 
-## Modelagem de Ameaças
+## Modelagem de ameaças
 
 ### Panorama Geral
 
-Modelagem de ameaças têm se tornado uma técnica popular para ajudar arquitetos de sistemas a pensar quais ameaças suas aplicações e sistemas poderão enfrentar. Portanto, a modelagem de ameaças pode ser vista como uma avaliação de risco para aplicativos. Ele permite que o designer desenvolva estratégias de mitigação para vulnerabilidades em potencial e os ajuda a focar, seus innevitaveis escasos recursos e atenção, nas partes do sistema que mais vulneráveis. É recomendável que todos os aplicativos tenham um modelo de ameaça desenvolvido e documentado. Os modelos de ameaça devem ser criados o mais cedo possível no SDLC e devem ser revisados conforme o aplicativo evolui e o desenvolvimento avança.
+Threat Modeling (modelagem de ameaças) têm se tornado uma técnica popular para ajudar arquitetos de sistemas a pensar quais ameaças suas aplicações e sistemas poderão enfrentar. Portanto, a modelagem de ameaças pode ser vista como uma avaliação de risco para aplicativos. Ele permite que o designer desenvolva estratégias de mitigação para vulnerabilidades em potencial e os ajuda a focar, seus innevitaveis escasos recursos e atenção, nas partes do sistema que mais vulneráveis. É recomendável que todos os aplicativos tenham um modelo de ameaça desenvolvido e documentado. Os modelos de ameaça devem ser criados o mais cedo possível no SDLC e devem ser revisados conforme o aplicativo evolui e o desenvolvimento avança.
 
 Para desenvolver um modelo de ameaças recomendamos que seja seguido uma abordagem simples que conforme instrui a norma para avaliação de riscos [NIST 800-30](https://csrc.nist.gov/publications/detail/sp/800-30/rev-1/final). Essa abordagem envolve:
 
@@ -253,7 +253,7 @@ Para mais informações sobre revisão de código, visite o [OWASP code review p
 
 ###  Visão geral
 
-O teste de invasão tem sido uma técnica comum usada para testar a segurança da rede há décadas. Também conhecida como hacking ético, o teste de invasão é essencialmente a "arte" de testar um sistema ou aplicativo remotamente para encontrar vulnerabilidades de segurança, sem conhecer o funcionamento interno do próprio alvo, por isso também classificado como teste black box. Normalmente, a equipe de teste de invasão consegue acessar um aplicativo como se fosse um usuário. O testador atua como um invasor e tenta encontrar e explorar vulnerabilidades. Em muitos casos, o testador receberá uma ou mais contas válidas no sistema.
+Penetration Testing (teste de invasão) tem sido uma técnica comum usada para testar a segurança da rede há décadas. Também conhecida como hacking ético, o teste de invasão é essencialmente a "arte" de testar um sistema ou aplicativo remotamente para encontrar vulnerabilidades de segurança, sem conhecer o funcionamento interno do próprio alvo, por isso também classificado como teste black box. Normalmente, a equipe de teste de invasão consegue acessar um aplicativo como se fosse um usuário. O testador atua como um invasor e tenta encontrar e explorar vulnerabilidades. Em muitos casos, o testador receberá uma ou mais contas válidas no sistema.
 
 Embora o teste de invasão tenha se mostrado eficaz na segurança de redes, a técnica não se traduz naturalmente em aplicativos. Quando o teste de invasão é executado em redes e sistemas operacionais, a maior parte do trabalho envolvido é encontrar e explorar vulnerabilidades conhecidas em tecnologias específicas. Como os aplicativos web são quase exclusivamente feitos sob medida, os testes de penetração na área de aplicativos web se assemelham mais à pura pesquisa. Algumas ferramentas de teste de invasão automatizadas foram desenvolvidas, mas considerando a natureza personalizada dos aplicativos da web, sua eficácia em si pode ser limitada.
 
@@ -444,7 +444,7 @@ Nesse caso os seguintes requisitos de segurança para autenticação são deriva
 
 Esses requisitos de segurança precisam ser documentados e testados. 
   
-## Testes de segurança integrados ao fluxo de desenvolvimento e testes 
+## Testes de segurança integrados ao ciclo de desenvolvimento e testes 
 
 ### Testes de segurança no fluxo(workflow) de desenvlvimento
 
