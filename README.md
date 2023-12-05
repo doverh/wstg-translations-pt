@@ -7,7 +7,7 @@ Texto original em inglês pode ser encontrado em https://github.com/OWASP/wstg/r
 Ao submeter um Pull Request [pull request](#how-to-submit-a-pull-request), revisores e editores devem associar as mudanças a uma sessão:
 
 1. Escolha uma sessão a qual você gostaria de revisar.
-2. Clone o repositório e submite um Pull Request, em uma branch com com o nome `revisa-<numero>`. Por exemplo, `git checkout -b revisa-4-01-07`.
+2. Clone o repositório e submite um Pull Request, em uma branch com o nome `revisa-<numero>`. Por exemplo, `git checkout -b revisa-4-01-07`.
 
 
 # Sumário
