@@ -14,9 +14,9 @@ Ao submeter um Pull Request [pull request](#how-to-submit-a-pull-request), revis
 
 ## 0. [Prefácio por Eoin Keary](0-Prefacio/README.md)
 
-## 1. [Frontispiece](1-Frontispiece/)
+## 1. [Frontispicio](1-Frontispicio/)
 
-## 2. [Introduction](2-Introduction/)
+## 2. [Introdução](2-Introducao/)
 
 ### 2.1 [The OWASP Testing Project](2-Introduction/README.md#The-OWASP-Testing-Project)
 

@@ -1,99 +1,100 @@
-# Frontispiece
+<h1>Frontispício</h1>
 
-## Welcome
+<h2>Sejam Bem-Vindos!</h2>
 
-> As we focus on incremental improvement, this release introduces numerous updates. We've standardized scenario formats to create a better reading experience, added objectives for each testing scenario, merged sections, and added new scenarios on some modern testing topics.
->
-> — Rick Mitchell
+    Ao focarmos na melhoria incremental, esta versão apresenta várias atualizações. Padronizamos formatos de ilustrações para criarmos uma melhor experiência de leitura. Adicionamos objetivos para cada cenário de teste, mesclamos seções e adicionamos novos cenários baseados em tópicos mais atuais de testes.
+    — Rick Mitchell
 
-OWASP thanks the many authors, reviewers, and editors for their hard work in bringing this guide to where it is today. If you have any comments or suggestions on the Testing Guide, please feel free to open an Issue or submit a fix/contribution via Pull Request to our [GitHub repository](https://github.com/OWASP/wstg/).
+O OWASP agradece aos muitos autores, revisores e editores por seu trabalho árduo ao transformar este guia no que é hoje. Se você tiver algum comentário ou sugestão sobre o guia de teste, sinta-se à vontade para abrir um chamado ou enviar uma correção / contribuição por meio de solicitação de pull request para nosso <a href="https://github.com/OWASP/wstg/">repositório no GitHub</a0>.
 
-## Copyright and Licensee
+<h2>Direitos autorais e licença</h2>
 
-Copyright (c) 2020 The OWASP Foundation.
+Este documento foi publicado sob a <a href="https://creativecommons.org/licenses/by-sa/4.0/">licença Creative Commons 4.0</a> . Por favor, leia e entenda as condições de licença e direitos autorais.
 
-This document is released under the [Creative Commons 4.0 License](https://creativecommons.org/licenses/by-sa/4.0/). Please read and understand the license and copyright conditions.
+<h2>Líderes</h2>
+<ul>  
+  <li>Elie Saad</li>
+  <li>Rick Mitchell</li>
+</ul>
 
-## Leaders
+<h2>Time Principal</h2>
+<ul>  
+  <li>Rejah Rehim</li>
+  <li>Victoria Drake</li>  
+</ul>  
 
-- Elie Saad
-- Rick Mitchell
+<h2>Autores</h2>
+<ul>  
+<li>Aaron Williams</li>
+<li>Alessia Michela Di Campi</li>
+<li>Elie Saad</li>
+<li>Ismael Goncalves</li>
+<li>Janos Zold</li>
+<li>Jeremy Bonghwan Choi</li>
+<li>Joel Espunya</li>
+<li>Manh Pham Tien</li>
+<li>Mark Clayton</li>
+<li>Or Asaf</li>
+<li>rbsec</li>
+<li>Rick Mitchell</li>
+<li>Rishu Ranjan</li>
+<li>Rubal Jain</li>
+<li>Samuele Casarin</li>
+<li>Stefano Calzavara</li>
+<li>Tal Argoni</li>
+<li>Victoria Drake</li>
+<li>Phu Nguyen (Tony)</li>
+</ul>
 
-## Core Team
+<h2>Tradutores</h2>
+<ul> 
+<li>Dover Hellfeldt</li>
+<li>Maurício Ariza</li>
+<li></li>
+</ul>
 
-- Rejah Rehim
-- Victoria Drake
+<h2>Designers Gráficos</h2>
+<ul>
+<li>Hugo Costa</li>
+<li>Jishnu Vijayan C K</li>
+<li>Muhammed Anees</li>
+<li>Ramzi Fazah</li>
+</ul>
+<h2>Revisores ou Editores</h2>
+<ul>
+<li>Abhi M Balakrishnan</li>
+<li>Asharaf Ali</li>
+<li>Elie Saad</li>
+<li>Eoin Murphy</li>
+<li>Francisco Bustos</li>
+<li>frozensolid</li>
+<li>Hsiang-Chih Hsu</li>
+<li>Jeremy Bonghwan Choi</li>
+<li>Lukasz Lubczynski</li>
+<li>Miguel Arevalo</li>
+<li>Najam Ul Saqib</li>
+<li>Nikoleta Misheva</li>
+<li>Patrick Santos</li>
+<li>Rejah Rehim</li>
+<li>Rick Mitchell</li>
+<li>Roman Mueller</li>
+<li>Thomas Lim</li>
+<li>Tom Bowyer</li>
+<li>Victoria Drake</li>
+</ul>
 
-## Authors
+<h2>Marcas Registradas</h2>
+<ul>
+<li>Java, Java Web Server, and JSP é uma marca registrada da Sun Microsystems, Inc.</li>
+<li>Merriam-Webster é uma marca registrada da Merriam-Webster, Inc.</li>
+<li>Microsoft é uma marca registrada da Microsoft Corporation.</li>
+<li>Octave é uma serviço registrado da Carnegie Mellon University.</li>
+<li>Open Web Application Security Project and OWASP são marcas registradas da OWASP Foundation, Inc.</li>
+<li>VeriSign and Thawte são marcas registradas da VeriSign, Inc.</li>
+<li>Visa é uma marca registrada da VISA USA.</li>
+</ul>
 
-- Aaron Williams
-- Alessia Michela Di Campi
-- Elie Saad
-- Ismael Goncalves
-- Janos Zold
-- Jeremy Bonghwan Choi
-- Joel Espunya
-- Manh Pham Tien
-- Mark Clayton
-- Or Asaf
-- rbsec
-- Rick Mitchell
-- Rishu Ranjan
-- Rubal Jain
-- Samuele Casarin
-- Stefano Calzavara
-- Tal Argoni
-- Victoria Drake
-- Phu Nguyen (Tony)
+Todos os outros produtos e nomes de empresas podem ser marcas comerciais de seus respectivos proprietários. O uso de um termo neste documento não deve afeta a validade de qualquer marca comercial ou marca de serviço.
 
-## Graphic Designers
-
-- Hugo Costa
-- Jishnu Vijayan C K
-- Muhammed Anees
-- Ramzi Fazah
-
-## Reviewers or Editors
-
-- Abhi M Balakrishnan
-- Asharaf Ali
-- Elie Saad
-- Eoin Murphy
-- Francisco Bustos
-- frozensolid
-- Hsiang-Chih Hsu
-- Jeremy Bonghwan Choi
-- Lukasz Lubczynski
-- Miguel Arevalo
-- Najam Ul Saqib
-- Nikoleta Misheva
-- Patrick Santos
-- Rejah Rehim
-- Rick Mitchell
-- Roman Mueller
-- Thomas Lim
-- Tom Bowyer
-- Victoria Drake
-
-## Trademarks
-
-- Java, Java Web Server, and JSP are registered trademarks of Sun Microsystems, Inc.
-- Merriam-Webster is a trademark of Merriam-Webster, Inc.
-- Microsoft is a registered trademark of Microsoft Corporation.
-- Octave is a service mark of Carnegie Mellon University.
-- Open Web Application Security Project and OWASP are registered trademarks of the OWASP Foundation, Inc.
-- VeriSign and Thawte are registered trademarks of VeriSign, Inc.
-- Visa is a registered trademark of VISA USA.
-
-All other products and company names may be trademarks of their respective owners. Use of a term in this document should not be regarded as affecting the validity of any trademark or service mark.
-
-## Contacting OWASP
-
-Contact details for the [OWASP Foundation](https://owasp.org/) are available [online](https://owasp.org/contact/). If you have a question concerning a particular project, we strongly recommend using the [Google Group](https://groups.google.com/a/owasp.org/forum/) for that project. Many questions can also be answered by searching the [OWASP](https://owasp.org/) web site, so please check there first.
-
-### Follow Us
-
-[![Follow OWASP on LinkedIn](images/follow_badge.png)](https://www.linkedin.com/company/owasp/)
-
-[![Follow @owasp_wstg on twitter](https://img.shields.io/twitter/follow/owasp_wstg?style=social)](https://twitter.com/owasp_wstg)
-
+<h2>Como contatar a OWASP</h2>
+Detalhes de contato da <a href="https://owasp.org/">Fundação OWASP</a> estão disponíveis <a href="https://owasp.org/contact/">online</a>. Se você tiver alguma dúvida sobre um projeto específico, recomendamos usar o <a href="https://groups.google.com/a/owasp.org/forum/">Grupo</a> do Google para esse projeto. Muitas perguntas também podem ser respondidas através de pesquisa no <a href="https://owasp.org/">site da OWASP</a> , portanto, verifique-o primeiro.
