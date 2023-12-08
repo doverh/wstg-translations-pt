@@ -42,21 +42,21 @@ Ao submeter um Pull Request [pull request](#how-to-submit-a-pull-request), revis
 
 ## 3. [Framework de Testes OWASP](3-Framework-Testes-OWASP/)
 
-### 3.1 [Framework_Testes-Seguranca-Web](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md)
+### 3.1 [Framework de Testes de Seguranca Web](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md)
 
-### 3.2 [Phase 1 Before Development Begins](3-Framework-Testes-OWASP/0-The_Web_Security_Testing_Framework.md#Phase-1-Before-Development-Begins)
+### 3.2 [Fase 1 Pré Desenvolvimento](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-1-Pre-Desenvolvimento)
 
-### 3.3 [Phase 2 During Definition and Design](3-Framework-Testes-OWASP/0-The_Web_Security_Testing_Framework.md#Phase-2-During-Definition-and-Design)
+### 3.3 [Fase 2 Durante a Definição e o Design](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-2-Durante-a-Definição-e-o-Design)
 
-### 3.4 [Phase 3 During Development](3-Framework-Testes-OWASP/0-The_Web_Security_Testing_Framework.md#Phase-3-During-Development)
+### 3.4 [Fase 3 Durante o Desenvolvimento](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-3-Durante-o-Desenvolvimento)
 
-### 3.5 [Phase 4 During Deployment](3-Framework-Testes-OWASP/0-The_Web_Security_Testing_Framework.md#Phase-4-During-Deployment)
+### 3.5 [Fase 4 Durante a Entrega](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-4-Durante-a-Entrega)
 
-### 3.6 [Phase 5 During Maintenance and Operations](3-Framework-Testes-OWASP/0-The_Web_Security_Testing_Framework.md#Phase-5-During-Maintenance-and-Operations)
+### 3.6 [Fase 5 Durante a Manutenção e Operações and Operations](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-5-Durante-a-Manutenção-e-Operacoes-and-Operations)
 
-### 3.7 [A Typical SDLC Testing Workflow](3-Framework-Testes-OWASP/0-The_Web_Security_Testing_Framework.md#A-Typical-SDLC-Testing-Workflow)
+### 3.7 [Tìpico Workflow de Testes SDLC](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Tipico Workflow-de-Testes-SDLC)
 
-### 3.8 [Penetration Testing Methodologies](3-Framework-Testes-OWASP/1-Penetration_Testing_Methodologies.md)
+### 3.8 [Metodologias de Testes de Invasão](3-Framework-Testes-OWASP/1-Penetration_Testing_Methodologies.md)
 
 ## 4. [Testes Seguranca de Aplicativos Web](4-Testes-Seguranca-Web-Apps/)
 
