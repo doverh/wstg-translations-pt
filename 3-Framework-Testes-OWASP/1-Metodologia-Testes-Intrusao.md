@@ -63,7 +63,7 @@ O requisito do PCI DSS refere-se à Requisição 11.3 do Padrão de Segurança d
 
 [Orientações de Teste de Intrusão do PCI DSS](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
 
-## Estrutura de Teste de Intrusão
+## Estrutura de Testes de Invasão
 
 A Estrutura de Teste de Intrusão (PTF) fornece um guia abrangente e prático de teste de intrusão. Também lista os usos das ferramentas de teste de segurança em cada categoria de teste. As principais áreas de teste de intrusão incluem:
 
@@ -100,7 +100,7 @@ O NIST 800-115 pode ser acessado [aqui](https://csrc.nist.gov/publications/detai
 
 ## Manual de Metodologia de Testes de Segurança de Código Aberto
 
-O Manual de Metodologia de Testes de Segurança de Código Aberto (OSSTMM) é uma metodologia para testar a segurança operacional de locais físicos, fluxo de trabalho, testes de segurança humana, testes de segurança física, testes de segurança sem fio, testes de segurança de telecomunicações, testes de segurança de redes de dados e conformidade. O OSSTMM pode ser uma referência de suporte para a ISO 27001, em vez de um guia prático ou técnico de teste de penetração.
+O Manual de Metodologia de Testes de Segurança de Código Aberto (OSSTMM) é uma metodologia para testar a segurança operacional de locais físicos, fluxo de trabalho, testes de segurança humana, testes de segurança física, testes de segurança sem fio, testes de segurança de telecomunicações, testes de segurança de redes de dados e conformidade. O OSSTMM pode ser uma referência de suporte para a ISO 27001, em vez de um guia prático ou técnico de teste de invasão.
 
 O OSSTMM inclui as seguintes seções principais:
 
@@ -120,13 +120,13 @@ O OSSTMM inclui as seguintes seções principais:
 
 ## Referências
 
-- [Padrão de Segurança de Dados da Indústria de Cartões de Pagamento - Orientações para Testes de Penetração](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
-- [Padrão de Execução de Teste de Penetração (PTES)](http://www.pentest-standard.org/index.php/Main_Page)
+- [Padrão de Segurança de Dados da Indústria de Cartões de Pagamento - Orientações para Testes de invasão](https://www.pcisecuritystandards.org/documents/Penetration-Testing-Guidance-v1_1.pdf)
+- [Padrão de Execução de Teste de invasão (PTES)](http://www.pentest-standard.org/index.php/Main_Page)
 - [Manual de Metodologia de Testes de Segurança de Código Aberto (OSSTMM)](http://www.isecom.org/research/osstmm.html)
 - [Guia Técnico para Testes e Avaliação de Segurança da Informação NIST SP 800-115](https://csrc.nist.gov/publications/detail/sp/800-115/final)
 - [Orientações de Teste de Segurança HIPAA 2012](http://csrc.nist.gov/news_events/hiipaa_june2012/day2/day2-6_kscarfone-rmetzer_security-testing-assessment.pdf)
-- [Estrutura de Teste de Penetração 0.59](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
+- [Estrutura de Teste de invasão 0.59](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
 - [Guia de Testes de Segurança para Dispositivos Móveis da OWASP](https://owasp.org/www-project-mobile-security-testing-guide/)
 - [Diretrizes de Teste de Segurança para Aplicativos Móveis](https://owasp.org/www-pdf-archive/Security_Testing_Guidelines_for_mobile_Apps_-_Florian_Stahl%2BJohannes_Stroeher.pdf)
 - [Kali Linux](https://www.kali.org/)
-- [Suplemento de Informações: Requisito 11.3 Teste de Penetração](https://www.pcisecuritystandards.org/pdfs/infosupp_11_3_penetration_testing.pdf)
+- [Suplemento de Informações: Requisito 11.3 Teste de Invasão](https://www.pcisecuritystandards.org/pdfs/infosupp_11_3_penetration_testing.pdf)

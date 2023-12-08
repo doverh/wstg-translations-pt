@@ -10,7 +10,7 @@ Esta seção tem como objetivo ajudar as organizações a construir um processo 
 
 Com uma economia como essa, não é surpresa que os fornecedores de software estejam passando de testes de segurança de caixa-preta, que só podem ser realizados em aplicativos que já foram desenvolvidos, para se concentrar nos testes nas primeiras etapas do desenvolvimento de aplicativos, como definição, design e desenvolvimento.
 
-Muitos profissionais de segurança ainda veem os testes de segurança na esfera dos testes de invasão. Como discutido no capítulo anterior, embora os testes de penetração tenham um papel a desempenhar, eles são geralmente ineficientes em encontrar bugs e dependem excessivamente das habilidades do testador. Eles devem ser considerados apenas como uma técnica de implementação ou para aumentar a conscientização sobre questões de produção. Para melhorar a segurança das aplicações, a qualidade de segurança do software deve ser aprimorada. Isso significa testar a segurança durante as etapas de definição, design, desenvolvimento, implantação e manutenção, e não depender da estratégia dispendiosa de esperar até que o código esteja totalmente concluído.
+Muitos profissionais de segurança ainda veem os testes de segurança na esfera dos testes de invasão. Como discutido no capítulo anterior, embora os testes de invasão tenham um papel a desempenhar, eles são geralmente ineficientes em encontrar bugs e dependem excessivamente das habilidades do testador. Eles devem ser considerados apenas como uma técnica de implementação ou para aumentar a conscientização sobre questões de produção. Para melhorar a segurança das aplicações, a qualidade de segurança do software deve ser aprimorada. Isso significa testar a segurança durante as etapas de definição, design, desenvolvimento, implantação e manutenção, e não depender da estratégia dispendiosa de esperar até que o código esteja totalmente concluído.
 
 Como discutido na introdução deste documento, existem muitas metodologias de desenvolvimento, como o Rational Unified Process, desenvolvimento eXtreme e Agile e metodologias tradicionais em cascata. A intenção deste guia não é sugerir uma metodologia de desenvolvimento específica ou fornecer orientações específicas que aderem a qualquer metodologia específica. Em vez disso, estamos apresentando um modelo de desenvolvimento genérico e o leitor deve segui-lo de acordo com seu processo empresarial.
 
@@ -102,13 +102,13 @@ Para mais detalhes sobre as listas de verificação OWASP, consulte a última ed
 
 ## Fase 4 Durante a Implementação
 
-### Fase 4.1 Teste de Penetração da Aplicação
+### Fase 4.1 Teste de Invasão da Aplicação
 
-Após testar os requisitos, analisar o design e realizar a revisão do código, pode-se assumir que todos os problemas foram identificados. Espera-se que esse seja o caso, mas o teste de penetração da aplicação após a implantação fornece uma verificação adicional para garantir que nada tenha sido esquecido.
+Após testar os requisitos, analisar o design e realizar a revisão do código, pode-se assumir que todos os problemas foram identificados. Espera-se que esse seja o caso, mas o teste de invasão da aplicação após a implantação fornece uma verificação adicional para garantir que nada tenha sido esquecido.
 
 ### Fase 4.2 Teste de Gerenciamento de Configuração
 
-O teste de penetração da aplicação deve incluir um exame de como a infraestrutura foi implantada e protegida. É importante revisar os aspectos de configuração, por menores que sejam, para garantir que nenhum deles tenha sido deixado em uma configuração padrão que possa ser vulnerável à exploração.
+O teste de invasão da aplicação deve incluir um exame de como a infraestrutura foi implantada e protegida. É importante revisar os aspectos de configuração, por menores que sejam, para garantir que nenhum deles tenha sido deixado em uma configuração padrão que possa ser vulnerável à exploração.
 
 ## Fase 5 Durante a Manutenção e Operações
 
