@@ -1,7 +1,5 @@
 # Framework de Testes OWASP
 
-## 3. [Framework de Testes OWASP](3-Framework-Testes-OWASP/)
-
 ### 3.1 [Framework de Testes de Seguranca Web](0-Framework-Testes-Seguranca-Web.md)
 
 ### 3.2 [Fase 1 Pré Desenvolvimento](0-Framework-Testes-Seguranca-Web.md#fase-1-pre-desenvolvimento)
@@ -16,4 +14,4 @@
 
 ### 3.7 [Tìpico Workflow de Testes SDLC](0-Framework-Testes-Seguranca-Web.md#tipico-workflow-de-testes-sdlc)
 
-### 3.8 [Metodologias de Testes de Invasão](1-metodologias-de-testes-de-invasão.md)
+### 3.8 [Metodologias de Testes de Invasão](1-Metodologias-de-Testes-de-Invasão.md)
