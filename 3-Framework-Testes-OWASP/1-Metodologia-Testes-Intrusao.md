@@ -1,4 +1,4 @@
-# Metodologias de Teste de Intrusão
+# Metodologias de Teste de Invasão
 
 ## Resumo
 
@@ -6,11 +6,11 @@
   - Guia de Testes de Segurança na Web (WSTG)
   - Guia de Testes de Segurança para Dispositivos Móveis (MSTG)
   - Metodologia de Teste de Segurança para Firmware
-- [Padrão de Execução de Teste de Intrusão](#penetration-testing-execution-standard)
-- [Guia de Teste de Intrusão PCI](#pci-penetration-testing-guide)
-  - [Orientações de Teste de Intrusão PCI DSS](#pci-dss-penetration-testing-guidance)
-  - [Requisitos de Teste de Intrusão PCI DSS](#pci-dss-penetration-testing-requirements)
-- [Estrutura de Teste de Intrusão](#penetration-testing-framework)
+- [Padrão de Execução de Teste de Invasão](#penetration-testing-execution-standard)
+- [Guia de Teste de Invasão PCI](#pci-penetration-testing-guide)
+  - [Orientações de Teste de Invasão PCI DSS](#pci-dss-penetration-testing-guidance)
+  - [Requisitos de Teste de Invasão PCI DSS](#pci-dss-penetration-testing-requirements)
+- [Estrutura de Teste de Invasão](#penetration-testing-framework)
 - [Guia Técnico para Testes e Avaliação de Segurança da Informação](#technical-guide-to-information-security-testing-and-assessment)
 - [Manual de Metodologia de Testes de Segurança de Código Aberto](#open-source-security-testing-methodology-manual)
 - [Referências](#references)
@@ -23,9 +23,9 @@ Em termos de execução técnica de testes de segurança, os guias de teste da O
 - [Guia de Testes de Segurança para Dispositivos Móveis da OWASP](https://owasp.org/www-project-mobile-security-testing-guide/)
 - [Metodologia de Teste de Segurança para Firmware da OWASP](https://github.com/scriptingxss/owasp-fstm)
 
-## Padrão de Execução de Teste de Intrusão
+## Padrão de Execução de Teste de Invasão
 
-O Padrão de Execução de Teste de Intrusão (PTES) define testes de intrusão em 7 fases. Em particular, as Diretrizes Técnicas do PTES oferecem sugestões práticas sobre procedimentos de teste e recomendações para ferramentas de teste de segurança.
+O Padrão de Execução de Teste de Invasão (PTES) define testes de invasão em 7 fases. Em particular, as Diretrizes Técnicas do PTES oferecem sugestões práticas sobre procedimentos de teste e recomendações para ferramentas de teste de segurança.
 
 - Interações Pré-Comprometimento
 - Coleta de Inteligência
@@ -37,20 +37,20 @@ O Padrão de Execução de Teste de Intrusão (PTES) define testes de intrusão 
 
 [Diretrizes Técnicas do PTES](http://www.pentest-standard.org/index.php/PTES_Technical_Guidelines)
 
-## Guia de Teste de Intrusão PCI
+## Guia de Teste de Invasão PCI
 
-O Padrão de Segurança de Dados da Indústria de Cartões de Pagamento (PCI DSS) na Requisição 11.3 define o teste de intrusão. O PCI também define Orientações para Teste de Intrusão.
+O Padrão de Segurança de Dados da Indústria de Cartões de Pagamento (PCI DSS) na Requisição 11.3 define o teste de invasão. O PCI também define Orientações para Teste de Invasão.
 
-### Orientações de Teste de Intrusão PCI DSS
+### Orientações de Teste de Invasão PCI DSS
 
-O guia de teste de intrusão do PCI DSS fornece orientações sobre o seguinte:
+O guia de teste de invasão do PCI DSS fornece orientações sobre o seguinte:
 
-- Componentes de Teste de Intrusão
-- Qualificações de um Testador de Intrusão
-- Metodologias de Teste de Intrusão
-- Diretrizes para Relatórios de Teste de Intrusão
+- Componentes de Teste de Invasão
+- Qualificações de um Testador de Invasão
+- Metodologias de Teste de Invasão
+- Diretrizes para Relatórios de Teste de Invasão
 
-### Requisitos de Teste de Intrusão PCI DSS
+### Requisitos de Teste de Invasão PCI DSS
 
 O requisito do PCI DSS refere-se à Requisição 11.3 do Padrão de Segurança de Dados da Indústria de Cartões de Pagamento (PCI DSS).
 
@@ -61,11 +61,11 @@ O requisito do PCI DSS refere-se à Requisição 11.3 do Padrão de Segurança d
 - Testes de camada de aplicação
 - Testes de camada de rede para rede e sistemas operacionais
 
-[Orientações de Teste de Intrusão do PCI DSS](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
+[Orientações de Teste de Invasão do PCI DSS](https://www.pcisecuritystandards.org/documents/Penetration_Testing_Guidance_March_2015.pdf)
 
 ## Estrutura de Testes de Invasão
 
-A Estrutura de Teste de Intrusão (PTF) fornece um guia abrangente e prático de teste de intrusão. Também lista os usos das ferramentas de teste de segurança em cada categoria de teste. As principais áreas de teste de intrusão incluem:
+A Estrutura de Teste de Invasão (PTF) fornece um guia abrangente e prático de teste de invasão. Também lista os usos das ferramentas de teste de segurança em cada categoria de teste. As principais áreas de teste de invasão incluem:
 
 - Levantamento de Informações de Rede (Reconhecimento)
 - Descoberta & Sondagem
@@ -79,11 +79,11 @@ A Estrutura de Teste de Intrusão (PTF) fornece um guia abrangente e prático de
 - Backbone de Rede
 - Testes Específicos para Servidores
 - Segurança VoIP
-- Intrusão Wireless
+- Invasão Wireless
 - Segurança Física
 - Relatório Final - modelo
 
-[Estrutura de Teste de Intrusão](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
+[Estrutura de Teste de Invasão](http://www.vulnerabilityassessment.co.uk/Penetration%20Test.html)
 
 ## Guia Técnico para Testes e Avaliação de Segurança da Informação
 
