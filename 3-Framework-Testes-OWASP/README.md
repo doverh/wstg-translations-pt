@@ -4,7 +4,7 @@
 
 ### 3.1 [Framework de Testes de Seguranca Web](3-Framework-Testes-OWASP/0-Framework-Testes-Seguranca-Web.md)
 
-### 3.2 [Fase 1 Pré Desenvolvimento](3-Framework-Testes-OWASP/0-Framework-Testes-Seguranca-Web.md#fase-1-pre-desenvolvimento)
+### 3.2 [Fase 1 Pré Desenvolvimento](0-Framework-Testes-Seguranca-Web.md#fase-1-pre-desenvolvimento)
 
 ### 3.3 [Fase 2 Durante a Definição e o Design](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-2-Durante-a-Definição-e-o-Design)
 
