@@ -1,8 +1,8 @@
-# 4.1 Information Gathering
+# 4.1 Coleta de Informações
 
-4.1.1 [Conduct Search Engine Discovery Reconnaissance for Information Leakage](01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md)
+4.1.1 [Conduza Busca de Reconhecimento por Informações Vazadas](01-Conduza-Buscas-de-Reconhecimento-sobre-o-Vazamentos-de-Informações.md)
 
-4.1.2 [Fingerprint Web Server](02-Fingerprint_Web_Server.md)
+4.1.2 [Fingerprint de Servidor Web](02-Fingerprinting-de-Servidor-Web.md)
 
 4.1.3 [Review Webserver Metafiles for Information Leakage](03-Review_Webserver_Metafiles_for_Information_Leakage.md)
 
@@ -17,5 +17,5 @@
 4.1.8 [Fingerprint Web Application Framework](08-Fingerprint_Web_Application_Framework.md)
 
 4.1.9 [Fingerprint Web Application](09-Fingerprint_Web_Application.md)
-
+s
 4.1.10 [Map Application Architecture](10-Map_Application_Architecture.md)
