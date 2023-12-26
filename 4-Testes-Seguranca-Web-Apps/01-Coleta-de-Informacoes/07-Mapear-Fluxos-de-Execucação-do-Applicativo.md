@@ -10,7 +10,7 @@ Antes de iniciar os testes de segurança, entender a estrutura do aplicativo é 
 
 ## Objetivos do Teste
 
-- Mapear a aplicação-alvo e compreender os fluxos de trabalho principais.
+- Mapear a aplicação-alvo e compreender os fluxos de código principais.
 
 ## Como Testar
 
