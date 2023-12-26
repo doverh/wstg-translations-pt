@@ -14,8 +14,8 @@
 
 4.1.7 [Mapear Fluxos de Execucação do Applicativo.md](07-Mapear-Fluxos-de-Execucação-do-Applicativo.md)
 
-4.1.8 [Fingerprint Web Application Framework](08-Fingerprint_Web_Application_Framework.md)
+4.1.8 [Mapa do Framework de Aplicativos Web](08-Mapa-do-Framework-de-Aplicativos-Web.md)
 
-4.1.9 [Fingerprint Web Application](09-Fingerprint_Web_Application.md)
-s
-4.1.10 [Map Application Architecture](10-Map_Application_Architecture.md)
+4.1.9 [Mapa do Framework de Aplicativos Web](09-Mapa-de-Aplicativos-Web.md)
+
+4.1.10 [Mapa da Arquitetura de Aplicativos](10-Mapa-da-Arquitetura-de-Aplicativos.md)
