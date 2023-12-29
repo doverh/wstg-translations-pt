@@ -18,4 +18,4 @@
 
 4.1.9 [Mapa do Framework de Aplicativos Web](09-Mapa-de-Aplicativos-Web.md)
 
-4.1.10 [Mapa da Arquitetura de Aplicativos](10-Mapa-da-Arquitetura-de-Aplicativos.md)
+4.1.10 [Mapeamento da Arquitetura de Aplicativos](10-Mapeamento-da-Arquitetura-de-Aplicativos.md)

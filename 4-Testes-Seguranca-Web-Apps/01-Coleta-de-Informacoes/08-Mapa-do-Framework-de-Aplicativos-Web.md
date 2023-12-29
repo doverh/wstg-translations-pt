@@ -6,7 +6,7 @@
 
 ## Resumo
 
-Não há nada de novo sob o sol, e quase toda aplicação web que se possa pensar em desenvolver já foi desenvolvida. Com o grande número de projetos de software gratuitos e de código aberto que são desenvolvidos e implantados ativamente em todo o mundo, é muito provável que um teste de segurança de aplicação enfrente um alvo que dependa inteira ou parcialmente dessas aplicações ou estruturas bem conhecidas (por exemplo, WordPress, phpBB, Mediawiki, etc). Conhecer os componentes da aplicação web que está sendo testada ajuda significativamente no processo de teste e também reduz drasticamente o esforço necessário durante o teste. Essas aplicações web bem conhecidas têm cabeçalhos HTML, cookies e estruturas de diretórios conhecidos que podem ser enumerados para identificar a aplicação. A maioria das estruturas web tem vários marcadores nesses locais que ajudam um atacante ou testador a reconhecê-las. Isso é basicamente o que todas as ferramentas automáticas fazem, elas procuram um marcador em uma localização predefinida e depois o comparam com o banco de dados de assinaturas conhecidas. Para obter maior precisão, vários marcadores são geralmente usados.
+Não há nada de novo sob o sol, e quase toda aplicação web que se possa pensar em desenvolver já foi desenvolvida. Com o grande número de projetos de software gratuitos e de código aberto que são desenvolvidos e implantados ativamente em todo o mundo, é muito provável que um teste de segurança tenha como alvo aplicativos que dependam inteira  ou parcialmente dessas estruturas bem conhecidas (por exemplo, WordPress, phpBB, Mediawiki, etc). Conhecer os componentes da aplicação web que está sendo testada ajuda significativamente no processo de teste e também reduz drasticamente o esforço necessário durante o teste. Essas aplicações web bem conhecidas têm cabeçalhos HTML, cookies e estruturas de diretórios conhecidos que podem ser enumerados para identificar a aplicação. A maioria das estruturas web tem vários marcadores nesses locais que ajudam um hacker ou testador a reconhecê-las. Isso é basicamente o que todas as ferramentas automáticas fazem, elas procuram um marcador em uma localização predefinida e depois o comparam com o banco de dados de assinaturas conhecidas. Para obter maior precisão, vários marcadores são geralmente usados.
 
 ## Objetivos do Teste
 
@@ -55,7 +55,7 @@ Vary: Accept-Encoding
 X-Powered-By: Blood, sweat and tears
 ```
 
-Às vezes, existem mais cabeçalhos HTTP que apontam para uma determinada estrutura. No exemplo a seguir, de acordo com as informações da solicitação HTTP, pode-se ver que o cabeçalho `X-Powered-By` contém a versão do PHP. No entanto, o cabeçalho `X-Generator` aponta que a estrutura usada é na verdade `Swiftlet`, o que ajuda um testador de penetração a expandir seus vetores de ataque. Ao realizar a identificação, inspecione cuidadosamente cada cabeçalho HTTP em busca de vazamentos semelhantes.
+Às vezes, existem mais cabeçalhos HTTP que apontam para uma determinada estrutura. No exemplo a seguir, de acordo com as informações da solicitação HTTP, pode-se ver que o cabeçalho `X-Powered-By` contém a versão do PHP. No entanto, o cabeçalho `X-Generator` aponta que a estrutura usada é na verdade `Swiftlet`, o que ajuda um pen tester a expandir seus vetores de ataque. Ao realizar a identificação, inspecione cuidadosamente cada cabeçalho HTTP em busca de vazamentos semelhantes.
 
 ```html
 HTTP/1.1 200 OK
