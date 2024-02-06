@@ -26,32 +26,32 @@ A compensação quanto ao método utilizado e em que grau cada método é utiliz
 
 Para demonstrar a cobertura de código ao proprietário do aplicativo, o testador pode começar com uma planilha e documentar todos os links descobertos ao explorar a aplicação (manualmente ou automaticamente). Em seguida, o testador pode examinar mais de perto os pontos de decisão na aplicação e investigar quantos fluxos de código significativos são descobertos. Esses devem ser documentados na planilha com URLs, descrições em prosa e capturas de tela dos fluxos descobertos.
 
-### Revisão de Código
+    ### Revisão de Código
 
-Garantir cobertura de código suficiente para o proprietário do aplicativo é muito mais fácil com uma abordagem de teste de caixa cinza e caixa branca. As informações solicitadas e fornecidas ao testador garantirão que os requisitos mínimos de cobertura de código sejam atendidos.
+    Garantir cobertura de código suficiente para o proprietário do aplicativo é muito mais fácil com uma abordagem de teste de caixa cinza e caixa branca. As informações solicitadas e fornecidas ao testador garantirão que os requisitos mínimos de cobertura de código sejam atendidos.
 
-Muitas ferramentas modernas de Teste Dinâmico de Segurança de Aplicações (DAST) facilitam o uso de um agente de servidor web ou podem ser emparelhadas com um agente de terceiros para monitorar especificidades de cobertura de aplicação web.
+    Muitas ferramentas modernas de Teste Dinâmico de Segurança de Aplicações (DAST) facilitam o uso de um agente de servidor web ou podem ser emparelhadas com um agente de terceiros para monitorar especificidades de cobertura de aplicação web.
 
-### Spidering Automático
+    ### Spidering Automático
 
-O spidering automático é uma ferramenta usada para descobrir automaticamente novos recursos (URLs) em um site específico. Ele começa com uma lista de URLs para visitar, chamada sementes, que depende de como o Spider é iniciado. Embora existam muitas ferramentas de Spidering, o exemplo a seguir usa o [Zed Attack Proxy (ZAP)](https://github.com/zaproxy/zaproxy):
+    O spidering automático é uma ferramenta usada para descobrir automaticamente novos recursos (URLs) em um site específico. Ele começa com uma lista de URLs para visitar, chamada sementes, que depende de como o Spider é iniciado. Embora existam muitas ferramentas de Spidering, o exemplo a seguir usa o [Zed Attack Proxy (ZAP)](https://github.com/zaproxy/zaproxy):
 
-![Tela do Zed Attack Proxy](images/OWASPZAPSP.png)\
-*Figura 4.1.7-1: Tela do Zed Attack Proxy*
+    ![Tela do Zed Attack Proxy](images/OWASPZAPSP.png)\
+    *Figura 4.1.7-1: Tela do Zed Attack Proxy*
 
-[ZAP](https://github.com/zaproxy/zaproxy) oferece várias opções de spidering automático, que podem ser aproveitadas com base nas necessidades do testador:
+    [ZAP](https://github.com/zaproxy/zaproxy) oferece várias opções de spidering automático, que podem ser aproveitadas com base nas necessidades do testador:
 
-- [Spider](https://www.zaproxy.org/docs/desktop/start/features/spider/)
-- [AJAX Spider](https://www.zaproxy.org/docs/desktop/addons/ajax-spider/)
-- [Suporte OpenAPI](https://www.zaproxy.org/docs/desktop/addons/openapi-support/)
+    - [Spider](https://www.zaproxy.org/docs/desktop/start/features/spider/)
+    - [AJAX Spider](https://www.zaproxy.org/docs/desktop/addons/ajax-spider/)
+    - [Suporte OpenAPI](https://www.zaproxy.org/docs/desktop/addons/openapi-support/)
 
-## Ferramentas
+    ## Ferramentas
 
-- [Zed Attack Proxy (ZAP)](https://github.com/zaproxy/zaproxy)
-- [Lista de softwares de planilha](https://pt.wikipedia.org/wiki/Lista_de_programas_de_planilha)
-- [Softwares de diagramação](https://pt.wikipedia.org/wiki/Lista_de_programas_de_diagrama%C3%A7%C3%A3o)
+    - [Zed Attack Proxy (ZAP)](https://github.com/zaproxy/zaproxy)
+    - [Lista de softwares de planilha](https://pt.wikipedia.org/wiki/Lista_de_programas_de_planilha)
+    - [Softwares de diagramação](https://pt.wikipedia.org/wiki/Lista_de_programas_de_diagrama%C3%A7%C3%A3o)
 
-## Referências
+    ## Referências
 
-- [Cobertura de Código](https://pt.wikipedia.org/wiki/Cobertura_de_c%C3%B3digo)
+    - [Cobertura de Código](https://pt.wikipedia.org/wiki/Cobertura_de_c%C3%B3digo)
 ```
