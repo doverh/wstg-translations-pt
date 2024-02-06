@@ -1,23 +1,23 @@
-# 4.2 Configuration and Deployment Management Testing
+# 4.2 Testes de Gerenciamento de Configuração e Implantação
 
-4.2.1 [Test Network Infrastructure Configuration](01-Test_Network_Infrastructure_Configuration.md)
+4.2.1 [Testar Configuração da Infraestrutura de Rede](01-Testar-Configuracao-da-Infraestrutura-de-Rede.md)
 
-4.2.2 [Test Application Platform Configuration](02-Test_Application_Platform_Configuration.md)
+4.2.2 [Testar Configuração da Plataforma de Aplicativo](02-Testar-Configuracao-da-Plataforma-de-Aplicativo.md)
 
-4.2.3 [Test File Extensions Handling for Sensitive Information](03-Test_File_Extensions_Handling_for_Sensitive_Information.md)
+4.2.3 [Testar o Manejo de Extensões de Arquivo para Informações Sensíveis](03-Testar-Manejo-de-Extensoes-de-Arquivo-para-Informacoes-Sensiveis.md)
 
-4.2.4 [Review Old Backup and Unreferenced Files for Sensitive Information](04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md)
+4.2.4 [Revisar Backups Antigos e Arquivos Não Referenciados para Informações Sensíveis](04-Revisar-Backups-Antigos-e-Arquivos-Nao-Referenciados-para-Informacoes-Sensiveis.md)
 
-4.2.5 [Enumerate Infrastructure and Application Admin Interfaces](05-Enumerate_Infrastructure_and_Application_Admin_Interfaces.md)
+4.2.5 [Enumerar Interfaces de Administração de Infraestrutura e Aplicativo](05-Enumerar-Interfaces-de-Administracao-de-Infraestrutura-e-Aplicativo.md)
 
-4.2.6 [Test HTTP Methods](06-Test_HTTP_Methods.md)
+4.2.6 [Testar Métodos HTTP](06-Testar-Metodos-HTTP.md)
 
-4.2.7 [Test HTTP Strict Transport Security](07-Test_HTTP_Strict_Transport_Security.md)
+4.2.7 [Testar Segurança de Transporte Estrito HTTP](07-Testar-Seguranca-de-Transporte-Estrito-HTTP.md)
 
-4.2.8 [Test RIA Cross Domain Policy](08-Test_RIA_Cross_Domain_Policy.md)
+4.2.8 [Testar Política de Domínio Cruzado de RIA](08-Testar-Politica-de-Dominio-Cruzado-de-RIA.md)
 
-4.2.9 [Test File Permission](09-Test_File_Permission.md)
+4.2.9 [Testar Permissão de Arquivo](09-Testar-Permissao-de-Arquivo.md)
 
-4.2.10 [Test for Subdomain Takeover](10-Test_for_Subdomain_Takeover.md)
+4.2.10 [Testar Tomada de Subdomínio](10-Testar-Tomada-de-Subdominio.md)
 
-4.2.11 [Test Cloud Storage](11-Test_Cloud_Storage.md)
+4.2.11 [Testar Armazenamento na Nuvem](11-Testar-Armazenamento-na-Nuvem.md)
