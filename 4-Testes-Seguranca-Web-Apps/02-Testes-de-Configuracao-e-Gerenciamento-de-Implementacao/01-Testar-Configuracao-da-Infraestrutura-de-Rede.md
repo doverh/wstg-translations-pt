@@ -1,6 +1,3 @@
-Below is the translation of the provided text into Brazilian Portuguese, formatted in Markdown:
-
-```markdown
 # Teste de Configuração da Infraestrutura de Rede
 
 |ID          |
