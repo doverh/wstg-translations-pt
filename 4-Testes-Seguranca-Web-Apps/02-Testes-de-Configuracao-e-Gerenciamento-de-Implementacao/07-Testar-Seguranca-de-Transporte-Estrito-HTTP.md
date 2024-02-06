@@ -1,47 +1,47 @@
-# Test HTTP Strict Transport Security
+# Testar HTTP Strict Transport Security
 
 |ID          |
 |------------|
 |WSTG-CONF-07|
 
-## Summary
+## Resumo
 
-The HTTP Strict Transport Security (HSTS) feature lets a web application inform the browser through the use of a special response header that it should never establish a connection to the specified domain servers using un-encrypted HTTP. Instead, it should automatically establish all connection requests to access the site through HTTPS. It also prevents users from overriding certificate errors.
+A funcionalidade HTTP Strict Transport Security (HSTS) permite que uma aplicação web informe ao navegador, por meio do uso de um cabeçalho de resposta especial, que nunca deve estabelecer uma conexão com os servidores de domínio especificados usando HTTP não criptografado. Em vez disso, ele deve automaticamente estabelecer todas as solicitações de conexão para acessar o site por meio do HTTPS. Além disso, ele impede que os usuários anulem erros de certificado.
 
-Considering the importance of this security measure it is prudent to verify that the web site is using this HTTP header in order to ensure that all the data travels encrypted between the web browser and the server.
+Considerando a importância dessa medida de segurança, é prudente verificar se o site está usando esse cabeçalho HTTP para garantir que todos os dados trafeguem criptografados entre o navegador da web e o servidor.
 
-The HTTP strict transport security header uses two directives:
+O cabeçalho HTTP strict transport security usa dois diretivas:
 
-- `max-age`: to indicate the number of seconds that the browser should automatically convert all HTTP requests to HTTPS.
-- `includeSubDomains`: to indicate that all related sub-domains must use HTTPS.
-- `preload` Unofficial: to indicate that the domain(s) are on the preload list(s) and that browsers should never connect without HTTPS.
-  - This is supported by all major browsers but is not official part of the specification. (See [hstspreload.org](https://hstspreload.org/) for more information.)
+- `max-age`: para indicar o número de segundos que o navegador deve converter automaticamente todas as solicitações HTTP para HTTPS.
+- `includeSubDomains`: para indicar que todos os subdomínios relacionados devem usar HTTPS.
+- `preload` (não oficial): para indicar que o(s) domínio(s) está(ão) na lista de pré-carregamento(s) e que os navegadores nunca devem se conectar sem HTTPS.
+  - Isso é suportado por todos os principais navegadores, mas não faz parte oficial da especificação. (Veja [hstspreload.org](https://hstspreload.org/) para mais informações.)
 
-Here's an example of the HSTS header implementation:
+Aqui está um exemplo de implementação do cabeçalho HSTS:
 
 `Strict-Transport-Security: max-age=31536000; includeSubDomains`
 
-The use of this header by web applications must be checked to find if the following security issues could be produced:
+O uso deste cabeçalho por aplicações web deve ser verificado para verificar se os seguintes problemas de segurança podem ser produzidos:
 
-- Attackers sniffing the network traffic and accessing the information transferred through an un-encrypted channel.
-- Attackers exploiting a manipulator in the middle attack because of the problem of accepting certificates that are not trusted.
-- Users who mistakenly entered an address in the browser putting HTTP instead of HTTPS, or users who click on a link in a web application which mistakenly indicated use of the HTTP protocol.
+- Atacantes que capturam o tráfego de rede e acessam as informações transferidas por meio de um canal não criptografado.
+- Atacantes explorando um ataque de manipulador no meio devido ao problema de aceitar certificados que não são confiáveis.
+- Usuários que inserem erroneamente um endereço no navegador colocando HTTP em vez de HTTPS, ou usuários que clicam em um link em uma aplicação web que erroneamente indicou o uso do protocolo HTTP.
 
-## Test Objectives
+## Objetivos do Teste
 
-- Review the HSTS header and its validity.
+- Revisar o cabeçalho HSTS e sua validade.
 
-## How to Test
+## Como Testar
 
-The presence of the HSTS header can be confirmed by examining the server's response through an intercepting proxy or by using curl as follows:
+A presença do cabeçalho HSTS pode ser confirmada examinando a resposta do servidor por meio de um proxy de interceptação ou usando o curl da seguinte forma:
 
 ```bash
 $ curl -s -D- https://owasp.org | grep -i strict
 Strict-Transport-Security: max-age=31536000
 ```
 
-## References
+## Referências
 
 - [OWASP HTTP Strict Transport Security](https://cheatsheetseries.owasp.org/cheatsheets/HTTP_Strict_Transport_Security_Cheat_Sheet.html)
 - [OWASP Appsec Tutorial Series - Episode 4: Strict Transport Security](https://www.youtube.com/watch?v=zEV3HOuM_Vw)
-- [HSTS Specification](https://tools.ietf.org/html/rfc6797)
+- [Especificação HSTS](https://tools.ietf.org/html/rfc6797)

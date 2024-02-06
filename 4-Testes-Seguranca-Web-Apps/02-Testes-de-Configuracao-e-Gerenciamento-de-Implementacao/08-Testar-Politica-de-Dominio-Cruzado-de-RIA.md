@@ -1,34 +1,34 @@
-# Test RIA Cross Domain Policy
+# Testar Política de Domínio Cruzado em RIA
 
 |ID          |
 |------------|
 |WSTG-CONF-08|
 
-## Summary
+## Resumo
 
-Rich Internet Applications (RIA) have adopted Adobe's crossdomain.xml policy files to allow for controlled cross domain access to data and service consumption using technologies such as Oracle Java, Silverlight, and Adobe Flash. Therefore, a domain can grant remote access to its services from a different domain. However, often the policy files that describe the access restrictions are poorly configured. Poor configuration of the policy files enables Cross-site Request Forgery attacks, and may allow third parties to access sensitive data meant for the user.
+As Aplicações RIA (Rich Internet Application) adotaram os arquivos de política crossdomain.xml da Adobe para permitir acesso controlado entre domínios a dados e consumo de serviços usando tecnologias como Oracle Java, Silverlight e Adobe Flash. Portanto, um domínio pode conceder acesso remoto aos seus serviços a partir de um domínio diferente. No entanto, muitas vezes, os arquivos de política que descrevem as restrições de acesso são mal configurados. A configuração inadequada desses arquivos possibilita ataques de Cross-Site Request Forgery (CSRF) e pode permitir que terceiros acessem dados sensíveis destinados ao usuário.
 
-### What are cross-domain policy files?
+### O que são arquivos de política de domínio cruzado?
 
-A cross-domain policy file specifies the permissions that a web client such as Java, Adobe Flash, Adobe Reader, etc. use to access data across different domains. For Silverlight, Microsoft adopted a subset of the Adobe's crossdomain.xml, and additionally created it's own cross-domain policy file: clientaccesspolicy.xml.
+Um arquivo de política de domínio cruzado especifica as permissões que um cliente web, como Java, Adobe Flash, Adobe Reader, etc., utiliza para acessar dados em diferentes domínios. No caso do Silverlight, a Microsoft adotou um subconjunto do crossdomain.xml da Adobe e criou seu próprio arquivo de política de domínio cruzado: clientaccesspolicy.xml.
 
-Whenever a web client detects that a resource has to be requested from other domain, it will first look for a policy file in the target domain to determine if performing cross-domain requests, including headers, and socket-based connections are allowed.
+Sempre que um cliente web detecta que um recurso precisa ser solicitado de outro domínio, ele procurará primeiro por um arquivo de política no domínio de destino para determinar se a realização de solicitações entre domínios, incluindo cabeçalhos e conexões baseadas em soquetes, é permitida.
 
-Master policy files are located at the domain's root. A client may be instructed to load a different policy file but it will always check the master policy file first to ensure that the master policy file permits the requested policy file.
+Arquivos de política mestre estão localizados na raiz do domínio. Um cliente pode ser instruído a carregar um arquivo de política diferente, mas sempre verificará o arquivo de política mestre primeiro para garantir que o arquivo de política solicitado seja permitido pelo arquivo de política mestre.
 
 #### Crossdomain.xml vs. Clientaccesspolicy.xml
 
-Most RIA applications support crossdomain.xml. However in the case of Silverlight, it will only work if the crossdomain.xml specifies that access is allowed from any domain. For more granular control with Silverlight, clientaccesspolicy.xml must be used.
+A maioria das aplicações RIA suporta crossdomain.xml. No entanto, no caso do Silverlight, ele só funcionará se o crossdomain.xml especificar que o acesso é permitido a partir de qualquer domínio. Para um controle mais granular com o Silverlight, deve-se usar o clientaccesspolicy.xml.
 
-Policy files grant several types of permissions:
+Os arquivos de política concedem vários tipos de permissões:
 
-- Accepted policy files (Master policy files can disable or restrict specific policy files)
-- Sockets permissions
-- Header permissions
-- HTTP/HTTPS access permissions
-- Allowing access based on cryptographic credentials
+- Arquivos de política aceitos (arquivos de política mestre podem desativar ou restringir arquivos de política específicos)
+- Permissões de soquete
+- Permissões de cabeçalho
+- Permissões de acesso HTTP/HTTPS
+- Permitir acesso com base em credenciais criptográficas
 
-An example of an overly permissive policy file:
+Um exemplo de arquivo de política excessivamente permissivo:
 
 ```xml
 <?xml version="1.0"?>
@@ -41,32 +41,32 @@ An example of an overly permissive policy file:
 </cross-domain-policy>
 ```
 
-### How can cross domain policy files can be abused?
+### Como os arquivos de política de domínio cruzado podem ser explorados?
 
-- Overly permissive cross-domain policies.
-- Generating server responses that may be treated as cross-domain policy files.
-- Using file upload functionality to upload files that may be treated as cross-domain policy files.
+- Políticas cruzadas de domínio excessivamente permissivas.
+- Geração de respostas do servidor que podem ser tratadas como arquivos de política de domínio cruzado.
+- Uso da funcionalidade de upload de arquivos para enviar arquivos que podem ser tratados como arquivos de política de domínio cruzado.
 
-### Impact of Abusing Cross-Domain Access
+### Impacto da Exploração do Acesso entre Domínios
 
-- Defeat CSRF protections.
-- Read data restricted or otherwise protected by cross-origin policies.
+- Derrota de proteções CSRF.
+- Leitura de dados restritos ou protegidos por políticas de origem cruzada.
 
-## Test Objectives
+## Objetivos do Teste
 
-- Review and validate the policy files.
+- Revisar e validar os arquivos de política.
 
-## How to Test
+## Como Testar
 
-### Testing for RIA Policy Files Weakness
+### Testando a Fragilidade dos Arquivos de Política RIA
 
-To test for RIA policy file weakness the tester should try to retrieve the policy files crossdomain.xml and clientaccesspolicy.xml from the application's root, and from every folder found.
+Para testar a fragilidade dos arquivos de política RIA, o testador deve tentar recuperar os arquivos de política crossdomain.xml e clientaccesspolicy.xml na raiz da aplicação e de todas as pastas encontradas.
 
-For example, if the application's URL is `http://www.owasp.org`, the tester should try to download the files `http://www.owasp.org/crossdomain.xml` and `http://www.owasp.org/clientaccesspolicy.xml`.
+Por exemplo, se a URL da aplicação for `http://www.owasp.org`, o testador deve tentar baixar os arquivos `http://www.owasp.org/crossdomain.xml` e `http://www.owasp.org/clientaccesspolicy.xml`.
 
-After retrieving all the policy files, the permissions allowed should be be checked under the least privilege principle. Requests should only come from the domains, ports, or protocols that are necessary. Overly permissive policies should be avoided. Policies with `*` in them should be closely examined.
+Após recuperar todos os arquivos de política, as permissões concedidas devem ser verificadas sob o princípio do menor privilégio. As solicitações devem vir apenas dos domínios, portas ou protocolos necessários. Políticas excessivamente permissivas devem ser evitadas. Políticas com `*` nelas devem ser examinadas de perto.
 
-#### Example
+#### Exemplo
 
 ```xml
 <cross-domain-policy>
@@ -74,25 +74,25 @@ After retrieving all the policy files, the permissions allowed should be be chec
 </cross-domain-policy>
 ```
 
-##### Result Expected
+##### Resultado Esperado
 
-- A list of policy files found.
-- A list of weak settings in the policies.
+- Uma lista de arquivos de política encontrados.
+- Uma lista de configurações fracas nas políticas.
 
-## Tools
+## Ferramentas
 
 - Nikto
-- OWASP Zed Attack Proxy Project
+- Projeto OWASP Zed Attack Proxy
 - W3af
 
-## References
+## Referências
 
-- Adobe: ["Cross-domain policy file specification"](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)
-- Adobe: ["Cross-domain policy file usage recommendations for Flash Player"](http://www.adobe.com/devnet/flashplayer/articles/cross_domain_policy.html)
-- Oracle: ["Cross-Domain XML Support"](http://www.oracle.com/technetwork/java/javase/plugin2-142482.html#CROSSDOMAINXML)
-- MSDN: ["Making a Service Available Across Domain Boundaries"](http://msdn.microsoft.com/en-us/library/cc197955(v=vs.95).aspx)
-- MSDN: ["Network Security Access Restrictions in Silverlight"](http://msdn.microsoft.com/en-us/library/cc645032(v=vs.95).aspx)
-- Stefan Esser: ["Poking new holes with Flash Crossdomain Policy Files"](http://www.hardened-php.net/library/poking_new_holes_with_flash_crossdomain_policy_files.html)
-- Jeremiah Grossman: ["Crossdomain.xml Invites Cross-site Mayhem"](http://jeremiahgrossman.blogspot.com/2008/05/crossdomainxml-invites-cross-site.html)
-- Google Doctype: ["Introduction to Flash security"](http://code.google.com/p/doctype-mirror/wiki/ArticleFlashSecurity)
-- UCSD: [Analyzing the Crossdomain Policies of Flash Applications](http://cseweb.ucsd.edu/~hovav/dist/crossdomain.pdf)
+- Adobe: ["Especificação de arquivo de política de domínio cruzado"](http://www.adobe.com/devnet/articles/crossdomain_policy_file_spec.html)
+- Adobe: ["Recomendações de uso de arquivo de política de domínio cruzado para o Flash Player"](http://www.adobe.com/devnet/flashplayer/articles/cross_domain_policy.html)
+- Oracle: ["Suporte XML entre Domínios"](http://www.oracle.com/technetwork/java/javase/plugin2-142482.html#CROSSDOMAINXML)
+- MSDN: ["Disponibilizando um Serviço através de Limites de Domínio"](http://msdn.microsoft.com/en-us/library/cc197955(v=vs.95).aspx)
+- MSDN: ["Restrições de Acesso à Segurança de Rede no Silverlight"](http://msdn.microsoft.com/en-us/library/cc645032(v=vs.95).aspx)
+- Stefan Esser: ["Explorando novas vulnerabilidades com arquivos de política de domínio cruzado do Flash"](http://www.hardened-php.net/library/poking_new_holes_with_flash_crossdomain_policy_files.html)
+- Jeremiah Grossman: ["Crossdomain.xml convida a Mayhem de Cross-site"](http://jeremiahgrossman.blogspot.com/2008/05/crossdomainxml-invites-cross-site.html)
+- Google Doctype: ["Introdução à segurança Flash"](http://code.google.com/p/doctype-mirror/wiki/ArticleFlashSecurity)
+- UCSD: [Analisando as Políticas de Domínio Cruzado de Aplicações Flash](http://cseweb.ucsd.edu/~hovav/dist/crossdomain.pdf)
