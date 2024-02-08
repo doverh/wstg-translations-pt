@@ -1,8 +1,8 @@
 # 4.3 Identity Management Testing
 
-4.3.1 [Test Role Definitions](01-Test_Role_Definitions.md)
+4.3.1 [Testar Definições de Funções](01-Testar_Definicoes_de_Funcoes.md)
 
-4.3.2 [Test User Registration Process](02-Test_User_Registration_Process.md)
+4.3.2 [Testar Processo de Registro de Usuário](02-Testar_Processo_de_Registro_de_Usuario.md)
 
 4.3.3 [Test Account Provisioning Process](03-Test_Account_Provisioning_Process.md)
 
