@@ -1,56 +1,56 @@
-# Enumerate Infrastructure and Application Admin Interfaces
+# Enumerar Interfaces de Administração da Infraestrutura e Aplicação
 
 |ID          |
 |------------|
 |WSTG-CONF-05|
 
-## Summary
+## Resumo
 
-Administrator interfaces may be present in the application or on the application server to allow certain users to undertake privileged activities on the site. Tests should be undertaken to reveal if and how this privileged functionality can be accessed by an unauthorized or standard user.
+Interfaces de administrador podem estar presentes na aplicação ou no servidor de aplicativos para permitir que certos usuários realizem atividades privilegiadas no site. Testes devem ser realizados para revelar se e como essa funcionalidade privilegiada pode ser acessada por um usuário não autorizado ou padrão.
 
-An application may require an administrator interface to enable a privileged user to access functionality that may make changes to how the site functions. Such changes may include:
+Uma aplicação pode exigir uma interface de administrador para permitir que um usuário privilegiado acesse funcionalidades que possam fazer alterações na forma como o site funciona. Tais mudanças podem incluir:
 
-- user account provisioning
-- site design and layout
-- data manipulation
-- configuration changes
+- provisionamento de contas de usuário
+- design e layout do site
+- manipulação de dados
+- alterações de configuração
 
-In many instances, such interfaces do not have sufficient controls to protect them from unauthorized access. Testing is aimed at discovering these administrator interfaces and accessing functionality intended for the privileged users.
+Em muitos casos, essas interfaces não têm controles suficientes para protegê-las contra acessos não autorizados. Os testes visam descobrir essas interfaces de administrador e acessar funcionalidades destinadas aos usuários privilegiados.
 
-## Test Objectives
+## Objetivos do Teste
 
-- Identify hidden administrator interfaces and functionality.
+- Identificar interfaces e funcionalidades de administrador ocultas.
 
-## How to Test
+## Como Testar
 
-### Black-Box Testing
+### Testes de Caixa Preta
 
-The following section describes vectors that may be used to test for the presence of administrative interfaces. These techniques may also be used to test for related issues including privilege escalation, and are described elsewhere in this guide(for example [Testing for bypassing authorization schema](../05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema.md) and [Testing for Insecure Direct Object References](../05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References.md) in greater detail.
+A seção a seguir descreve vetores que podem ser usados para testar a presença de interfaces administrativas. Essas técnicas também podem ser usadas para testar problemas relacionados, incluindo escalonamento de privilégios, e são descritas em maior detalhe em outras partes deste guia (por exemplo, [Testes de violação de esquema de autorização](../05-Authorization_Testing/02-Testing_for_Bypassing_Authorization_Schema.md) e [Testes para Referências Diretas de Objetos Inseguras](../05-Authorization_Testing/04-Testing_for_Insecure_Direct_Object_References.md)).
 
-- Directory and file enumeration. An administrative interface may be present but not visibly available to the tester. Attempting to guess the path of the administrative interface may be as simple as requesting: */admin or /administrator etc..* or in some scenarios can be revealed within seconds using [Google dorks](https://www.exploit-db.com/google-hacking-database).
-- There are many tools available to perform brute forcing of server contents, see the tools section below for more information. A tester may have to also identify the filename of the administration page. Forcibly browsing to the identified page may provide access to the interface.
-- Comments and links in source code. Many sites use common code that is loaded for all site users. By examining all source sent to the client, links to administrator functionality may be discovered and should be investigated.
-- Reviewing server and application documentation. If the application server or application is deployed in its default configuration it may be possible to access the administration interface using information described in configuration or help documentation. Default password lists should be consulted if an administrative interface is found and credentials are required.
-- Publicly available information. Many applications such as WordPress have default administrative interfaces .
-- Alternative server port. Administration interfaces may be seen on a different port on the host than the main application. For example, Apache Tomcat's Administration interface can often be seen on port 8080.
-- Parameter tampering. A GET or POST parameter or a cookie variable may be required to enable the administrator functionality. Clues to this include the presence of hidden fields such as:
+- Enumeração de diretórios e arquivos. Uma interface administrativa pode estar presente, mas não visivelmente disponível para o testador. Tentar adivinhar o caminho da interface administrativa pode ser tão simples quanto solicitar: */admin ou /administrator, etc.* ou, em alguns cenários, pode ser revelado em segundos usando [Google dorks](https://www.exploit-db.com/google-hacking-database).
+- Existem muitas ferramentas disponíveis para realizar força bruta em conteúdos de servidores, consulte a seção de ferramentas abaixo para obter mais informações. Um testador também pode ter que identificar o nome do arquivo da página de administração. Navegar forçadamente para a página identificada pode fornecer acesso à interface.
+- Comentários e links no código-fonte. Muitos sites usam código comum carregado para todos os usuários do site. Examinando todo o código fonte enviado para o cliente, links para funcionalidades de administrador podem ser descobertos e devem ser investigados.
+- Revisão da documentação do servidor e da aplicação. Se o servidor de aplicativos ou a aplicação estiverem implantados em sua configuração padrão, pode ser possível acessar a interface de administração usando informações descritas na documentação de configuração ou ajuda. Listas de senhas padrão devem ser consultadas se uma interface administrativa for encontrada e forem necessárias credenciais.
+- Informações publicamente disponíveis. Muitas aplicações, como o WordPress, têm interfaces administrativas padrão.
+- Porta do servidor alternativa. As interfaces de administração podem estar em uma porta diferente no host do que a aplicação principal. Por exemplo, a interface de administração do Apache Tomcat pode ser vista frequentemente na porta 8080.
+- Manipulação de parâmetros. Pode ser necessário um parâmetro GET ou POST, ou uma variável de cookie, para habilitar a funcionalidade do administrador. Pistas para isso incluem a presença de campos ocultos como:
 
 ```html
 <input type="hidden" name="admin" value="no">
 ```
 
-or in a cookie:
+ou em um cookie:
 
-`Cookie: session_cookie; useradmin=0`
+`Cookie: session_cookie; useradmin=0`
 
-Once an administrative interface has been discovered, a combination of the above techniques may be used to attempt to bypass authentication. If this fails, the tester may wish to attempt a brute force attack. In such an instance the tester should be aware of the potential for administrative account lockout if such functionality is present.
+Depois de descobrir uma interface administrativa, uma combinação das técnicas acima pode ser usada para tentar ignorar a autenticação. Se isso falhar, o testador pode tentar um ataque de força bruta. Nesse caso, o testador deve estar ciente da possibilidade de bloqueio da conta administrativa se essa funcionalidade estiver presente.
 
-### Gray-Box Testing
+### Testes de Caixa Cinza
 
-A more detailed examination of the server and application components should be undertaken to ensure hardening (i.e. administrator pages are not accessible to everyone through the use of IP filtering or other controls), and where applicable, verification that all components do not use default credentials or configurations.
-Source code should be reviewed to ensure that the authorization and authentication model ensures clear separation of duties between normal users and site administrators. User interface functions shared between normal and administrator users should be reviewed to ensure clear separation between the drawing of such components and information leakage from such shared functionality.
+Uma análise mais detalhada dos componentes do servidor e da aplicação deve ser realizada para garantir a segurança (ou seja, páginas de administrador não são acessíveis a todos através do uso de filtragem de IP ou outros controles) e, quando aplicável, verificação de que todos os componentes não usam credenciais ou configurações padrão.
+O código-fonte deve ser revisado para garantir que o modelo de autorização e autenticação assegure uma clara separação de funções entre usuários normais e administradores do site. Funções de interface do usuário compartilhadas entre usuários normais e administradores devem ser revisadas para garantir uma separação clara entre o desenho desses componentes e a divulgação de informações dessas funcionalidades compartilhadas.
 
-Each web framework may have its own admin default pages or path. For example
+Cada estrutura web pode ter suas próprias páginas ou caminhos de administração padrão. Por exemplo:
 
 WebSphere:
 
@@ -119,14 +119,16 @@ wp-admin/admin-functions.php
 wp-admin/admin-header.php
 ```
 
-## Tools
+## Ferramentas
 
-- [OWASP ZAP - Forced Browse](https://www.zaproxy.org/docs/desktop/addons/forced-browse/) is a currently maintained use of OWASP's previous DirBuster project.
-- [THC-HYDRA](https://github.com/vanhauser-thc/thc-hydra) is a tool that allows brute-forcing of many interfaces, including form-based HTTP authentication.
-- A brute forcer is much better when it uses a good dictionary, for example the [netsparker](https://www.netsparker.com/blog/web-security/svn-digger-better-lists-for-forced-browsing/) dictionary.
+- [OWASP ZAP - Forced Browse](https://www.zaproxy.org/docs/desktop/addons/forced-browse/) é uma utilização atualmente mantida do projeto anterior DirBuster da OWASP.
+- [THC-HYDRA](https://github.com/vanhauser-thc/thc-hydra) é uma ferramenta que permite a força bruta em muitas interfaces, incluindo autenticação HTTP baseada em formulário
 
-## References
+.
+- Um testador de força bruta é muito melhor quando usa um bom dicionário, por exemplo, o dicionário [netsparker](https://www.netsparker.com/blog/web-security/svn-digger-better-lists-for-forced-browsing/).
 
-- [Cirt: Default Password list](https://cirt.net/passwords)
-- [FuzzDB can be used to do brute force browsing admin login path](https://github.com/fuzzdb-project/fuzzdb/blob/master/discovery/predictable-filepaths/login-file-locations/Logins.txt)
-- [Common admin or debugging parameters](https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/business-logic/CommonDebugParamNames.txt)
+## Referências
+
+- [Cirt: Lista de senhas padrão](https://cirt.net/passwords)
+- [FuzzDB pode ser usado para força bruta na página de login admin](https://github.com/fuzzdb-project/fuzzdb/blob/master/discovery/predictable-filepaths/login-file-locations/Logins.txt)
+- [Parâmetros de administração ou depuração comuns](https://github.com/fuzzdb-project/fuzzdb/blob/master/attack/business-logic/CommonDebugParamNames.txt)

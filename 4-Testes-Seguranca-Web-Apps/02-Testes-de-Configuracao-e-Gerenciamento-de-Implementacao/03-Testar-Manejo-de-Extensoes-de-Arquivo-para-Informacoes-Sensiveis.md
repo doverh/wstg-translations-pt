@@ -1,33 +1,33 @@
-# Test File Extensions Handling for Sensitive Information
+# Testar o Manejo de Extensões de Arquivo para Informações Sensíveis
 
 |ID          |
 |------------|
 |WSTG-CONF-03|
 
-## Summary
+## Resumo
 
-File extensions are commonly used in web servers to easily determine which technologies, languages and plugins must be used to fulfill the web request. While this behavior is consistent with RFCs and Web Standards, using standard file extensions provides the penetration tester useful information about the underlying technologies used in a web appliance and greatly simplifies the task of determining the attack scenario to be used on particular technologies. In addition, mis-configuration of web servers could easily reveal confidential information about access credentials.
+As extensões de arquivo são comumente usadas em servidores web para determinar facilmente quais tecnologias, linguagens e plugins devem ser usados para atender à solicitação web. Embora esse comportamento seja consistente com RFCs e Padrões da Web, o uso de extensões de arquivo padrão fornece ao testador de penetração informações úteis sobre as tecnologias subjacentes usadas em um dispositivo web e simplifica muito a tarefa de determinar o cenário de ataque a ser usado em tecnologias específicas. Além disso, a má configuração dos servidores web pode facilmente revelar informações confidenciais sobre credenciais de acesso.
 
-Extension checking is often used to validate files to be uploaded, which can lead to unexpected results because the content is not what is expected, or because of unexpected OS filename handling.
+A verificação de extensões é frequentemente usada para validar arquivos a serem enviados, o que pode levar a resultados inesperados devido ao conteúdo que não é o esperado ou devido à manipulação inesperada de nomes de arquivo pelo sistema operacional.
 
-Determining how web servers handle requests corresponding to files having different extensions may help in understanding web server behavior depending on the kind of files that are accessed. For example, it can help to understand which file extensions are returned as text or plain versus those that cause server-side execution. The latter are indicative of technologies, languages or plugins that are used by web servers or application servers, and may provide additional insight on how the web application is engineered. For example, a ".pl" extension is usually associated with server-side Perl support. However, the file extension alone may be deceptive and not fully conclusive. For example, Perl server-side resources might be renamed to conceal the fact that they are indeed Perl related. See the next section on "web server components" for more on identifying server-side technologies and components.
+Determinar como os servidores web lidam com solicitações correspondentes a arquivos com diferentes extensões pode ajudar a entender o comportamento do servidor web dependendo do tipo de arquivos acessados. Por exemplo, pode ajudar a entender quais extensões de arquivo são retornadas como texto ou plano versus aquelas que causam execução no lado do servidor. Estas últimas são indicativas de tecnologias, linguagens ou plugins que são usados por servidores web ou servidores de aplicativos, e podem fornecer informações adicionais sobre como a aplicação web é projetada. Por exemplo, uma extensão ".pl" está geralmente associada ao suporte Perl do lado do servidor. No entanto, a extensão de arquivo sozinha pode ser enganosa e não totalmente conclusiva. Por exemplo, recursos do lado do servidor Perl podem ser renomeados para ocultar o fato de que são relacionados ao Perl. Consulte a próxima seção sobre "componentes do servidor web" para obter mais informações sobre a identificação de tecnologias e componentes do lado do servidor.
 
-## Test Objectives
+## Objetivos do Teste
 
-- Dirbust sensitive file extensions, or extensions that might contain raw data (*e.g.* scripts, raw data, credentials, etc.).
-- Validate that no system framework bypasses exist on the rules set.
+- Testar extensões de arquivo sensíveis, ou extensões que podem conter dados brutos (*por exemplo*, scripts, dados brutos, credenciais, etc.).
+- Validar que não existem contornos do framework do sistema nas regras definidas.
 
-## How to Test
+## Como Testar
 
-### Forced Browsing
+### Navegação Forçada
 
-Submit requests with different file extensions and verify how they are handled. The verification should be on a per web directory basis. Verify directories that allow script execution. Web server directories can be identified by scanning tools which look for the presence of well-known directories. In addition, mirroring the web site structure allows the tester to reconstruct the tree of web directories served by the application.
+Envie solicitações com diferentes extensões de arquivo e verifique como elas são tratadas. A verificação deve ser feita com base em diretórios da web específicos. Verifique diretórios que permitem a execução de scripts. Os diretórios do servidor web podem ser identificados por ferramentas de digitalização que procuram a presença de diretórios conhecidos. Além disso, espelhar a estrutura do site permite ao testador reconstruir a árvore de diretórios da web servidos pela aplicação.
 
-If the web application architecture is load-balanced, it is important to assess all of the web servers. This may or may not be easy, depending on the configuration of the balancing infrastructure. In an infrastructure with redundant components there may be slight variations in the configuration of individual web or application servers. This may happen if the web architecture employs heterogeneous technologies (think of a set of IIS and Apache web servers in a load-balancing configuration, which may introduce slight asymmetric behavior between them, and possibly different vulnerabilities).
+Se a arquitetura da aplicação web for balanceada, é importante avaliar todos os servidores web. Isso pode ser fácil ou não, dependendo da configuração da infraestrutura de balanceamento. Em uma infraestrutura com componentes redundantes, pode haver variações sutis na configuração de servidores web ou de aplicativos individuais. Isso pode acontecer se a arquitetura da web empregar tecnologias heterogêneas (pense em um conjunto de servidores web IIS e Apache em uma configuração de balanceamento de carga, que pode introduzir um comportamento ligeiramente assimétrico entre eles e possivelmente diferentes vulnerabilidades).
 
-#### Example
+#### Exemplo
 
-The tester has identified the existence of a file named `connection.inc`. Trying to access it directly gives back its contents, which are:
+O testador identificou a existência de um arquivo chamado `connection.inc`. Tentar acessá-lo diretamente retorna seu conteúdo, que é:
 
 ```php
 <?
@@ -36,48 +36,50 @@ The tester has identified the existence of a file named `connection.inc`. Trying
 ?>
 ```
 
-The tester determines the existence of a MySQL DBMS back end, and the (weak) credentials used by the web application to access it.
+O testador determina a existência de um banco de dados MySQL como backend e as credenciais (fracas) usadas pela aplicação web para acessá-lo.
 
-The following file extensions should never be returned by a web server, since they are related to files which may contain sensitive information or to files for which there is no reason to be served.
+As seguintes extensões de arquivo nunca devem ser retornadas por um servidor web, pois estão relacionadas a arquivos que podem conter informações sensíveis ou a arquivos para os quais não há motivo para serem servidos.
 
 - `.asa`
 - `.inc`
 - `.config`
 
-The following file extensions are related to files which, when accessed, are either displayed or downloaded by the browser. Therefore, files with these extensions must be checked to verify that they are indeed supposed to be served (and are not leftovers), and that they do not contain sensitive information.
+As seguintes extensões de arquivo estão relacionadas a arquivos que, quando acessados, são exibidos ou baixados pelo navegador. Portanto, os arquivos com essas extensões devem ser verificados para garantir que realmente devem ser servidos (e não são restos) e que não contêm informações sensíveis.
 
-- `.zip`, `.tar`, `.gz`, `.tgz`, `.rar`, etc.: (Compressed) archive files
-- `.java`: No reason to provide access to Java source files
-- `.txt`: Text files
-- `.pdf`: PDF documents
-- `.docx`, `.rtf`, `.xlsx`, `.pptx`, etc.: Office documents
-- `.bak`, `.old` and other extensions indicative of backup files (for example: `~` for Emacs backup files)
+- `.zip`, `.tar`, `.gz`, `.tgz`, `.rar`, etc.: Arquivos de arquivos (comprimidos)
+- `.java`: Sem motivo para fornecer acesso a arquivos de origem Java
+- `.txt`: Arquivos de texto
+- `.pdf`: Documentos PDF
+- `.docx`, `.rtf`, `.xlsx`, `.pptx`, etc.: Documentos do Office
+- `.bak`, `.old` e outras extensões indicativas de arquivos de backup (por exemplo: `~` para arquivos de backup do Emacs)
 
-The list given above details only a few examples, since file extensions are too many to be comprehensively treated here. Refer to [FILExt](https://filext.com/) for a more thorough database of extensions.
+A lista fornecida acima detalha apenas alguns exemplos, já que as extensões de arquivo são muitas para serem tratadas de forma abrangente aqui. Consulte [FILExt](https://filext.com/) para um banco de dados mais abrangente de extensões.
 
-To identify files having a given extensions a mix of techniques can be employed. These techniques can include Vulnerability Scanners, spidering and mirroring tools, manually inspecting the application (this overcomes limitations in automatic spidering), querying search engines (see [Testing: Spidering and googling](../01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md)). See also [Testing for Old, Backup and Unreferenced Files](04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md) which deals with the security issues related to "forgotten" files.
+Para identificar arquivos com determinadas extensões, podem ser empregadas várias técnicas. Essas técnicas podem incluir scanners de vulnerabilidades, ferramentas de digitalização e espelhamento, inspeção manual da aplicação (isso supera as limitações na digitalização automática), consultas a mecanismos de busca (consulte [Testando: Digitalização e pesquisa no Google](../01-Information_Gathering/01-Conduct_Search_Engine_Discovery_Reconnaissance_for_Information_Leakage.md)). Consulte também [Testando Arquivos Antigos, de Backup e Não Referenciados](04-Review_Old_Backup_and_Unreferenced_Files_for_Sensitive_Information.md), que trata dos problemas de segurança relacionados a arquivos "esquecidos".
 
-### File Upload
+### Upload de Arquivo
 
-Windows 8.3 legacy file handling can sometimes be used to defeat file upload filters.
+O tratamento de arquivos legados do Windows 8.3 às vezes pode ser usado para contornar filtros de upload de arquivos.
 
-Usage Examples:
+Exemplos de uso:
 
-1. `file.phtml` gets processed as PHP code.
-2. `FILE~1.PHT` is served, but not processed by the PHP ISAPI handler.
-3. `shell.phPWND` can be uploaded.
-4. `SHELL~1.PHP` will be expanded and returned by the OS shell, then processed by the PHP ISAPI handler.
+1. `file.phtml` é processado como código PHP.
+2. `FILE~1.PHT` é servido, mas não processado pelo manipulador
 
-### Gray-Box Testing
+ PHP ISAPI.
+3. `shell.phPWND` pode ser enviado.
+4. `SHELL~1.PHP` será expandido e retornado pelo shell do sistema operacional e, em seguida, processado pelo manipulador PHP ISAPI.
 
-Performing white-box testing against file extensions handling amounts to checking the configurations of web servers or application servers taking part in the web application architecture, and verifying how they are instructed to serve different file extensions.
+### Teste Gray-Box
 
-If the web application relies on a load-balanced, heterogeneous infrastructure, determine whether this may introduce different behavior.
+Realizar testes de caixa branca contra a manipulação de extensões de arquivo significa verificar as configurações dos servidores web ou servidores de aplicativos que fazem parte da arquitetura da aplicação web e verificar como eles são instruídos a servir diferentes extensões de arquivo.
 
-## Tools
+Se a aplicação web depender de uma infraestrutura balanceada e heterogênea, determine se isso pode introduzir um comportamento diferente.
 
-Vulnerability scanners, such as Nessus and Nikto check for the existence of well-known web directories. They may allow the tester to download the web site structure, which is helpful when trying to determine the configuration of web directories and how individual file extensions are served. Other tools that can be used for this purpose include:
+## Ferramentas
+
+Scanners de vulnerabilidades, como Nessus e Nikto, verificam a existência de diretórios web conhecidos. Eles podem permitir que o testador baixe a estrutura do site, o que é útil ao tentar determinar a configuração dos diretórios da web e como as extensões de arquivo individuais são servidas. Outras ferramentas que podem ser usadas para esse fim incluem:
 
 - [wget](https://www.gnu.org/software/wget)
 - [curl](https://curl.haxx.se)
-- google for "web mirroring tools".
+- procure por "ferramentas de espelhamento web" no Google.

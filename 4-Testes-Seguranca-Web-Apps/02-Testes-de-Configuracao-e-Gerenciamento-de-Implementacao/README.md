@@ -2,7 +2,7 @@
 
 4.2.1 [Testar Configuração da Infraestrutura de Rede](01-Testar-Configuracao-da-Infraestrutura-de-Rede.md)
 
-4.2.2 [Testar Configuração da Plataforma de Aplicativo](02-Testar-Configuracao-da-Plataforma-de-Aplicativo.md)
+4.2.2 [Testar Configuração da Plataforma do Aplicativo](02-Testar-Configuracao-da-Plataforma-de-Aplicativo.md)
 
 4.2.3 [Testar o Manejo de Extensões de Arquivo para Informações Sensíveis](03-Testar-Manejo-de-Extensoes-de-Arquivo-para-Informacoes-Sensiveis.md)
 

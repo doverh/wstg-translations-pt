@@ -1,46 +1,48 @@
-# Test File Permission
+# Testar Permissão de Arquivo
 
 |ID          |
 |------------|
 |WSTG-CONF-09|
 
-## Summary
+## Resumo
 
-When a resource is given a permissions setting that provides access to a wider range of actors than required, it could lead to the exposure of sensitive information, or the modification of that resource by unintended parties. This is especially dangerous when the resource is related to program configuration, execution, or sensitive user data.
+Quando um recurso recebe uma configuração de permissões que proporciona acesso a um grupo mais amplo de atores do que o necessário, isso pode levar à exposição de informações sensíveis ou à modificação desse recurso por partes não intencionadas. Isso é especialmente perigoso quando o recurso está relacionado à configuração, execução ou dados sensíveis do usuário.
 
-A clear example is an execution file that is executable by unauthorized users. For another example, account information or a token value to access an API - increasingly seen in modern web services or microservices - may be stored in a configuration file whose permissions are set to world-readable from the installation by default. Such sensitive data can be exposed by internal malicious actors of the host or by a remote attacker who compromised the service with other vulnerabilities but obtained only a normal user privilege.
+Um exemplo claro é um arquivo de execução que é executável por usuários não autorizados. Outro exemplo é quando as informações da conta ou um valor de token para acessar uma API - cada vez mais visto em serviços web modernos ou microsserviços - são armazenados em um arquivo de configuração cujas permissões estão definidas como leitura global a partir da instalação por padrão. Tais dados sensíveis podem ser expostos por atores maliciosos internos ao host ou por um atacante remoto que comprometeu o serviço com outras vulnerabilidades, mas obteve apenas uma permissão de usuário comum.
 
-## Test Objectives
+## Objetivos do Teste
 
-- Review and identify any rogue file permissions.
+- Revisar e identificar quaisquer permissões de arquivo incorretas.
 
-## How to Test
+## Como Testar
 
-In Linux, use `ls` command to check the file permissions. Alternatively, `namei` can also be used to recursively list file permissions.
+No Linux, use o comando `ls` para verificar as permissões do arquivo. Alternativamente, `namei` também pode ser usado para listar recursivamente as permissões do arquivo.
 
-`$ namei -l /PathToCheck/`
+```bash
+$ namei -l /CaminhoParaVerificar/
+```
 
-The files and directories that require file permission testing include but are not limited to:
+Os arquivos e diretórios que exigem teste de permissão de arquivo incluem, mas não estão limitados a:
 
-- Web files/directory
-- Configuration files/directory
-- Sensitive files (encrypted data, password, key)/directory
-- Log files (security logs, operation logs, admin logs)/directory
-- Executables (scripts, EXE, JAR, class, PHP, ASP)/directory
-- Database files/directory
-- Temp files /directory
-- Upload files/directory
+- Arquivos/diretórios da web
+- Arquivos/diretórios de configuração
+- Arquivos/diretórios sensíveis (dados criptografados, senha, chave)
+- Arquivos/diretórios de logs (logs de segurança, logs de operações, logs de administração)
+- Executáveis (scripts, EXE, JAR, class, PHP, ASP)
+- Arquivos/diretórios de banco de dados
+- Arquivos/diretórios temporários
+- Arquivos/diretórios de upload
 
-## Remediation
+## Remediação
 
-Set the permissions of the files and directories properly so that unauthorized users cannot access critical resources unnecessarily.
+Defina as permissões dos arquivos e diretórios adequadamente para que usuários não autorizados não possam acessar recursos críticos desnecessariamente.
 
-## Tools
+## Ferramentas
 
 - [Windows AccessEnum](https://technet.microsoft.com/en-us/sysinternals/accessenum)
 - [Windows AccessChk](https://technet.microsoft.com/en-us/sysinternals/accesschk)
 - [Linux namei](https://linux.die.net/man/1/namei)
 
-## References
+## Referências
 
-- [CWE-732: Incorrect Permission Assignment for Critical Resource](https://cwe.mitre.org/data/definitions/732.html)
+- [CWE-732: Atribuição de Permissão Incorreta para Recurso Crítico](https://cwe.mitre.org/data/definitions/732.html)
