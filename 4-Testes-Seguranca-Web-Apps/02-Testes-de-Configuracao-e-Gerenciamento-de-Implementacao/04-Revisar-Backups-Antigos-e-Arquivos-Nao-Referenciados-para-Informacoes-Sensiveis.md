@@ -1,4 +1,4 @@
-# Revisão de Backups Antigos e Arquivos Não Referenciados em Busca de Informações Sensíveis
+# Revisar Backups Antigos e Arquivos Não Referenciados para Informações Sensíveis
 
 |ID          |
 |------------|

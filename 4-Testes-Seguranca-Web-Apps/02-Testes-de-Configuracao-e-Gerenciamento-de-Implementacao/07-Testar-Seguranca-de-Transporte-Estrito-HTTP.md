@@ -1,4 +1,4 @@
-# Testar HTTP Strict Transport Security
+# Testar Segurança de Transporte Estrito HTTP
 
 |ID          |
 |------------|

@@ -1,14 +1,14 @@
-# Test HTTP Methods
+# Testar Métodos HTTP
 
 |ID          |
 |------------|
 |WSTG-CONF-06|
 
-## Summary
+## Resumo
 
-HTTP offers a number of methods that can be used to perform actions on the web server (the HTTP 1.1 standard refers to them as `methods` but they are also commonly described as `verbs`). While GET and POST are by far the most common methods that are used to access information provided by a web server, HTTP allows several other (and somewhat less known) methods. Some of these can be used for nefarious purposes if the web server is misconfigured.
+O HTTP oferece vários métodos que podem ser usados para realizar ações no servidor web (o padrão HTTP 1.1 os refere como `métodos`, mas também são comumente descritos como `verbos`). Embora GET e POST sejam de longe os métodos mais comuns usados para acessar informações fornecidas por um servidor web, o HTTP permite vários outros métodos (e um pouco menos conhecidos). Alguns desses métodos podem ser usados para fins nefastos se o servidor web estiver mal configurado.
 
-[RFC 7231 –  Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://tools.ietf.org/html/rfc7231) defines the following valid HTTP request methods, or verbs:
+[RFC 7231 –  Hypertext Transfer Protocol (HTTP/1.1): Semantics and Content](https://tools.ietf.org/html/rfc7231) define os seguintes métodos de solicitação HTTP válidos, ou verbos:
 
 - [`GET`](https://tools.ietf.org/html/rfc7231#section-4.3.1)
 - [`HEAD`](https://tools.ietf.org/html/rfc7231#section-4.3.2)
@@ -19,57 +19,59 @@ HTTP offers a number of methods that can be used to perform actions on the web s
 - [`OPTIONS`](https://tools.ietf.org/html/rfc7231#section-4.3.7)
 - [`TRACE`](https://tools.ietf.org/html/rfc7231#section-4.3.8)
 
-However, most web applications only need to respond to GET and POST requests, receiving user data in the URL query string or appended to the request respectively. The standard `<a href=""></a>` style links as well as forms defined without a method trigger a GET request; form data submitted via `<form method='POST'></form>` trigger POST requests. JavaScript and AJAX calls may send methods other than GET and POST but should usually not need to do that. Since the other methods are so rarely used, many developers do not know, or fail to take into consideration, how the web server or application framework's implementation of these methods impact the security features of the application.
+No entanto, a maioria das aplicações web só precisa responder a solicitações GET e POST, recebendo dados do usuário na string de consulta da URL ou anexados à solicitação, respectivamente. Links no estilo `<a href=""></a>` e formulários definidos sem um método acionam uma solicitação GET; dados de formulário enviados via `<form method='POST'></form>` acionam solicitações POST. Chamadas JavaScript e AJAX podem enviar métodos diferentes de GET e POST, mas geralmente não precisam fazer isso. Como os outros métodos são tão raramente usados, muitos desenvolvedores não sabem, ou deixam de considerar, como a implementação desses métodos pelo servidor web ou pelo framework de aplicativos impacta as características de segurança da aplicação.
 
-## Test Objectives
+## Objetivos do Teste
 
-- Enumerate supported HTTP methods.
-- Test for access control bypass.
-- Test XST vulnerabilities.
-- Test HTTP method overriding techniques.
+- Enumerar os métodos HTTP suportados.
+- Testar a possibilidade de contornar o controle de acesso.
+- Testar vulnerabilidades de Cross-Site Tracing (XST).
+- Testar técnicas de substituição de métodos HTTP.
 
-## How to Test
+## Como Testar
 
-### Discover the Supported Methods
+### Descobrir os Métodos Suportados
 
-To perform this test, the tester needs some way to figure out which HTTP methods are supported by the web server that is being examined. While the `OPTIONS` HTTP method provides a direct way to do that, verify the server's response by issuing requests using different methods. This can be achieved by manual testing or something like the [`http-methods`](https://nmap.org/nsedoc/scripts/http-methods.html) Nmap script.
+Para realizar este teste, o testador precisa de alguma maneira de descobrir quais métodos HTTP são suportados pelo servidor web que está sendo examinado. Enquanto o método HTTP `OPTIONS` fornece uma maneira direta de fazer isso, verifique a resposta do servidor emitindo solicitações usando diferentes métodos. Isso pode ser feito por teste manual ou algo como o script Nmap [`http-methods`](https://nmap.org/nsedoc/scripts/http-methods.html).
 
-To use the `http-methods` Nmap script to test the endpoint `/index.php` on the server `localhost` using HTTPS, issue the command:
+Para usar o script Nmap `http-methods` para testar o ponto final `/index.php` no servidor `localhost` usando HTTPS, emita o seguinte comando:
 
 ```bash
 nmap -p 443 --script http-methods --script-args http-methods.url-path='/index.php' localhost
 ```
 
-When testing an application that has to accept other methods, e.g. a RESTful Web Service, test it thoroughly to make sure that all endpoints accept only the methods that they require.
+Ao testar um aplicativo que precisa aceitar outros métodos, por exemplo, um Serviço Web RESTful, teste-o minuciosamente para garantir que todos os pontos de extremidade aceitem apenas os métodos necessários.
 
-#### Testing the PUT Method
+#### Testando o Método PUT
 
-1. Capture the base request of the target with a web proxy.
-2. Change the request method to `PUT` and add `test.html` file and send the request to the application server.
+1. Capture a solicitação base do alvo com um proxy da web.
+2. Altere o método da solicitação para `PUT` e adicione um arquivo `test.html` e envie a solicitação para o servidor de aplicativos.
 
    ```html
    PUT /test.html HTTP/1.1
-   Host: testing-website
+   Host: website-de-teste
 
    <html>
-   HTTP PUT Method is Enabled
+   O Método HTTP PUT está Habilitado
    </html>
    ```
 
-3. If the server response with 2XX success codes or 3XX redirections and then confirm by `GET` request for `test.html` file. The application is vulnerable.
+3. Se o servidor responder com códigos de sucesso 2XX ou redirecionamentos 3XX, confirme com uma solicitação `GET` para o arquivo `test.html`. A aplicação é vulnerável.
 
-If the HTTP `PUT` method is not allowed on base URL or request, try other paths in the system.
+Se o método HTTP `PUT` não for permitido no URL ou na solicitação base, tente outros caminhos no sistema.
 
-> NOTE: If you are successful in uploading a web shell you should overwrite it or ensure that the security team of the target are aware and remove the component promptly after your proof-of-concept.
+> OBSERVAÇÃO: Se você conseguir fazer upload de um shell da web, deve sobrescrevê-lo ou garantir que a equipe de segurança do alvo esteja ciente e remova o componente rapidamente após a prova de conceito.
 
-Leveraging the `PUT` method an attacker may be able to place arbitrary and potentially malicious content, into the system which may lead to remote code execution, defacing the site or denial of service.
+Aproveitando o método `PUT` um invasor pode ser capaz de inserir conteúdo arbitrário e potencialmente malicioso no sistema, o que pode levar à execução remota de código, desfiguração do site ou negação de serviço.
 
-### Testing for Access Control Bypass
+### Testar Contorno de Controle de Acesso
 
-Find a page to visit that has a security constraint such that a GET request would normally force a 302 redirect to a log in page or force a log in directly. Issue requests using various methods such as HEAD, POST, PUT etc. as well as arbitrarily made up methods such as BILBAO, FOOBAR, CATS, etc. If the web application responds with a `HTTP/1.1 200 OK` that is not a log in page, it may be possible to bypass authentication or authorization. The following example uses [Nmap's `ncat`](https://nmap.org/ncat/).
+Encontre uma página que tenha uma restrição de segurança, de modo que uma solicitação GET normalmente forçaria um redirecionamento 302 para uma página de login ou forçaria um login diretamente. Emita solicitações usando vários métodos, como HEAD, POST, PUT etc., bem como métodos arbitrariamente inventados, como BILBAO, FOOBAR, CATS, etc. Se a aplicação web responder com um `HTTP/1.1 200 OK` que não seja uma página de login, pode ser possível contornar a autenticação ou autorização. O exemplo a seguir usa o [`ncat`](https://nmap.org/ncat/) da Nmap.
 
 ```bash
-$ ncat www.example.com 80
+$ n
+
+cat www.example.com 80
 HEAD /admin HTTP/1.1
 Host: www.example.com
 
@@ -88,26 +90,26 @@ Connection: close
 Content-Type: text/html; charset=ISO-8859-1
 ```
 
-If the system appears vulnerable, issue CSRF-like attacks such as the following to exploit the issue more fully:
+Se o sistema parecer vulnerável, emita ataques semelhantes a CSRF, como os seguintes, para explorar mais completamente o problema:
 
 - `HEAD /admin/createUser.php?member=myAdmin`
 - `PUT /admin/changePw.php?member=myAdmin&passwd=foo123&confirm=foo123`
 - `CATS /admin/groupEdit.php?group=Admins&member=myAdmin&action=add`
 
-Using the above three commands, modified to suit the application under test and testing requirements, a new user would be created, a password assigned, and the user made an administrator, all using blind request submission.
+Usando os três comandos acima, modificados para atender à aplicação sob teste e aos requisitos de teste, um novo usuário seria criado, uma senha atribuída e o usuário feito administrador, tudo usando submissão cega de solicitação.
 
-### Testing for Cross-Site Tracing Potential
+### Testando Potencial de Cross-Site Tracing (XST)
 
-Note: in order to understand the logic and the goals of a cross-site tracing (XST) attack, one must be familiar with [cross-site scripting attacks](https://owasp.org/www-community/attacks/xss/).
+Nota: Para entender a lógica e os objetivos de um ataque de Cross-Site Tracing (XST), é necessário estar familiarizado com [ataques de cross-site scripting (XSS)](https://owasp.org/www-community/attacks/xss/).
 
-The `TRACE` method, intended for testing and debugging, instructs the web server to reflect the received message back to the client. This method, while apparently harmless, can be successfully leveraged in some scenarios to steal legitimate users' credentials. This attack technique was discovered by Jeremiah Grossman in 2003, in an attempt to bypass the [HttpOnly](https://owasp.org/www-community/HttpOnly) attribute that aims to protect cookies from being accessed by JavaScript.  However, the TRACE method can be used to bypass this protection and access the cookie even when this attribute is set.
+O método `TRACE`, destinado a testes e depuração, instrui o servidor web a refletir a mensagem recebida de volta ao cliente. Esse método, embora aparentemente inofensivo, pode ser aproveitado com sucesso em alguns cenários para roubar credenciais legítimas de usuários. Essa técnica de ataque foi descoberta por Jeremiah Grossman em 2003, em uma tentativa de burlar o atributo [HttpOnly](https://owasp.org/www-community/HttpOnly) que visa proteger cookies contra acesso por JavaScript. No entanto, o método TRACE pode ser usado para contornar essa proteção e acessar o cookie mesmo quando esse atributo está definido.
 
-Test for cross-site tracing potential by issuing a request such as the following:
+Teste o potencial de Cross-Site Tracing emitindo uma solicitação como a seguinte:
 
 ```bash
-$ ncat www.victim.com 80
+$ ncat www.vitima.com 80
 TRACE / HTTP/1.1
-Host: www.victim.com
+Host: www.vitima.com
 Random: Header
 
 HTTP/1.1 200 OK
@@ -115,38 +117,38 @@ Random: Header
 ...
 ```
 
-The web server returned a 200 and reflected the random header that was set in place. To further exploit this issue:
+O servidor web retornou um 200 e refletiu o cabeçalho aleatório que foi configurado. Para explorar ainda mais esse problema:
 
 ```bash
-$ ncat www.victim.com 80
+$ ncat www.vitima.com 80
 TRACE / HTTP/1.1
-Host: www.victim.com
-Attack: <script>prompt()</script>
+Host: www.vitima.com
+Ataque: <script>prompt()</script>
 ```
 
-The above example works if the response is being reflected in the HTML context.
+O exemplo acima funciona se a resposta estiver sendo refletida no contexto HTML.
 
-In older browsers, attacks were pulled using [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest) technology, which leaked the headers when the server reflects them (*e.g.* Cookies, Authorization tokens, etc.) and bypassed security measures such as the [HttpOnly](../06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.md#httponly-attribute) attribute. This attack can be pulled in recent browsers only if the application integrates with technologies similar to Flash.
+Em navegadores mais antigos, os ataques eram realizados usando a tecnologia [XHR](https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest), que vazava os cabeçalhos quando o servidor os refletia (*por exemplo,* Cookies, tokens de autorização, etc.) e contornava medidas de segurança como o atributo [HttpOnly](../06-Session_Management_Testing/02-Testing_for_Cookies_Attributes.md#httponly-attribute). Este ataque pode ser realizado em navegadores mais recentes apenas se a aplicação se integrar a tecnologias semelhantes ao Flash.
 
-### Testing for HTTP Method Overriding
+### Testando Substituição de Métodos HTTP
 
-Some web frameworks provide a way to override the actual HTTP method in the request by emulating the missing HTTP verbs passing some custom header in the requests. The main purpose of this is to circumvent some middleware (e.g. proxy, firewall) limitation where methods allowed usually do not encompass verbs such as `PUT` or `DELETE`. The following alternative headers could be used to do such verb tunneling:
+Alguns frameworks da web oferecem uma maneira de substituir o método HTTP real na solicitação, emulando os verbos HTTP ausentes passando alguns cabeçalhos personalizados nas solicitações. O principal objetivo disso é contornar algumas limitações de middleware (por exemplo, proxy, firewall) onde os métodos geralmente permitidos não abrangem verbos como `PUT` ou `DELETE`. Os seguintes cabeçalhos alternativos podem ser usados para fazer essa substituição de método HTTP:
 
 - `X-HTTP-Method`
 - `X-HTTP-Method-Override`
 - `X-Method-Override`
 
-In order to test this, in the scenarios where restricted verbs such as PUT or DELETE return a "405 Method not allowed", replay the same request with the addition of the alternative headers for HTTP method overriding, and observe how the system responds. The application should respond with a different status code (*e.g.* 200) in cases where method overriding is supported.
+Para testar isso, nos cenários em que verbos restritos, como PUT ou DELETE, retornam um "405 Método não permitido", reproduza a mesma solicitação com a adição dos cabeçalhos alternativos para substituição de método HTTP e observe como o sistema responde. A aplicação deve responder com um código de status diferente (*por exemplo,* 200) nos casos em que a substituição de método é suportada.
 
-The web server in the following example does not allow the `DELETE` method and blocks it:
+O servidor web no exemplo a seguir não permite o método `DELETE` e o bloqueia:
 
 ```bash
-$ ncat www.example.com 80
-DELETE /resource.html HTTP/1.1
-Host: www.example.com
+$ ncat www.exemplo.com 80
+DELETE /recurso.html HTTP/1.1
+Host: www.exemplo.com
 
-HTTP/1.1 405 Method Not Allowed
-Date: Sat, 04 Apr 2020 18:26:53 GMT
+HTTP/1.1 405 Método Não Permitido
+Date: Sáb, 04 Abr 2020 18:26:53 GMT
 Server: Apache
 Allow: GET,HEAD,POST,OPTIONS
 Content-Length: 320
@@ -154,35 +156,35 @@ Content-Type: text/html; charset=iso-8859-1
 Vary: Accept-Encoding
 ```
 
-After adding the `X-HTTP-Header`, the server responds to the request with a 200:
+Após adicionar o cabeçalho `X-HTTP-Header`, o servidor responde à solicitação com um 200:
 
 ```bash
-$ ncat www.example.com 80
-DELETE /resource.html HTTP/1.1
-Host: www.example.com
+$ ncat www.exemplo.com 80
+DELETE /recurso.html HTTP/1.1
+Host: www.exemplo.com
 X-HTTP-Method: DELETE
 
 HTTP/1.1 200 OK
-Date: Sat, 04 Apr 2020 19:26:01 GMT
+Date: Sáb, 04 Abr 2020 19:26:01 GMT
 Server: Apache
 ```
 
-## Remediation
+## Remediação
 
-- Ensure that only the required headers are allowed, and that the allowed headers are properly configured.
-- Ensure that no workarounds are implemented to bypass security measures implemented by user-agents, frameworks, or web servers.
+- Garanta que apenas os cabeçalhos necessários sejam permitidos e que os cabeçalhos permitidos estejam configurados corretamente.
+- Certifique-se de que não existam soluções alternativas implementadas para contornar medidas de segurança implementadas por agentes de usuário, frameworks ou servidores web.
 
-## Tools
+## Ferramentas
 
 - [Ncat](https://nmap.org/ncat/)
 - [cURL](https://curl.haxx.se/)
-- [nmap http-methods NSE script](https://nmap.org/nsedoc/scripts/http-methods.html)
-- [w3af plugin htaccess_methods](http://w3af.org/plugins/audit/htaccess_methods)
+- [Script NSE http-methods do nmap](https://nmap.org/nsedoc/scripts/http-methods.html)
+- [Plugin htaccess_methods do w3af](http://w3af.org/plugins/audit/htaccess_methods)
 
-## References
+## Referências
 
-- [RFC 2109](https://tools.ietf.org/html/rfc2109) and [RFC 2965](https://tools.ietf.org/html/rfc2965): "HTTP State Management Mechanism"
-- [HTACCESS: BILBAO Method Exposed](https://web.archive.org/web/20160616172703/http://www.kernelpanik.org/docs/kernelpanik/bme.eng.pdf)
-- [Amit Klein: "XS(T) attack variants which can, in some cases, eliminate the need for TRACE"](https://www.securityfocus.com/archive/107/308433)
-- [Fortify - Misused HTTP Method Override](https://vulncat.fortify.com/en/detail?id=desc.dynamic.xtended_preview.often_misused_http_method_override)
+- [RFC 2109](https://tools.ietf.org/html/rfc2109) e [RFC 2965](https://tools.ietf.org/html/rfc2965): "HTTP State Management Mechanism"
+- [HTACCESS: Método BILBAO Exposto](https://web.archive.org/web/20160616172703/http://www.kernelpanik.org/docs/kernelpanik/bme.eng.pdf)
+- [Amit Klein: "Variantes de ataque XS(T) que podem, em alguns casos, eliminar a necessidade de TRACE"](https://www.securityfocus.com/archive/107/308433)
+- [Fortify - Substituição de Método HTTP frequentemente mal utilizada](https://vulncat.fortify.com/en/detail?id=desc.dynamic.xtended_preview.often_misused_http_method_override)
 - [CAPEC-107: Cross Site Tracing](https://capec.mitre.org/data/definitions/107.html)

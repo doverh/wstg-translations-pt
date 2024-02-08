@@ -1,5 +1,4 @@
-# Teste de Configuração da Plataforma de Aplicativos
-
+# Testar Configuração da Plataforma do Aplicativo
 |ID          |
 |------------|
 |WSTG-CONF-02|

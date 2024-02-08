@@ -1,4 +1,4 @@
-# Teste de Manipulação de Extensões de Arquivos para Informações Sensíveis
+# Testar o Manejo de Extensões de Arquivo para Informações Sensíveis
 
 |ID          |
 |------------|
