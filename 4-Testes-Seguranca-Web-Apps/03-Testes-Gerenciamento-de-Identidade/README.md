@@ -4,8 +4,8 @@
 
 4.3.2 [Testar Processo de Registro de Usuário](02-Testar_Processo_de_Registro_de_Usuario.md)
 
-4.3.3 [Test Account Provisioning Process](03-Test_Account_Provisioning_Process.md)
+4.3.3 [Testar Processo de Provisionamento de Conta](03-Testar_Processo_de_Provisionamento_de_Conta.md)
 
-4.3.4 [Testing for Account Enumeration and Guessable User Account](04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md)
+4.3.4 [Testar Enumeração de Conta e Nome de Usuário Presumível](04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md)
 
-4.3.5 [Testing for Weak or Unenforced Username Policy](05-Testing_for_Weak_or_Unenforced_Username_Policy.md)
+4.3.5 [Testando Políticas Fraca ou Não Aplicada de Nome de Usuário](05-Testando_Política_Fraca_ou_Não_Aplicada_de_Nome_de_Usuário.md)
