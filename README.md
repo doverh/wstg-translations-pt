@@ -54,7 +54,7 @@ Ao submeter um Pull Request [pull request](#how-to-submit-a-pull-request), revis
 
 ### 3.6 [Fase 5 Durante a Manutenção e Operações and Operations](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Fase-5-Durante-a-Manutenção-e-Operacoes-and-Operations)
 
-### 3.7 [Tìpico Workflow de Testes SDLC](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#Tipico Workflow-de-Testes-SDLC)
+### 3.7 [Típico Workflow de Testes SDLC](3-Framework-Testes-OWASP/0-Framework_Testes-Seguranca-Web.md#/0-Framework-Testes-Seguranca-Web)
 
 ### 3.8 [Metodologias de Testes de Invasão](3-Framework-Testes-OWASP/1-Penetration_Testing_Methodologies.md)
 
