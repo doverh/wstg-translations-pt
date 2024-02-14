@@ -1,10 +1,10 @@
 # 4.1 Coleta de Informações
 
-4.1.1 [Conduza Busca de Reconhecimento por Informações Vazadas](01-Conduza-Buscas-de-Reconhecimento-sobre-o-Vazamentos-de-Informações.md)
+4.1.1 [Conduza Busca de Reconhecimento por Informações Vazadas](01-Conduza-Buscas-de-Reconhecimento.md)
 
-4.1.2 [Fingerprint de Servidor Web](02-Fingerprinting-de-Servidor-Web.md)
+4.1.2 [Fingerprint de Servidor Web](02-Fingerprint-de-Servidor-Web.md)
 
-4.1.3 [Revisar Vazamento de Informações em Arquivos de Metadados do Servidor](03-Revisar-Vazamento-de-Informações-em-Arquivos-de-Metadados-do-Servidor)
+4.1.3 [Revisar Vazamento de Informações em Arquivos de Metadados do Servidor](03-Revisar-Vazamento-de-Informações-em-Arquivos-de-Metadados-do-Servidor.md)
 
 4.1.4 [Enumerar Aplicações em um Servidor Web](04-Enumerar-Aplicações-em-um-Servidor-Web.md)
 
