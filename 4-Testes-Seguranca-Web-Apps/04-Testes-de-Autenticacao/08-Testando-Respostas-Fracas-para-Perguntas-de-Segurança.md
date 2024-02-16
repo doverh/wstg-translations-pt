@@ -1,70 +1,73 @@
-# Testing for Weak Security Question Answer
+# Testando Respostas Fracas para Perguntas de Segurança
 
 |ID          |
 |------------|
 |WSTG-ATHN-08|
 
-## Summary
+## Resumo
 
-Often called "secret" questions and answers, security questions and answers are often used to recover forgotten passwords (see [Testing for weak password change or reset functionalities](09-Testing_for_Weak_Password_Change_or_Reset_Functionalities.md), or as extra security on top of the password.
+Frequentemente chamadas de perguntas e respostas "secretas", as perguntas e respostas de segurança são frequentemente usadas para recuperar senhas esquecidas (consulte [Testando funcionalidades fracas de alteração ou redefinição de senha](09-Testing_for_Weak_Password_Change_or_Reset_Functionalities.md) ou como segurança adicional além da senha.
 
-They are typically generated upon account creation and require the user to select from some pre-generated questions and supply an appropriate answer. They may allow the user to generate their own question and answer pairs. Both methods are prone to insecurities.Ideally, security questions should generate answers that are only known by the user, and not guessable or discoverable by anybody else. This is harder than it sounds.
-Security questions and answers rely on the secrecy of the answer. Questions and answers should be chosen so that the answers are only known by the account holder. However, although a lot of answers may not be publicly known, most of the questions that websites implement promote answers that are pseudo-private.
+Elas são geralmente geradas durante a criação da conta e exigem que o usuário selecione algumas perguntas pré-geradas e forneça uma resposta apropriada. Elas também podem permitir que o usuário gere suas próprias perguntas e respostas. Ambos os métodos são propensos a inseguranças. Idealmente, as perguntas de segurança devem gerar respostas conhecidas apenas pelo usuário, não sendo adivinháveis ou descobríveis por mais ninguém. Isso é mais difícil do que parece.
 
-### Pre-generated Questions
+Perguntas e respostas de segurança dependem do sigilo da resposta. As perguntas e respostas devem ser escolhidas de forma que as respostas sejam conhecidas apenas pelo titular da conta. No entanto, embora muitas respostas possam não ser de conhecimento público, a maioria das perguntas implementadas por sites promove respostas pseudo-privadas.
 
-The majority of pre-generated questions are fairly simplistic in nature and can lead to insecure answers. For example:
+### Perguntas Pré-geradas
 
-- The answers may be known to family members or close friends of the user, e.g. "What is your mother's maiden name?", "What is your date of birth?"
-- The answers may be easily guessable, e.g. "What is your favorite color?", "What is your favorite baseball team?"
-- The answers may be brute forcible, e.g. "What is the first name of your favorite high school teacher?" - the answer is probably on some easily downloadable lists of popular first names, and therefore a simple brute force attack can be scripted.
-- The answers may be publicly discoverable, e.g. "What is your favorite movie?" - the answer may easily be found on the user's social media profile page.
+A maioria das perguntas pré-geradas é bastante simplista e pode levar a respostas inseguras. Por exemplo:
 
-### Self-generated Questions
+- As respostas podem ser conhecidas por membros da família ou amigos próximos do usuário, por exemplo, "Qual é o sobrenome de solteira da sua mãe?", "Qual é a sua data de nascimento?"
+- As respostas podem ser facilmente adivinháveis, por exemplo, "Qual é a sua cor favorita?", "Qual é o seu time de beisebol favorito?"
+- As respostas podem ser sujeitas a força bruta, por exemplo, "Qual é o primeiro nome do seu professor favorito do ensino médio?" - a resposta provavelmente está em algumas listas facilmente baixáveis de nomes populares, e, portanto, um ataque de força bruta simples pode ser scriptado.
+- As respostas podem ser descobertas publicamente, por exemplo, "Qual é o seu filme favorito?" - a resposta pode ser facilmente encontrada na página de perfil de mídia social do usuário.
 
-The problem with having users to generate their own questions is that it allows them to generate very insecure questions, or even bypass the whole point of having a security question in the first place. Here are some real world examples that illustrate this point:
+### Perguntas Autogeradas
 
-- "What is 1+1?"
-- "What is your username?"
-- "My password is S3cur|ty!"
+O problema ao permitir que os usuários gerem suas próprias perguntas é que isso permite que eles gerem perguntas muito inseguras ou até mesmo ignorem completamente o propósito de ter uma pergunta de segurança. Aqui estão alguns exemplos do mundo real que ilustram esse ponto:
 
-## Test Objectives
+- "Qual é 1+1?"
+- "Qual é o seu nome de usuário?"
+- "Minha senha é S3cur|ty!"
 
-- Determine the complexity and how straight-forward the questions are.
-- Assess possible user answers and brute force capabilities.
+## Objetivos do Teste
 
-## How to Test
+- Determinar a complexidade e a simplicidade das perguntas.
+- Avaliar possíveis respostas do usuário e capacidades de força bruta.
 
-### Testing for Weak Pre-generated Questions
+## Como Testar
 
-Try to obtain a list of security questions by creating a new account or by following the "I don’t remember my password"-process. Try to generate as many questions as possible to get a good idea of the type of security questions that are asked. If any of the security questions fall in the categories described above, they are vulnerable to being attacked (guessed, brute-forced, available on social media, etc.).
+### Testando Perguntas Pré-geradas Fracas
 
-### Testing for Weak Self-Generated Questions
+Tente obter uma lista de perguntas de segurança criando uma nova conta ou seguindo o processo de "Não lembro minha senha". Tente gerar o maior número possível de perguntas para ter uma boa ideia do tipo de perguntas de segurança que são feitas. Se alguma das perguntas de segurança se enquadrar nas categorias descritas acima, elas estarão vulneráveis a ataques (adivinhação, força bruta, disponibilidade em mídias sociais, etc.).
 
-Try to create security questions by creating a new account or by configuring your existing account’s password recovery properties. If the system allows the user to generate their own security questions, it is vulnerable to having insecure questions created. If the system uses the self-generated security questions during the forgotten password functionality and if usernames can be enumerated (see [Testing for Account Enumeration and Guessable User Account](../03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md), then it should be easy for the tester to enumerate a number of self-generated questions. It should be expected to find several weak self-generated questions using this method.
+### Testando Perguntas Autogeradas Fracas
 
-### Testing for Brute-forcible Answers
+Tente criar perguntas de segurança criando uma nova conta ou configurando as propriedades de recuperação de senha da sua conta existente. Se o sistema permitir que o usuário gere suas próprias perguntas de segurança, estará vulnerável a ter perguntas inseguras criadas. Se o sistema usar as perguntas de segurança autogeradas durante a funcionalidade de senha esquecida e se os nomes de usuário puderem ser enumerados (consulte [Testando Enumeração de Conta e Conta de Usuário Adivinhável](../03-Identity_Management_Testing/04-Testing_for_Account_Enumeration_and_Guessable_User_Account.md), então deve ser fácil para o testador enumerar várias perguntas autogeradas. É de se esperar encontrar várias perguntas autogeradas fracas usando este método.
 
-Use the methods described in [Testing for Weak lock out mechanism](03-Testing_for_Weak_Lock_Out_Mechanism.md) to determine if a number of incorrectly supplied security answers trigger a lockout mechanism.
+### Testando Respostas Força Bruta
 
-The first thing to take into consideration when trying to exploit security questions is the number of questions that need to be answered. The majority of applications only need the user to answer a single question, whereas some critical applications may require the user to answer two or even more questions.
+Use os métodos descritos em [Testando Mecanismo de Bloqueio Fraco](03-Testing_for_Weak_Lock_Out_Mechanism.md) para determinar se um número de respostas de segurança incorretas aciona um mecanismo de bloqueio.
 
-The next step is to assess the strength of the security questions. Could the answers be obtained by a simple Google search or with social engineering attack? As a penetration tester, here is a step-by-step walkthrough of exploiting a security question scheme:
+A primeira coisa a se considerar ao tentar explorar perguntas de segurança é o número de perguntas que precisam ser respondidas. A maioria das aplicações precisa apenas que o usuário responda a uma única pergunta, enquanto algumas aplicações críticas podem exigir que o usuário responda a duas ou até mais perguntas.
 
-- Does the application allow the end user to choose the question that needs to be answered? If so, focus on questions which have:
+O próximo passo é avaliar a força das perguntas de segurança. As respostas podem ser obtidas por uma simples pesquisa no Google ou com um ataque de engenharia social? Como testador de penetração, aqui está um passo a passo para explorar um esquema de perguntas de segurança:
 
-  - A "public" answer; for example, something that could be find with a simple search-engine query.
-  - A factual answer such as a "first school" or other facts which can be looked up.
-  - Few possible answers, such as "what model was your first car". These questions would present the attacker with a short list of possible answers, and based on statistics the attacker could rank answers from most to least likely.
+- A aplicação permite que o usuário final escolha a pergunta que precisa ser respondida? Se sim, concentre-se em perguntas que tenham:
 
-- Determine how many guesses you have if possible.
-  - Does the password reset allow unlimited attempts?
-  - Is there a lockout period after X incorrect answers? Keep in mind that a lockout system can be a security problem in itself, as it can be exploited by an attacker to launch a Denial of Service against legitimate users.
-  - Pick the appropriate question based on analysis from the above points, and do research to determine the most likely answers.
+  - Uma resposta "pública"; por exemplo, algo que pode ser encontrado com uma simples pesquisa em mecanismos de busca.
+  - Uma resposta factual, como uma "primeira escola" ou outras informações que podem ser consultadas.
+  - Poucas respostas possíveis, como "qual era o modelo do seu primeiro carro". Essas perguntas apresentariam ao atacante uma lista curta de respostas possíveis e, com base em estatísticas, o atacante poderia classificar as respostas de mais prováveis a menos prováveis.
 
-The key to successfully exploiting and bypassing a weak security question scheme is to find a question or set of questions which give the possibility of easily finding the answers. Always look for questions which can give you the greatest statistical chance of guessing the correct answer, if you are completely unsure of any of the answers. In the end, a security question scheme is only as strong as the weakest question.
+- Determine quantas tentativas você tem, se possível.
+  - A redefinição de senha permite tentativas ilimitadas?
+  - Existe um período de bloqueio após X respostas incorretas? Tenha em mente que um sistema de bloqueio pode ser um problema de segurança em si, pois pode ser explorado por um atacante para lançar uma negação de serviço contra usuários legítimos.
+  - Escolha a per
 
-## References
+gunta apropriada com base na análise dos pontos acima e pesquise para determinar as respostas mais prováveis.
 
-- [The Curse of the Secret Question](https://www.schneier.com/essay-081.html)
+A chave para explorar com sucesso e contornar um esquema de perguntas de segurança fraco é encontrar uma pergunta ou conjunto de perguntas que ofereça a possibilidade de encontrar facilmente as respostas. Procure sempre por perguntas que possam lhe dar a maior chance estatística de adivinhar a resposta correta, se você não tiver certeza de nenhuma das respostas. No final, um esquema de perguntas de segurança é tão forte quanto a pergunta mais fraca.
+
+## Referências
+
+- [A Maldição da Pergunta Secreta](https://www.schneier.com/essay-081.html)
 - [The OWASP Security Questions Cheat Sheet](https://cheatsheetseries.owasp.org/cheatsheets/Choosing_and_Using_Security_Questions_Cheat_Sheet.html)

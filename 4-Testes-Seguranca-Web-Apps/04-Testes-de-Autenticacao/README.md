@@ -6,7 +6,7 @@
 
 4.4.3 [Testando Mecanismo de Bloqueio de Contas](03-Testando-Mecanismo-de-Bloqueio-de-Contas.md)
 
-4.4.4 [Testando a Evasão do Esquema de Autenticação](04-Testando-a-Evasão-do-Esquema-de-Autenticação.md)
+4.4.4 [Testando o Desvio do Esquema de Autenticação](04-Testando-o-Desvio-do-Esquema-de-Autenticação.md)
 
 4.4.5 [Testando Dicas de Recuperação de Senhas Vulneráveis](05-Testando-Dicas-de-Recuperação-de-Senhas-Vulneráveis.md)
 
