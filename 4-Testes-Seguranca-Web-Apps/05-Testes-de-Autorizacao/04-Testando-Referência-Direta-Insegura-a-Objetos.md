@@ -35,7 +35,7 @@ Como o valor de *invoice* vai diretamente para a consulta, ao modificar o valor 
 
 ### O Valor de um Parâmetro É Usado Diretamente para Realizar uma Operação no Sistema
 
-Requisição de exemplo:
+     de exemplo:
 
 ```text
 http://foo.bar/changepassword?user=someuser
