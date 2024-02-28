@@ -1,9 +1,9 @@
 # 4.5 Authorization Testing
 
-4.5.1 [Testing Directory Traversal File Include](01-Testing_Directory_Traversal_File_Include.md)
+4.5.1 [Testando Diretório Transversal ou Path Traversal e Inclusão de Arquivo](01-Testando-Path-Traversal-e-Inclusão-de-Arquivo.md)
 
-4.5.2 [Testing for Bypassing Authorization Schema](02-Testing_for_Bypassing_Authorization_Schema.md)
+4.5.2 [Testando o Desvio do Esquema de Autorização](02-Testando-o-Desvio-do-Esquema-de-Autorização.md)
 
-4.5.3 [Testing for Privilege Escalation](03-Testing_for_Privilege_Escalation.md)
+4.5.3 [Testando a Escalada de Privilégios](03-Testando-a-Escalada-de-Privilégios.md)
 
-4.5.4 [Testing for Insecure Direct Object References](04-Testing_for_Insecure_Direct_Object_References.md)
+4.5.4 [Testando Referência Direta Insegura a Objetos](04-Testando-Referência-Direta-Insegura-a-Objetos.md)
