@@ -1,10 +1,10 @@
 # 4.7 Input Validation Testing
 
-4.7.1 [Testing for Reflected Cross Site Scripting](01-Testing_for_Reflected_Cross_Site_Scripting.md)
+4.7.1 [Testando Cross Site Scripting Refletido](01-Testando-Cross-Site-Scripting-Refletido.md)
 
 4.7.2 [Testing for Stored Cross Site Scripting](02-Testing_for_Stored_Cross_Site_Scripting.md)
 
-4.7.3 [Testing for HTTP Verb Tampering](03-Testing_for_HTTP_Verb_Tampering.md)
+4.7.3 [Testando HTTP Verb Tampering](03-Testando-HTTP-Verb-Tampering.md)
 
 4.7.4 [Testing for HTTP Parameter Pollution](04-Testing_for_HTTP_Parameter_Pollution.md)
 
