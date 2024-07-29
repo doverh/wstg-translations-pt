@@ -37,7 +37,7 @@ Em geral, existem várias ocupações dentro das organizações que podem usar e
   <li>Gerentes de projeto devem considerar a razão da existência deste guia e de que os problemas de segurança são manifestados por meio de defeitos no     código e no design.</li>
 </ul>
 
-A coisa mais importante a ser lembrambrada ao realizar o teste de segurança é a permanente priorização. Há um número infinito de maneiras as quais um aplicativo  pode falhar, e as organizações sempre têm tempo e recursos limitados para testar. Tempo e recursos devem ser gastos com sabedoria. Tente se concentrar nas falhas de segurança que são um risco real para o seu negócio. Tente contextualizar o risco em termos do aplicativo e seus casos de uso.
+A coisa mais importante a ser relembrada ao realizar o teste de segurança é a permanente priorização. Há um número infinito de maneiras as quais um aplicativo  pode falhar, e as organizações sempre têm tempo e recursos limitados para testar. Tempo e recursos devem ser gastos com sabedoria. Tente se concentrar nas falhas de segurança que são um risco real para o seu negócio. Tente contextualizar o risco em termos do aplicativo e seus casos de uso.
 
 Este guia é melhor visto como um conjunto de técnicas que você usa para encontrar diferentes tipos de falhas de segurança. Mas nem todas as técnicas são igualmente importantes. Tente evitar o uso do guia como uma lista de verificação, pois novas vulnerabilidades estão sempre surgindo e nenhum guia pode ser uma lista determinada de "coisas a serem testadas", todavia um grande começo.
 
