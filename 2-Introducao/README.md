@@ -11,7 +11,7 @@ No entanto, o grupo está muito satisfeito com os resultados do projeto. Muitos 
 
 O restante deste guia está organizado da seguinte forma: esta introdução cobre os pré-requisitos de teste de aplicativos web e o escopo de testes. Ele também cobre os princípios e técnicas de teste executados com sucesso, práticas recomendadas para relatórios e casos de negócios para testes de segurança. O capítulo 3 apresenta o modelo de testes OWASP e explica suas técnicas e tarefas em relação às várias fases do ciclo de vida de desenvolvimento de software. O capítulo 4 apresenta como testar vulnerabilidades específicas (por exemplo, injeção de SQL), inspeção de código e teste de invasão.
 
-### Medindo a segurança: dados econômicos de um software inseguro### Medindo a segurança: dados econômicos de um software inseguro
+### Medindo a segurança: dados econômicos de um software inseguro
 Um princípio básico da engenharia de software é resumido em uma citação de de [Tom DeMarco](https://en.wikiquote.org/wiki/Tom_DeMarco)
 em Controlling Software Projects: Management, Measurement, and Estimates: 
  > Você não pode controlar aquilo que você não pode medir.
@@ -20,7 +20,7 @@ Os testes de segurança não são diferentes. Infelizmente, medir segurança é 
 
 Um aspecto que deve ser enfatizado é de que as métricas de segurança tratam de questões técnicas específicas (por exemplo, quão predominante uma determinada vulnerabilidade é) e como estas questões impactam os custos do software. A maioria daqueles que possuem conhecimento técnico irão ao menos entender os problemas básicos, ou poderão compreender mais profundamente as vulnerabilidades. Infelizmente, poucos são capazes de traduzir esse conhecimento técnico em termos monetários e quantificar o impacto financeiro que essas vulnerabilidades terão sobre o negócio do proprietário do aplicativo. Até que isso aconteça, os diretores de tecnologia não serão capazes de prever um retorno preciso sobre o investimento em segurança e, consequentemente, dimensionar orçamentos apropriados para segurança de software.
 
-Embora estimar o custo de um software inseguro possa parecer uma tarefa desencorajadoura, uma significativa quantidade de trabalho tem sido empregado nessa direção. Em 2018, o Consórcio para Qualidade de Software de TI [resumiu]https://www.it-cisq.org/the-cost-of-poor-software-quality-in-the-us-a-2020-report/):
+Embora estimar o custo de um software inseguro possa parecer uma tarefa desencorajadoura, uma significativa quantidade de trabalho tem sido empregado nessa direção. Em 2018, o Consórcio para Qualidade de Software de TI [resumiu](https://www.it-cisq.org/the-cost-of-poor-software-quality-in-the-us-a-2020-report/):
 
 >... o custo de software de baixa qualidade nos EUA em 2018 foi de aproximadamente U$ 2,84 trilhões ...
     
@@ -95,7 +95,7 @@ Estudos de vulnerabilidade, como o [Internet Security Threat Report da Symantec]
 
 Existem várias suposições incorretas no modelo patch-and-penetrate. Muitos usuários acreditam que os patches interferem nas operações normais ou podem interromper os aplicativos existentes. Também é incorreto presumir que todos os usuários estão cientes dos patches lançados recentemente. Conseqüentemente, nem todos os usuários de um produto aplicarão patches, seja porque acreditam que o patch pode interferir no funcionamento do software ou porque não têm conhecimento da existência do patch.
 
-![Window of Vulnerability](images/WindowExposure.png)\
+![Window of Vulnerability](images/WindowExposure.png)
 <p aling="center">Figura 2-2: Janela de Vulnerabilidade</p>
 
 É essencial incluir segurança no Ciclo de Vida de Desenvolvimento de Software (SDLC) para evitar problemas de segurança recorrentes em um aplicativo. Os desenvolvedores podem agregar segurança no SDLC, desenvolvendo padrões, políticas e diretrizes que se encaixam e funcionam dentro da metodologia de desenvolvimento. A modelagem de ameaças e outras técnicas devem ser usadas para ajudar a designar recursos apropriados para as áreas do software mais vulneráveis.  
@@ -172,8 +172,6 @@ Esta seção apresenta uma visão geral de alto nível de várias técnicas de t
 ## Inspeção manual e revisões
 
 ### Panorama geral
-
-Manual inspections are human reviews that typically test the security implications of people, policies, and processes. Manual inspections can also include inspection of technology decisions such as architectural designs. They are usually conducted by analyzing documentation or performing interviews with the designers or system owners.
 
 Inspeções manuais são revisões humanas que normalmente testam as implicações de segurança assumidas por pessoas, políticas e processos. As inspeções manuais também podem incluir a revisão de decisões de tecnologia, como os projetos de arquitetura. Elas geralmente são conduzidos analisando a documentação ou realizando entrevistas com os designers ou com os proprietários do sistema.
 
@@ -398,15 +396,18 @@ Exemplos de requisitos de design de segurança de alto nível para autenticaçã
 
 Testes de segurança precisam também ser orientados a riscos. Eles precisam validar o aplicativo a partir de comportamentos inesperados ou requisitos negativos.
 Exemplos de requisitos negativos são:
-•	O aplicativo não deve permitir que os dados sejam alterados ou destruídos. 
-•	O aplicativo não deve comprometer ou usar de modo indevido autorizações financeiras iniciadas por usuário mal intencionado. 
+-	O aplicativo não deve permitir que os dados sejam alterados ou destruídos. 
+-	O aplicativo não deve comprometer ou usar de modo indevido autorizações financeiras iniciadas por usuário mal intencionado.
+
 Requisitos negativos são mais difíceis de serem testados pois não há um comportamento esperado a se comparar. Buscar comportamentos esperados que se adequem aos requisitos acima, pode requerer que a análise de ameaças forneça de modo irreal condições imprevisíveis de causas efeitos e dados de entrada. 
-Portanto, testes de segurança precisam ser orientados por análise de riscos e modelagem de ameaças. A chave para isso está na documentação dos cenários de ameaças, e a funcionalidade de medidas preventivas para mitigar as ameaças. 
+Portanto, testes de segurança precisam ser orientados por análise de riscos e modelagem de ameaças. A chave para isso está na documentação dos cenários de ameaças, e a funcionalidade de medidas preventivas para mitigar as ameaças.
+
 Por exemplo, no caso de controles de autenticação, os requisitos de segurança podem ser documentados a partir da perspectiva de ameaças e medidas preventivas do seguinte modo: 
-•	Senhas criptografadas usando criptografia não reversível tais como Digest (HASH), e chaves para prevenir dicionários de ataques. 
-•	Bloqueios de contas ao alcançarem o log de limite de falhas ou forçar a complexidade de senha para mitigar o risco de ataques de força bruta. 
-•	Exibir mensagens genéricas de erro quando da validação de credenciais para mitigar o risco de coleta de contas ou contagem. 
-•	Mutualmente autenticar cliente servidor para prevenir o não repúdio e o ataque ”Man In the Middle” (MiTM).
+-	Senhas criptografadas usando criptografia não reversível tais como Digest (HASH), e chaves para prevenir dicionários de ataques. 
+-	Bloqueios de contas ao alcançarem o log de limite de falhas ou forçar a complexidade de senha para mitigar o risco de ataques de força bruta. 
+-	Exibir mensagens genéricas de erro quando da validação de credenciais para mitigar o risco de coleta de contas ou contagem. 
+-	Mutualmente autenticar cliente servidor para prevenir o não repúdio e o ataque ”Man In the Middle” (MiTM).
+
 Ferramentas de modelagem de ameaças tais como as árvores de ameaça e as livrarias de ataque podem ser úteis para se se extrair os cenários de testes negativos. As árvores de ameaças assumirão o ataque base, por exemplo, o invasor pode estar apto a ler mensagens de outros usuários, e identificar diferentes vulnerabilidades de controle de segurança, por exemplo falhas de validação de dados causados pela vulnerabilidade de injeção SQL, e medidas preventivas necessárias (por exemplo, implementar validação de dados e parametrização de consultas SQL), que poderiam ser validadas e efetivamente mitigar tais ataques.
 
 ### Obtendo requisitos de testes de segurança através de casos de uso e uso indevido
